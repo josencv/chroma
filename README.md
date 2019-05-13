@@ -4,7 +4,7 @@ Awesome game!
 
 ## Requirements
 
-- Unity 2018.3.11f1
+- Unity 2019.1.2f1
 - Visual Studio 2017 or higher
 
 ## Git LFS
