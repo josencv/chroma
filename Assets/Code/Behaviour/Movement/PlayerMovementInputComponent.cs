@@ -12,14 +12,14 @@ namespace Chroma.Behaviour.Movement
         [BurstCompile]
         private struct PlayerMovementInputJob : IJobForEach<MovementComponent, CharacterContainer>
         {
-            public float HorizontalValue;
-            public float VerticalValue;
+            public float HorizontalInput;
+            public float VerticalInput;
 
             public void Execute(ref MovementComponent movementComponent, [ReadOnly] ref CharacterContainer characterContainer)
             {
                 // COTO: we could always change which input system we use later. For now I'm using Unity's built-in system.
-                movementComponent.HorizontalValue = HorizontalValue;
-                movementComponent.VerticalValue = VerticalValue;
+                movementComponent.HorizontalValue = HorizontalInput;
+                movementComponent.VerticalValue = VerticalInput;
             }
         }
 
@@ -27,8 +27,8 @@ namespace Chroma.Behaviour.Movement
         {
             var job = new PlayerMovementInputJob()
             {
-                HorizontalValue = Input.GetAxis("Horizontal"),
-                VerticalValue = Input.GetAxis("Vertical"),
+                HorizontalInput = Input.GetAxis("Horizontal"),
+                VerticalInput = Input.GetAxis("Vertical"),
             };
 
             return job.Schedule(this, inputDeps);
