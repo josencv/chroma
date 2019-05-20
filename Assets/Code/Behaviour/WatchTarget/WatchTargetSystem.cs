@@ -10,15 +10,16 @@ namespace Chroma.Behaviour.WatchTarget
 {
     public class WatchTargetSystem : JobComponentSystem
     {
-        private struct WatchTargetJob : IJobForEach<WatchTargetComponent>
+        private struct WatchTargetJob : IJobForEach<WatchTargetComponent, Rotation>
         {
             public float DeltaTime;
 
-            public void Execute(ref WatchTargetComponent watchTargetComponent)
+            public void Execute(ref WatchTargetComponent watchTargetComponent, ref Rotation rotation)
             {
-                // COTO: For now the movement system will update the transform directly. We have yet to decide which physics system to use
-                //var moveVector = new float3(movementComponent.HorizontalValue, 0, movementComponent.VerticalValue);
-                //translation.Value += moveVector * movementComponent.Speed * DeltaTime;
+                // TODOING: importing THAT into THIS for THIS to work
+                //float3 lookVector = target[0].Value - camPosition.Value;
+                //Quaternion rotation = Quaternion.LookRotation(lookVector);
+                //camRotation.Value = rotation;
             }
         }
 
