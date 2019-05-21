@@ -10,5 +10,4 @@ namespace Chroma.Behaviour.Movement
         public float VerticalValue;
         public float Speed;
     }
-
 }
