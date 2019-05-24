@@ -1,15 +1,14 @@
 ﻿using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 namespace Chroma.Behaviour.WatchTarget
 {
-    [RequiresEntityConversion]
-    public class WatchTargetComponentProxy : MonoBehaviour, IConvertGameObjectToEntity
+    public class CopyTransformToGameObjectProxy : MonoBehaviour, IConvertGameObjectToEntity
     {
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
-            var data = new WatchTargetComponent() {};
-            dstManager.AddComponentData(entity, data);
+            dstManager.AddComponentData(entity, new CopyTransformToGameObject());
         }
     }
 }

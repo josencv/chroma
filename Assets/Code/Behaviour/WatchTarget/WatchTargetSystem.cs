@@ -10,23 +10,44 @@ namespace Chroma.Behaviour.WatchTarget
 {
     public class WatchTargetSystem : JobComponentSystem
     {
-        private struct WatchTargetJob : IJobForEach<WatchTargetComponent, Rotation>
-        {
-            public float DeltaTime;
+        private EntityQuery m_Player;
 
-            public void Execute(ref WatchTargetComponent watchTargetComponent, ref Rotation rotation)
-            {
-                // TODOING: importing THAT into THIS for THIS to work
-                //float3 lookVector = target[0].Value - camPosition.Value;
-                //Quaternion rotation = Quaternion.LookRotation(lookVector);
-                //camRotation.Value = rotation;
-            }
+        protected override void OnCreateManager()
+        {
+            // Cached access to a set of ComponentData based on a specific query 
+            m_Player = GetEntityQuery(ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<Chroma.Game.Containers.CharacterContainer>());
         }
 
+        [BurstCompile]
+        private struct WatchTargetJob : IJobForEach<WatchTargetComponent, Rotation, Translation>
+        {
+            [ReadOnly]
+            public float DeltaTime;
+
+            [DeallocateOnJobCompletion]
+            public NativeArray<Translation> Target;
+
+            public void Execute([ReadOnly] ref WatchTargetComponent watchTargetComponent, ref Rotation rotation, ref Translation translation)
+            {
+                // check if player exists
+                if(Target.Length == 0)
+                {
+                    return;
+                }
+
+                // TODOING: importing THAT into THIS for THIS to work
+                // Rotate Camera to the Player
+                float3 lookVector = Target[0].Value - translation.Value;
+                Quaternion newRotation = Quaternion.LookRotation(lookVector);
+                rotation.Value = newRotation;
+            }
+        }
+          
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             var job = new WatchTargetJob()
             {
+                Target = m_Player.ToComponentDataArray<Translation>(Allocator.TempJob),
                 DeltaTime = Time.deltaTime
             };
 

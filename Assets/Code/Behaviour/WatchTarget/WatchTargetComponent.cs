@@ -6,7 +6,5 @@ namespace Chroma.Behaviour.WatchTarget
 {
     [Serializable]
     public struct WatchTargetComponent : IComponentData
-    {
-        public Translation TargetTranslation;
-    }
+    {}
 }
