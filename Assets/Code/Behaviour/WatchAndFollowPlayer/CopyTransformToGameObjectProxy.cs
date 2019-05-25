@@ -2,7 +2,7 @@
 using Unity.Transforms;
 using UnityEngine;
 
-namespace Chroma.Behaviour.WatchTarget
+namespace Chroma.Behaviour.WatchAndFollowPlayer
 {
     public class CopyTransformToGameObjectProxy : MonoBehaviour, IConvertGameObjectToEntity
     {

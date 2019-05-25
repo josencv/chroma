@@ -6,9 +6,9 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace Chroma.Behaviour.WatchTarget
+namespace Chroma.Behaviour.WatchAndFollowPlayer
 {
-    public class WatchTargetSystem : JobComponentSystem
+    public class WatchAndFollowPlayerSystem : JobComponentSystem
     {
         private EntityQuery m_Player;
 
@@ -19,7 +19,7 @@ namespace Chroma.Behaviour.WatchTarget
         }
 
         [BurstCompile]
-        private struct WatchTargetJob : IJobForEach<WatchTargetComponent, Rotation, Translation>
+        private struct WatchTargetJob : IJobForEach<WatchAndFollowPlayerComponent, Rotation, Translation>
         {
             [ReadOnly]
             public float DeltaTime;
@@ -27,7 +27,7 @@ namespace Chroma.Behaviour.WatchTarget
             [DeallocateOnJobCompletion]
             public NativeArray<Translation> Target;
 
-            public void Execute([ReadOnly] ref WatchTargetComponent watchTargetComponent, ref Rotation rotation, ref Translation translation)
+            public void Execute([ReadOnly] ref WatchAndFollowPlayerComponent component, ref Rotation rotation, ref Translation translation)
             {
                 // check if player exists
                 if(Target.Length == 0)
@@ -35,11 +35,17 @@ namespace Chroma.Behaviour.WatchTarget
                     return;
                 }
 
-                // TODOING: importing THAT into THIS for THIS to work
+                float3 playerPosition = Target[0].Value;
+
+                // Follow the Player
+                float3 desiredPosition = playerPosition + component.FollowOffset;
+                float3 smoothedPosition = math.lerp(translation.Value, desiredPosition, component.FollowSpeed * DeltaTime);
+                translation.Value = smoothedPosition;
+
                 // Rotate Camera to the Player
-                float3 lookVector = Target[0].Value - translation.Value;
-                Quaternion newRotation = Quaternion.LookRotation(lookVector);
-                rotation.Value = newRotation;
+                float3 lookVector = playerPosition - translation.Value;
+                Quaternion desiredRotation = Quaternion.LookRotation(lookVector);
+                rotation.Value = Quaternion.Lerp(rotation.Value, desiredRotation, component.RotationSpeed * DeltaTime);
             }
         }
           
