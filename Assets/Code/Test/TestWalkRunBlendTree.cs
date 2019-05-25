@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using Unity.Entities;
-using System;
 
 namespace Chroma.Tests
 {
