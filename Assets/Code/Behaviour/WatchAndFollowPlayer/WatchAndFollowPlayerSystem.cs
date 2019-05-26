@@ -10,12 +10,12 @@ namespace Chroma.Behaviour.WatchAndFollowPlayer
 {
     public class WatchAndFollowPlayerSystem : JobComponentSystem
     {
-        private EntityQuery m_Player;
+        private EntityQuery Player;
 
-        protected override void OnCreateManager()
+        protected override void OnCreate()
         {
             // Cached access to a set of ComponentData based on a specific query 
-            m_Player = GetEntityQuery(ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<Chroma.Game.Containers.CharacterContainer>());
+            Player = GetEntityQuery(ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<Chroma.Game.Containers.CharacterContainer>());
         }
 
         [BurstCompile]
@@ -53,7 +53,7 @@ namespace Chroma.Behaviour.WatchAndFollowPlayer
         {
             var job = new WatchTargetJob()
             {
-                Target = m_Player.ToComponentDataArray<Translation>(Allocator.TempJob),
+                Target = Player.ToComponentDataArray<Translation>(Allocator.TempJob),
                 DeltaTime = Time.deltaTime
             };
 
