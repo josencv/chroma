@@ -43,3 +43,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/Assets/CustomMethodButton
+/Assets/CustomMethodButton.meta
