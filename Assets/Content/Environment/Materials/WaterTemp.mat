@@ -8,13 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterTemp
-  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 9067be41d5dc790499883179d16cbd44,
+    type: 3}
   m_ShaderKeywords: _NORMALMAP _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    MotionVector: User
   disabledShaderPasses:
   - DistortionVectors
   - TransparentDepthPrepass
@@ -24,6 +26,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_952F80FC:
+        m_Texture: {fileID: 2800000, guid: 95d1ab41a0a95f441b410bed0dab4981, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,6 +90,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_A5C9C376_Texture:
+        m_Texture: {fileID: 2800000, guid: 95d1ab41a0a95f441b410bed0dab4981, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -109,6 +119,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_2276FCBC: 1
+    - Vector1_41FA35B7: 250
+    - Vector1_71731BB6: 0.4
+    - Vector1_AC9D51F3: 0.61
+    - Vector1_B354AE1: 0.41
+    - Vector1_C084631C: 0.132
+    - Vector1_E43E2235: 0.47
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -234,6 +251,8 @@ Material:
     - _ZTestModeDistortion: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_73F3E253: {r: 0.44304025, g: 0.7169812, b: 0.700867, a: 0}
+    - Vector2_3F1CBEF8: {r: 0.05, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.40566036, g: 0.40566036, b: 0.40566036, a: 1}
