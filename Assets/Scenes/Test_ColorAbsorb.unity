@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 1505.2218, g: 2132.8403, b: 3405.498, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -836,7 +836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80a23c6a07cd31344819c44c07987ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1938115682}
+  meshRenderer: {fileID: 0}
+  mat: {fileID: 2100000, guid: c31b4c86fe16cbb489a62453217eaaf9, type: 2}
   editorFoldout: 1
 --- !u!4 &1191030536
 Transform:
@@ -1012,7 +1013,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18706
+  m_Name: pb_Mesh18614
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1306,7 +1307,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 15.086068
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1315,7 +1316,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 77
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1340,13 +1341,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471092186}
-  m_LocalRotation: {x: 0.102851115, y: -0, z: -0, w: 0.99469674}
-  m_LocalPosition: {x: 0, y: 11.8, z: -19.7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.584663, y: 11.393168, z: 3.9257812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 11.807, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560538885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,7 +1482,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18692
+  m_Name: pb_Mesh18598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1644,7 +1645,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18648
+  m_Name: pb_Mesh18542
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2215,7 +2216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4fbe5db8610f35c4a9bf05559a1b6588, type: 2}
+  - {fileID: 2100000, guid: c31b4c86fe16cbb489a62453217eaaf9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2250,13 +2251,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903660263}
-  m_LocalRotation: {x: 0.003915133, y: 0.6755417, z: 0.73730445, w: 0.003203535}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 37.97, y: 24.02, z: 20.57}
   m_LocalScale: {x: 0.18948092, y: 0.10739247, z: 0.12421013}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 264.961, y: -173.396, z: -6.54599}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1903660269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2588,13 +2589,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938115678}
-  m_LocalRotation: {x: 0.003915133, y: 0.6755417, z: 0.73730445, w: 0.003203535}
-  m_LocalPosition: {x: -0.42, y: 24.51, z: 19.36}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -15.46, y: 24.51, z: 19.36}
   m_LocalScale: {x: 0.18948092, y: 0.10739247, z: 0.12421013}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 264.961, y: -173.396, z: -6.54599}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &2030994892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564942932181659039, guid: a2530f848cb91834db0eb47a8dab747d,

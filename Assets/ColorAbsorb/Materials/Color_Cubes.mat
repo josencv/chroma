@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Color_Cubes
-  m_Shader: {fileID: -6465566751694194690, guid: a951ba9c0c7db744bb8c66a4e15d3ffd,
+  m_Shader: {fileID: -6465566751694194690, guid: d511135ab698a564b9a43c6196987ed7,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -24,6 +24,10 @@ Material:
     m_TexEnvs:
     - Texture2D_29FB3566:
         m_Texture: {fileID: 2800000, guid: faf4ee952be51054fb433f9750b00606, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_70770C55:
+        m_Texture: {fileID: 2800000, guid: 1bf923dec2409ca4492942faab2759f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_8A5E5E6E:
@@ -201,6 +205,22 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
+    - _Range_1: 1
+    - _Range_1_End: 4
+    - _Range_2: 1
+    - _Range_2_End: 40
+    - _Range_3: 1
+    - _Range_3_End: 90
+    - _Range_4: 1
+    - _Range_4_End: 160
+    - _Range_5: 0
+    - _Range_5_End: 230
+    - _Range_6: 1
+    - _Range_6_End: 250
+    - _Range_7: 0
+    - _Range_7_End: 265
+    - _Range_8: 1
+    - _Range_8_End: 340
     - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
@@ -250,6 +270,7 @@ Material:
     - _red: 0
     m_Colors:
     - Color_9FA7594F: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+    - Vector2_8D26CC90: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_CF4E51B4: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
