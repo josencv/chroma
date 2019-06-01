@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Color_Cubes
-  m_Shader: {fileID: -6465566751694194690, guid: d511135ab698a564b9a43c6196987ed7,
+  m_Shader: {fileID: -6465566751694194690, guid: a951ba9c0c7db744bb8c66a4e15d3ffd,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -124,6 +124,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_8A6562FA: 0.298
+    - Vector1_BD208425: -0.001
     - Vector1_CE76A658: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -206,6 +207,7 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Range_1: 1
+    - _Range_11_End: 0
     - _Range_1_End: 4
     - _Range_2: 1
     - _Range_2_End: 40
@@ -221,6 +223,9 @@ Material:
     - _Range_7_End: 265
     - _Range_8: 1
     - _Range_8_End: 340
+    - _Range_9_End: 360
+    - _Range_Begin: -0.001
+    - _Range_End: 360
     - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0

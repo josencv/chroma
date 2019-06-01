@@ -30,7 +30,7 @@ public class MaterialDebug : MonoBehaviour
         mat = meshRenderer.sharedMaterial;
     }
 
-    private void Toggle_Range_1()
+    private void Toggle_Red()
     {
         if(!mat)
         {
@@ -42,7 +42,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(RANGE_1, val);
     }
 
-    private void Toggle_Range_2()
+    private void Toggle_Orange()
     {
         if(!mat)
         {
@@ -54,7 +54,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(RANGE_2, val);
     }
 
-    private void Toggle_Range_3()
+    private void Toggle_Yellow()
     {
         if(!mat)
         {
@@ -66,7 +66,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(RANGE_3, val);
     }
 
-    private void Toggle_Range_4()
+    private void Toggle_Green()
     {
         if(!mat)
         {
@@ -78,7 +78,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(RANGE_4, val);
     }
 
-    private void Toggle_Range_5()
+    private void Toggle_LightBlue()
     {
         if(!mat)
         {
@@ -90,7 +90,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(RANGE_5, val);
     }
 
-    private void Toggle_Range_6()
+    private void Toggle_Blue()
     {
         if(!mat)
         {
@@ -102,7 +102,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(RANGE_6, val);
     }
 
-    private void Toggle_Range_7()
+    private void Toggle_Violet()
     {
         if(!mat)
         {
@@ -115,7 +115,7 @@ public class MaterialDebug : MonoBehaviour
     }
 
 #if METHOD_BUTTON && UNITY_EDITOR
-    [MethodButton("Toggle_Range_1", "Toggle_Range_2", "Toggle_Range_3", "Toggle_Range_4", "Toggle_Range_5", "Toggle_Range_6", "Toggle_Range_7")]
+    [MethodButton("Toggle_Red", "Toggle_Orange", "Toggle_Yellow", "Toggle_Green", "Toggle_LightBlue", "Toggle_Blue", "Toggle_Violet")]
     [SerializeField] private bool editorFoldout;
 #endif
 }
