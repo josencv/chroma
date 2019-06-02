@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class ColorAbsorber : MonoBehaviour
+public class RGBFilter_Controller : MonoBehaviour
 {
     public static float someTime = 0.75f;
     public static int amount = 100;
@@ -52,7 +51,8 @@ public class ColorAbsorber : MonoBehaviour
         _red = Random.Range(0, 2);
         _green = Random.Range(0, 2);
         _blue = Random.Range(0, 2);
-        Debug.Log($"Red {_red}, Green {_green}, Blue {_blue}");
+
+        //Debug.Log($"Red {_red}, Green {_green}, Blue {_blue}");
         foreach(Material item in mats)
         {
             SetColor(item, _red, "_red");

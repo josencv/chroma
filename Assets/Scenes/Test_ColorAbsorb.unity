@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 1508.1359, g: 2136.8403, b: 3410.31, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -382,7 +382,6 @@ Transform:
   - {fileID: 617909034}
   - {fileID: 2008804106}
   - {fileID: 1019439260}
-  - {fileID: 1938115684}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -850,74 +849,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1586213925}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1191030534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1191030536}
-  - component: {fileID: 1191030535}
-  m_Layer: 0
-  m_Name: MatDebug
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1191030535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191030534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a23c6a07cd31344819c44c07987ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1903660266}
-  mat: {fileID: 2100000, guid: c31b4c86fe16cbb489a62453217eaaf9, type: 2}
-  MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
-  RedEnabled: 1
-  RedRangeEnd: 10
-  RedRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
-  OrangeEnabled: 1
-  OrangeRangeEnd: 40
-  OrangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
-  YellowEnabled: 1
-  YellowRangeEnd: 90
-  YellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
-  GreenEnabled: 1
-  GreenRangeEnd: 160
-  GreenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
-  LighBlueEnabled: 1
-  LightBlueRangeEnd: 230
-  LightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
-  BlueEndabled: 1
-  BlueRangeEnd: 270
-  BlueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
-  VioletEnabled: 1
-  VioletRangeEnd: 330
-  VioletRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
-  editorFoldout: 1
---- !u!4 &1191030536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191030534}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1718596843}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1221827382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1078,7 +1009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18632
+  m_Name: pb_Mesh18650
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1372,7 +1303,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 8.718511
+  m_FocalLength: 8.402491
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1381,7 +1312,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 108
+  field of view: 110
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1407,7 +1338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471092186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.93, y: 11.393168, z: 3.9257812}
+  m_LocalPosition: {x: 38, y: 11.393168, z: 3.9257812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 413961585}
@@ -1547,7 +1478,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18616
+  m_Name: pb_Mesh18634
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1710,7 +1641,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18560
+  m_Name: pb_Mesh18574
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1941,38 +1872,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4eddb01948bcb6a4cb6d0753a31e2fa6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2530f848cb91834db0eb47a8dab747d, type: 3}
---- !u!1 &1718596842
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1718596843}
-  m_Layer: 0
-  m_Name: ShaderTesting
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1718596843
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718596842}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1903660268}
-  - {fileID: 1191030536}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1724840274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2061,8 +1960,9 @@ GameObject:
   - component: {fileID: 1903660265}
   - component: {fileID: 1903660264}
   - component: {fileID: 1903660269}
+  - component: {fileID: 1903660270}
   m_Layer: 0
-  m_Name: ShaderTestImage
+  m_Name: Color_Absorber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2349,11 +2249,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903660263}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 37.97, y: 24.02, z: 20.57}
-  m_LocalScale: {x: 0.18948092, y: 0.10739253, z: 0.12421019}
+  m_LocalPosition: {x: 37.97, y: 25, z: 20}
+  m_LocalScale: {x: 0.18948092, y: 0.107392706, z: 0.124210365}
   m_Children: []
-  m_Father: {fileID: 1718596843}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1903660269
 MonoBehaviour:
@@ -2367,6 +2267,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfedac37ff316e4daa6ae240158a41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1903660270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903660263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a23c6a07cd31344819c44c07987ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1903660266}
+  mat: {fileID: 2100000, guid: c31b4c86fe16cbb489a62453217eaaf9, type: 2}
+  MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
+  TestAmount: 1
+  RedEnabled: 1
+  RedRangeEnd: 10
+  RedRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
+  OrangeEnabled: 1
+  OrangeRangeEnd: 40
+  OrangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
+  YellowEnabled: 1
+  YellowRangeEnd: 90
+  YellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
+  GreenEnabled: 1
+  GreenRangeEnd: 160
+  GreenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
+  LighBlueEnabled: 1
+  LightBlueRangeEnd: 230
+  LightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
+  BlueEndabled: 1
+  BlueRangeEnd: 270
+  BlueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
+  VioletEnabled: 1
+  VioletRangeEnd: 330
+  VioletRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
+  editorFoldout: 0
 --- !u!4 &1924800653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564942932181659039, guid: a2530f848cb91834db0eb47a8dab747d,
@@ -2387,8 +2325,9 @@ GameObject:
   - component: {fileID: 1938115681}
   - component: {fileID: 1938115680}
   - component: {fileID: 1938115679}
+  - component: {fileID: 1938115685}
   m_Layer: 0
-  m_Name: Normal Image
+  m_Name: Color_Absorber_Smoothed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2651,7 +2590,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ba06b18667d82d3419e9124e84b54561, type: 2}
+  - {fileID: 2100000, guid: e146df069cd1fc644844f26c15181232, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2687,12 +2626,50 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938115678}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 24.51, z: 20.44}
-  m_LocalScale: {x: 0.18948092, y: 0.10739253, z: 0.12421019}
+  m_LocalPosition: {x: -0.5, y: 25, z: 20}
+  m_LocalScale: {x: 0.18948092, y: 0.107392706, z: 0.124210365}
   m_Children: []
-  m_Father: {fileID: 413961585}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1938115685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938115678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a23c6a07cd31344819c44c07987ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1938115682}
+  mat: {fileID: 2100000, guid: e146df069cd1fc644844f26c15181232, type: 2}
+  MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
+  TestAmount: 1
+  RedEnabled: 0
+  RedRangeEnd: 10
+  RedRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
+  OrangeEnabled: 1
+  OrangeRangeEnd: 40
+  OrangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
+  YellowEnabled: 1
+  YellowRangeEnd: 90
+  YellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
+  GreenEnabled: 1
+  GreenRangeEnd: 160
+  GreenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
+  LighBlueEnabled: 1
+  LightBlueRangeEnd: 230
+  LightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
+  BlueEndabled: 1
+  BlueRangeEnd: 270
+  BlueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
+  VioletEnabled: 1
+  VioletRangeEnd: 330
+  VioletRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
+  editorFoldout: 1
 --- !u!4 &2008804106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2678594003871617996, guid: 31c66c9c15bca5b40ba0268bffc79687,

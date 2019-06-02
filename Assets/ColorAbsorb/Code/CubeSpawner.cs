@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class CubeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private int amount;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        StartCoroutine(Spawn(ColorAbsorber.amount));
+        StartCoroutine(Spawn(RGBFilter_Controller.amount));
     }
 
     private IEnumerator Spawn(int amount)
@@ -21,7 +20,7 @@ public class CubeSpawner : MonoBehaviour
             GameObject go = Instantiate(prefab, transform.position, randRot, this.transform);
             go.name = "Cube: " + count;
             count++;
-            yield return new WaitForSeconds(ColorAbsorber.someTime);
+            yield return new WaitForSeconds(RGBFilter_Controller.someTime);
         }
     }
 }

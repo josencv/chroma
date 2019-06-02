@@ -171,7 +171,9 @@ Material:
     - Vector1_AEC2D0C8: 0
     - Vector1_BD208425: -0.0001
     - Vector1_C03D8246: 0
+    - Vector1_C0CE1B7E: 0
     - Vector1_CE76A658: 0
+    - Vector1_EA582C9E: 0
     - Vector1_EA58515A: 300
     - Vector1_EB8306F5: 0
     - Vector1_EF27FA53: 0
@@ -259,7 +261,7 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
-    - _Range_1: 1
+    - _Range_1: 0.0001
     - _Range_11_End: 0
     - _Range_1_End: 10
     - _Range_2: 1

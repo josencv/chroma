@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MaterialDebug : MonoBehaviour
 {
     #region Constants
-    const string RANGE_1 = "_Range_1";
-    const string RANGE_2 = "_Range_2";
-    const string RANGE_3 = "_Range_3";
-    const string RANGE_4 = "_Range_4";
-    const string RANGE_5 = "_Range_5";
-    const string RANGE_6 = "_Range_6";
-    const string RANGE_7 = "_Range_7";
+    const string RED_1 = "_Range_1";
+    const string ORANGE = "_Range_2";
+    const string YELLOW = "_Range_3";
+    const string GREEN = "_Range_4";
+    const string LIGHTBLUE = "_Range_5";
+    const string BLUE = "_Range_6";
+    const string RED_2 = "_Range_7";
 
-    const string RANGE_1_End = "_Range_1_End";
+    const string RED_1_END = "_Range_1_End";
     const string RANGE_2_End = "_Range_2_End";
     const string RANGE_3_End = "_Range_3_End";
     const string RANGE_4_End = "_Range_4_End";
@@ -27,6 +25,8 @@ public class MaterialDebug : MonoBehaviour
     [SerializeField] private Material mat;
     [Space()]
     [SerializeField] private Texture2D MainTex;
+
+    [Range(0.0001f, 1f), SerializeField] private float TestAmount = 1f;
 
     [Header("Red"), Tooltip("Red goes from 0 to Red Range End, and Violet Range End to 360")]
     [SerializeField] private bool RedEnabled = true;
@@ -71,9 +71,12 @@ public class MaterialDebug : MonoBehaviour
             mat = meshRenderer.sharedMaterial;
         }
 
+        mat.SetFloat(LIGHTBLUE, TestAmount);
+        
+
         mat.SetTexture("_MainTex", MainTex);
         SetAllColorsFromRange();
-        SetRange();
+        SetAllRanges();
     }
 
     #region Methods
@@ -93,7 +96,7 @@ public class MaterialDebug : MonoBehaviour
         c = Color.HSVToRGB(range / 360f, 1, 1);
     }
 
-    private void SetRange()
+    private void SetAllRanges()
     {
         OrangeRangeEnd = OrangeRangeEnd < RedRangeEnd ? RedRangeEnd : OrangeRangeEnd;
         YellowRangeEnd = YellowRangeEnd < OrangeRangeEnd ? OrangeRangeEnd : YellowRangeEnd;
@@ -102,7 +105,7 @@ public class MaterialDebug : MonoBehaviour
         BlueRangeEnd = BlueRangeEnd < LightBlueRangeEnd ? LightBlueRangeEnd : BlueRangeEnd;
         VioletRangeEnd = VioletRangeEnd < BlueRangeEnd ? BlueRangeEnd : VioletRangeEnd;
 
-        mat.SetFloat(RANGE_1_End, RedRangeEnd);
+        mat.SetFloat(RED_1_END, RedRangeEnd);
         mat.SetFloat(RANGE_2_End, OrangeRangeEnd);
         mat.SetFloat(RANGE_3_End, YellowRangeEnd);
         mat.SetFloat(RANGE_4_End, GreenRangeEnd);
@@ -127,37 +130,37 @@ public class MaterialDebug : MonoBehaviour
 
     private void Toggle_Red()
     {
-        Toggle_Color(RANGE_1, ref RedEnabled);
+        Toggle_Color(RED_1, ref RedEnabled);
     }
 
     private void Toggle_Orange()
     {
-        Toggle_Color(RANGE_2, ref OrangeEnabled);
+        Toggle_Color(ORANGE, ref OrangeEnabled);
     }
 
     private void Toggle_Yellow()
     {
-        Toggle_Color(RANGE_3, ref YellowEnabled);
+        Toggle_Color(YELLOW, ref YellowEnabled);
     }
 
     private void Toggle_Green()
     {
-        Toggle_Color(RANGE_4, ref GreenEnabled);
+        Toggle_Color(GREEN, ref GreenEnabled);
     }
 
     private void Toggle_LightBlue()
     {
-        Toggle_Color(RANGE_5, ref LighBlueEnabled);
+        Toggle_Color(LIGHTBLUE, ref LighBlueEnabled);
     }
 
     private void Toggle_Blue()
     {
-        Toggle_Color(RANGE_6, ref BlueEndabled);
+        Toggle_Color(BLUE, ref BlueEndabled);
     }
 
     private void Toggle_Violet()
     {
-        Toggle_Color(RANGE_7, ref VioletEnabled);
+        Toggle_Color(RED_2, ref VioletEnabled);
     }
     #endregion
 
@@ -173,7 +176,7 @@ public class MaterialDebug : MonoBehaviour
         BlueRangeEnd = 270;
         VioletRangeEnd = 330;
 
-        mat.SetFloat(RANGE_1_End, RedRangeEnd);
+        mat.SetFloat(RED_1_END, RedRangeEnd);
         mat.SetFloat(RANGE_2_End, OrangeRangeEnd);
         mat.SetFloat(RANGE_3_End, YellowRangeEnd);
         mat.SetFloat(RANGE_4_End, GreenRangeEnd);
@@ -185,7 +188,7 @@ public class MaterialDebug : MonoBehaviour
 
     private void GetCurrentValues()
     {
-        RedRangeEnd = (int)mat.GetFloat(RANGE_1_End);
+        RedRangeEnd = (int)mat.GetFloat(RED_1_END);
         OrangeRangeEnd = (int)mat.GetFloat(RANGE_2_End);
         YellowRangeEnd = (int)mat.GetFloat(RANGE_3_End);
         GreenRangeEnd = (int)mat.GetFloat(RANGE_4_End);
