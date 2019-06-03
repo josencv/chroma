@@ -11,10 +11,10 @@ using static Unity.Mathematics.quaternion;
 
 namespace Chroma.Behaviour.Movement
 {
-    public class RotationSystem : JobComponentSystem
+    public class LookForwardSystem : JobComponentSystem
     {
         [BurstCompile]
-        private struct LookAtJob : IJobForEach<MovementComponent, Rotation>
+        private struct LookForwardJob : IJobForEach<MovementComponent, Rotation>
         {
             public void Execute([ReadOnly] ref MovementComponent movementComponent, ref Rotation rotation)
             {
@@ -27,7 +27,7 @@ namespace Chroma.Behaviour.Movement
 
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
-            var job = new LookAtJob();
+            var job = new LookForwardJob();
 
             return job.Schedule(this, inputDeps);
         }
