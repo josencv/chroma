@@ -124,7 +124,7 @@ LODGroup:
   m_LocalReferencePoint: {x: -0.23167181, y: 1.9790678, z: 0.21816677}
   m_Size: 4.1352386
   m_FadeMode: 1
-  m_AnimateCrossFading: 0
+  m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
   - screenRelativeHeight: 0.6

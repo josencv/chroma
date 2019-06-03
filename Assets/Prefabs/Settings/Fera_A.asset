@@ -20,13 +20,13 @@ MonoBehaviour:
     min: 0
     max: 4
   thicknessModifier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
     min: 1
     max: 10
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0.255
+    m_Value: 0.218
     min: 0
     max: 1
   noiseFilterTolerance:
@@ -140,7 +140,7 @@ MonoBehaviour:
     min: 0
   indirectDiffuseIntensity:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 2
     min: 0
 --- !u!114 &-6998709270697250866
 MonoBehaviour:
@@ -548,6 +548,7 @@ MonoBehaviour:
   - {fileID: 3603445129522201975}
   - {fileID: -8733283953170858054}
   - {fileID: -3168166045133407342}
+  - {fileID: 621897757914639478}
   - {fileID: 4929089186065572139}
   - {fileID: -8788288020991178049}
   - {fileID: -6998709270697250866}
@@ -566,6 +567,55 @@ MonoBehaviour:
   - {fileID: 5960305525982100066}
   - {fileID: 6739447447307250618}
   - {fileID: 7932071908622422134}
+--- !u!114 &621897757914639478
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b6606ef2548734bb6d11b9d160bc7e, type: 3}
+  m_Name: HDRISky
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 1
+    m_Value: 65
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 1
+    m_Value: 0
+  exposure:
+    m_OverrideState: 1
+    m_Value: 0.35
+  multiplier:
+    m_OverrideState: 1
+    m_Value: 1.05
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 4.6668663
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  hdriSky:
+    m_OverrideState: 1
+    m_Value: {fileID: 8900000, guid: 9b8c1a679d539b840bbb7b7f5aa519f4, type: 3}
 --- !u!114 &2104564004137092515
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -783,7 +833,7 @@ MonoBehaviour:
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 300
+    m_Value: 250
     min: 1
   baseHeight:
     m_OverrideState: 0
@@ -847,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bff652df78c97c4f963064ad1f34619, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   master:
     m_OverrideState: 0
