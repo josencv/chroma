@@ -1,4 +1,5 @@
 ﻿using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Chroma.Behaviour.Movement
@@ -11,7 +12,7 @@ namespace Chroma.Behaviour.Movement
 
         public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
         {
-            var data = new MovementComponent() { HorizontalValue = 0, VerticalValue = 0, Speed = speed };
+            var data = new MovementComponent() { MovementVector = float3.zero, Speed = speed };
             dstManager.AddComponentData(entity, data);
         }
     }
