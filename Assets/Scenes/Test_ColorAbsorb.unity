@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1508.1359, g: 2136.8403, b: 3410.31, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2282,29 +2282,35 @@ MonoBehaviour:
   meshRenderer: {fileID: 1903660266}
   mat: {fileID: 2100000, guid: c31b4c86fe16cbb489a62453217eaaf9, type: 2}
   MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
-  TestAmount: 1
-  RedEnabled: 1
-  RedRangeEnd: 10
-  RedRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
-  OrangeEnabled: 1
-  OrangeRangeEnd: 40
-  OrangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
-  YellowEnabled: 1
-  YellowRangeEnd: 90
-  YellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
-  GreenEnabled: 1
-  GreenRangeEnd: 160
-  GreenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
-  LighBlueEnabled: 1
-  LightBlueRangeEnd: 230
-  LightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
-  BlueEndabled: 1
-  BlueRangeEnd: 270
-  BlueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
-  VioletEnabled: 1
-  VioletRangeEnd: 330
-  VioletRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
-  editorFoldout: 0
+  redEnabled: 1
+  redRangeEnd: 10
+  redRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
+  redSaturation: 1
+  orangeEnabled: 1
+  orangeRangeEnd: 40
+  orangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
+  orangeSaturation: 1
+  yellowEnabled: 0
+  yellowRangeEnd: 90
+  yellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
+  yellowSaturation: 1
+  greenEnabled: 1
+  greenRangeEnd: 160
+  greenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
+  greenSaturation: 1
+  lighBlueEnabled: 1
+  lightBlueRangeEnd: 230
+  lightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
+  lightBlueSaturation: 1
+  blueEndabled: 1
+  blueRangeEnd: 270
+  blueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
+  blueSaturation: 1
+  violetEnabled: 1
+  violetRangeEnd: 330
+  violetRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
+  violetSaturation: 1
+  editorFoldout: 1
 --- !u!4 &1924800653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564942932181659039, guid: a2530f848cb91834db0eb47a8dab747d,
@@ -2647,28 +2653,34 @@ MonoBehaviour:
   meshRenderer: {fileID: 1938115682}
   mat: {fileID: 2100000, guid: e146df069cd1fc644844f26c15181232, type: 2}
   MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
-  TestAmount: 1
-  RedEnabled: 0
-  RedRangeEnd: 10
-  RedRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
-  OrangeEnabled: 1
-  OrangeRangeEnd: 40
-  OrangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
-  YellowEnabled: 1
-  YellowRangeEnd: 90
-  YellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
-  GreenEnabled: 1
-  GreenRangeEnd: 160
-  GreenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
-  LighBlueEnabled: 1
-  LightBlueRangeEnd: 230
-  LightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
-  BlueEndabled: 1
-  BlueRangeEnd: 270
-  BlueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
-  VioletEnabled: 1
-  VioletRangeEnd: 330
-  VioletRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
+  redEnabled: 1
+  redRangeEnd: 10
+  redRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
+  redSaturation: 1
+  orangeEnabled: 1
+  orangeRangeEnd: 40
+  orangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
+  orangeSaturation: 1
+  yellowEnabled: 1
+  yellowRangeEnd: 90
+  yellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
+  yellowSaturation: 1
+  greenEnabled: 1
+  greenRangeEnd: 160
+  greenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
+  greenSaturation: 1
+  lighBlueEnabled: 1
+  lightBlueRangeEnd: 230
+  lightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
+  lightBlueSaturation: 1
+  blueEndabled: 1
+  blueRangeEnd: 270
+  blueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
+  blueSaturation: 1
+  violetEnabled: 1
+  violetRangeEnd: 330
+  violetRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
+  violetSaturation: 1
   editorFoldout: 1
 --- !u!4 &2008804106 stripped
 Transform:

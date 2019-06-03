@@ -261,7 +261,7 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
-    - _Range_1: 0.0001
+    - _Range_1: 1
     - _Range_11_End: 0
     - _Range_1_End: 10
     - _Range_2: 1
