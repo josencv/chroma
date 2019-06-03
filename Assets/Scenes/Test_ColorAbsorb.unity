@@ -1009,7 +1009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18650
+  m_Name: pb_Mesh18622
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1478,7 +1478,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18634
+  m_Name: pb_Mesh18604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1958,8 +1958,6 @@ GameObject:
   - component: {fileID: 1903660267}
   - component: {fileID: 1903660266}
   - component: {fileID: 1903660265}
-  - component: {fileID: 1903660264}
-  - component: {fileID: 1903660269}
   - component: {fileID: 1903660270}
   m_Layer: 0
   m_Name: Color_Absorber
@@ -1968,19 +1966,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!65 &1903660264
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903660263}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 200, y: 1, z: 200}
-  m_Center: {x: 100, y: 0.2, z: -100}
 --- !u!114 &1903660265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,18 +2240,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &1903660269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903660263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cfedac37ff316e4daa6ae240158a41b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1903660270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,7 +2263,7 @@ MonoBehaviour:
   orangeRangeEnd: 40
   orangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
   orangeSaturation: 1
-  yellowEnabled: 0
+  yellowEnabled: 1
   yellowRangeEnd: 90
   yellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
   yellowSaturation: 1
@@ -2298,11 +2271,11 @@ MonoBehaviour:
   greenRangeEnd: 160
   greenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
   greenSaturation: 1
-  lighBlueEnabled: 1
+  lightBlueEnabled: 1
   lightBlueRangeEnd: 230
   lightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
   lightBlueSaturation: 1
-  blueEndabled: 1
+  blueEnabled: 1
   blueRangeEnd: 270
   blueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
   blueSaturation: 1
@@ -2310,7 +2283,6 @@ MonoBehaviour:
   violetRangeEnd: 330
   violetRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
   violetSaturation: 1
-  editorFoldout: 1
 --- !u!4 &1924800653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564942932181659039, guid: a2530f848cb91834db0eb47a8dab747d,
@@ -2329,8 +2301,6 @@ GameObject:
   - component: {fileID: 1938115683}
   - component: {fileID: 1938115682}
   - component: {fileID: 1938115681}
-  - component: {fileID: 1938115680}
-  - component: {fileID: 1938115679}
   - component: {fileID: 1938115685}
   m_Layer: 0
   m_Name: Color_Absorber_Smoothed
@@ -2339,31 +2309,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &1938115679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938115678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cfedac37ff316e4daa6ae240158a41b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1938115680
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938115678}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 200, y: 1, z: 200}
-  m_Center: {x: 100, y: 0.2, z: -100}
 --- !u!114 &1938115681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2669,11 +2614,11 @@ MonoBehaviour:
   greenRangeEnd: 160
   greenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
   greenSaturation: 1
-  lighBlueEnabled: 1
+  lightBlueEnabled: 1
   lightBlueRangeEnd: 230
   lightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
   lightBlueSaturation: 1
-  blueEndabled: 1
+  blueEnabled: 1
   blueRangeEnd: 270
   blueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
   blueSaturation: 1
@@ -2681,7 +2626,6 @@ MonoBehaviour:
   violetRangeEnd: 330
   violetRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
   violetSaturation: 1
-  editorFoldout: 1
 --- !u!4 &2008804106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2678594003871617996, guid: 31c66c9c15bca5b40ba0268bffc79687,

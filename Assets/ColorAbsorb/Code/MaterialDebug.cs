@@ -21,59 +21,60 @@ public class MaterialDebug : MonoBehaviour
     #endregion
 
     #region Properties
-    [SerializeField] private MeshRenderer meshRenderer;
-    [SerializeField] private Material mat;
+    [SerializeField] public MeshRenderer meshRenderer;
+    [SerializeField] public Material mat;
     [Space()]
-    [SerializeField] private Texture2D MainTex;
+    [SerializeField] public Texture2D MainTex;
 
     [Header("Red"), Tooltip("Red goes from 0 to Red Range End, and Violet Range End to 360")]
-    [SerializeField] private bool redEnabled = true;
-    [Range(0, 360), SerializeField] private int redRangeEnd = 10;
-    [SerializeField] private Color redRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float redSaturation = 1f;
+    [SerializeField] public bool redEnabled = true;
+    [Range(0, 360), SerializeField] public int redRangeEnd = 10;
+    [SerializeField] public Color redRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float redSaturation = 1f;
 
     [Header("Orange"), Tooltip("Orange goes from Red Range End to Orange Range End")]
-    [SerializeField] private bool orangeEnabled = true;
-    [Range(0, 360), SerializeField] private int orangeRangeEnd = 40;
-    [SerializeField] private Color orangeRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float orangeSaturation = 1f;
+    [SerializeField] public bool orangeEnabled = true;
+    [Range(0, 360), SerializeField] public int orangeRangeEnd = 40;
+    [SerializeField] public Color orangeRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float orangeSaturation = 1f;
 
     [Header("Yellow"), Tooltip("Yellow goes from Orange Range End to Yellow Range End")]
-    [SerializeField] private bool yellowEnabled = true;
-    [Range(0, 360), SerializeField] private int yellowRangeEnd = 90;
-    [SerializeField] private Color yellowRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float yellowSaturation = 1f;
+    [SerializeField] public bool yellowEnabled = true;
+    [Range(0, 360), SerializeField] public int yellowRangeEnd = 90;
+    [SerializeField] public Color yellowRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float yellowSaturation = 1f;
 
     [Header("Green"), Tooltip("Green goes from Yellow Range End to Green Range End")]
-    [SerializeField] private bool greenEnabled = true;
-    [Range(0, 360), SerializeField] private int greenRangeEnd = 160;
-    [SerializeField] private Color greenRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float greenSaturation = 1f;
+    [SerializeField] public bool greenEnabled = true;
+    [Range(0, 360), SerializeField] public int greenRangeEnd = 160;
+    [SerializeField] public Color greenRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float greenSaturation = 1f;
 
     [Header("Light Blue"), Tooltip("Light Blue goes from Green Range End to Light Blue Range End")]
-    [SerializeField] private bool lighBlueEnabled = true;
-    [Range(0, 360), SerializeField] private int lightBlueRangeEnd = 230;
-    [SerializeField] private Color lightBlueRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float lightBlueSaturation = 1f;
+    [SerializeField] public bool lightBlueEnabled = true;
+    [Range(0, 360), SerializeField] public int lightBlueRangeEnd = 230;
+    [SerializeField] public Color lightBlueRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float lightBlueSaturation = 1f;
 
     [Header("Blue"), Tooltip("Blue goes from Light Blue Range End to Blue Range End")]
-    [SerializeField] private bool blueEndabled = true;
-    [Range(0, 360), SerializeField] private int blueRangeEnd = 270;
-    [SerializeField] private Color blueRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float blueSaturation = 1f;
+    [SerializeField] public bool blueEnabled = true;
+    [Range(0, 360), SerializeField] public int blueRangeEnd = 270;
+    [SerializeField] public Color blueRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float blueSaturation = 1f;
 
     [Header("Violet"), Tooltip("Violet goes from Blue Range End to Violet Range End")]
-    [SerializeField] private bool violetEnabled = true;
-    [Range(0, 360), SerializeField] private int violetRangeEnd = 330;
-    [SerializeField] private Color violetRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] private float violetSaturation = 1f;
+    [SerializeField] public bool violetEnabled = true;
+    [Range(0, 360), SerializeField] public int violetRangeEnd = 330;
+    [SerializeField] public Color violetRangeEndColor = new Color(1,1,1,1);
+    [Range(0.0001f, 1f), SerializeField] public float violetSaturation = 1f;
 
     #endregion
 
-    private void OnValidate()
+    public void OnValidate()
     {
         if(!mat)
         {
+            meshRenderer = this.GetComponent<MeshRenderer>();
             mat = meshRenderer.sharedMaterial;
         }
 
@@ -85,7 +86,7 @@ public class MaterialDebug : MonoBehaviour
     }
 
     #region Methods
-    private void SetAllColorsFromRange()
+    public void SetAllColorsFromRange()
     {
         SetColorFromRange(ref redRangeEndColor, redRangeEnd);
         SetColorFromRange(ref orangeRangeEndColor, orangeRangeEnd);
@@ -96,12 +97,12 @@ public class MaterialDebug : MonoBehaviour
         SetColorFromRange(ref violetRangeEndColor, violetRangeEnd);
     }
 
-    private void SetColorFromRange(ref Color c, int range)
+    public void SetColorFromRange(ref Color c, int range)
     {
         c = Color.HSVToRGB(range / 360f, 1, 1);
     }
 
-    private void SetAllRanges()
+    public void SetAllRanges()
     {
         orangeRangeEnd = orangeRangeEnd < redRangeEnd ? redRangeEnd : orangeRangeEnd;
         yellowRangeEnd = yellowRangeEnd < orangeRangeEnd ? orangeRangeEnd : yellowRangeEnd;
@@ -118,7 +119,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
     }
     
-    private void SetAllSaturation()
+    public void SetAllSaturation()
     {
         mat.SetFloat(RED_1, redSaturation);
         mat.SetFloat(ORANGE, orangeSaturation);
@@ -127,11 +128,19 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(LIGHTBLUE, lightBlueSaturation);
         mat.SetFloat(BLUE, blueSaturation);
         mat.SetFloat(VIOLET, violetSaturation);
+
+        redEnabled = redSaturation == 1;
+        orangeEnabled = orangeSaturation == 1;
+        yellowEnabled = yellowSaturation == 1;
+        greenEnabled = greenSaturation == 1;
+        lightBlueEnabled = lightBlueSaturation == 1;
+        blueEnabled = blueSaturation == 1;
+        violetEnabled = violetSaturation == 1;
     }
     #endregion
 
     #region Toggle Colors Buttons
-    private void Toggle_Color(string rangeName, ref bool enabled)
+    public void Toggle_Color(string rangeName, ref bool enabled, ref float saturation)
     {
         if(!mat)
         {
@@ -142,47 +151,48 @@ public class MaterialDebug : MonoBehaviour
         val = val < 1 ? 1 : 0.0001f;
         enabled = val == 1;
         mat.SetFloat(rangeName, val);
+        saturation = val;
     }
 
-    private void Toggle_Red()
+    public void Toggle_Red()
     {
-        Toggle_Color(RED_1, ref redEnabled);
+        Toggle_Color(RED_1, ref redEnabled, ref redSaturation);
     }
 
-    private void Toggle_Orange()
+    public void Toggle_Orange()
     {
-        Toggle_Color(ORANGE, ref orangeEnabled);
+        Toggle_Color(ORANGE, ref orangeEnabled, ref orangeSaturation);
     }
 
-    private void Toggle_Yellow()
+    public void Toggle_Yellow()
     {
-        Toggle_Color(YELLOW, ref yellowEnabled);
+        Toggle_Color(YELLOW, ref yellowEnabled, ref yellowSaturation);
     }
 
-    private void Toggle_Green()
+    public void Toggle_Green()
     {
-        Toggle_Color(GREEN, ref greenEnabled);
+        Toggle_Color(GREEN, ref greenEnabled, ref greenSaturation);
     }
 
-    private void Toggle_LightBlue()
+    public void Toggle_LightBlue()
     {
-        Toggle_Color(LIGHTBLUE, ref lighBlueEnabled);
+        Toggle_Color(LIGHTBLUE, ref lightBlueEnabled, ref lightBlueSaturation);
     }
 
-    private void Toggle_Blue()
+    public void Toggle_Blue()
     {
-        Toggle_Color(BLUE, ref blueEndabled);
+        Toggle_Color(BLUE, ref blueEnabled, ref blueSaturation);
     }
 
-    private void Toggle_Violet()
+    public void Toggle_Violet()
     {
-        Toggle_Color(VIOLET, ref violetEnabled);
+        Toggle_Color(VIOLET, ref violetEnabled, ref violetSaturation);
     }
     #endregion
 
     #region Debug
     [ContextMenu("Set Defaults")]
-    private void SetDefualts()
+    public void SetDefualts()
     {
         redRangeEnd = 10;
         orangeRangeEnd = 40;
@@ -198,11 +208,12 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(GREEN_RANGE_END, greenRangeEnd);
         mat.SetFloat(LIGHT_BLUE_RANGE_END, lightBlueRangeEnd);
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
+        mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
 
         SetAllColorsFromRange();
     }
 
-    private void GetCurrentValues()
+    public void GetCurrentValues()
     {
         redRangeEnd = (int)mat.GetFloat(RED_RANGE_END);
         orangeRangeEnd = (int)mat.GetFloat(ORANGE_RANGE_END);
@@ -213,18 +224,5 @@ public class MaterialDebug : MonoBehaviour
         violetRangeEnd = (int)mat.GetFloat(VIOLET_RANGE_END);
     }
 
-    #endregion
-
-    #region Custom Inspector
-#if METHOD_BUTTON && UNITY_EDITOR
-    [MethodButton("Toggle_Red",
-        "Toggle_Orange",
-        "Toggle_Yellow",
-        "Toggle_Green",
-        "Toggle_LightBlue",
-        "Toggle_Blue",
-        "Toggle_Violet")]
-    [SerializeField] private bool editorFoldout;
-#endif
     #endregion
 }
