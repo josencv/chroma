@@ -61,14 +61,17 @@ public class MaterialDebug_Editor : Editor
         var oldColor = GUI.backgroundColor;
         var imageStyle = new GUIStyle(GUI.skin.window) { alignment = TextAnchor.MiddleCenter };
         imageStyle.richText = true;
+
+        imageStyle.fixedWidth = Screen.width - 50f; //600f * ratio;
+        imageStyle.fixedHeight = 250f;
         imageStyle.stretchWidth = true;
-        imageStyle.stretchHeight = true;
+
 
         EditorGUILayout.BeginHorizontal(wholeStyle);
         EditorGUILayout.BeginVertical();
         EditorGUILayout.LabelField("<b>Image</b>", wholeStyle);
-        EditorGUILayout.BeginVertical(wholeStyle);
         GUI.backgroundColor = Color.black;
+        EditorGUILayout.BeginVertical(wholeStyle);
         GUILayout.Label(_materialDebug.mat.mainTexture, imageStyle);
         GUI.backgroundColor = oldColor;
         EditorGUILayout.EndVertical();
@@ -104,13 +107,12 @@ public class MaterialDebug_Editor : Editor
         EditorGUILayout.PropertyField(rangeEnd, new GUIContent($"{colorName} Hue Range End"), true);
 
         EditorGUILayout.BeginHorizontal();
-        if(GUILayout.Button($"Toggle {colorName}"))
+        if(GUILayout.Button($"Toggle {colorName}", GUILayout.Width(200)))
         {
             action();
         }
-        enabled = GUILayout.Toggle(enabled, $"{colorName} Enabled");
+        enabled = EditorGUILayout.ToggleLeft($"{colorName} Enabled", enabled);
         EditorGUILayout.EndHorizontal();
-
 
         EditorGUILayout.PropertyField(saturation, new GUIContent($"{colorName} Saturation"), true);
 
