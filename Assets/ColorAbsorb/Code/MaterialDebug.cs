@@ -3,7 +3,7 @@
 public class MaterialDebug : MonoBehaviour
 {
     #region Constants
-    const string RED_1 = "_Range_1";
+    const string RED = "_Range_1";
     const string ORANGE = "_Range_2";
     const string YELLOW = "_Range_3";
     const string GREEN = "_Range_4";
@@ -68,6 +68,11 @@ public class MaterialDebug : MonoBehaviour
     [SerializeField] public Color violetRangeEndColor = new Color(1,1,1,1);
     [Range(0.0001f, 1f), SerializeField] public float violetSaturation = 1f;
 
+    [Range(0F, 1f), SerializeField] public float width = 0.061f;
+    [Range(0F, 1f), SerializeField] public float smooth = 0.13f;
+
+    public string shaderName = string.Empty;
+
     #endregion
 
     public void OnValidate()
@@ -78,7 +83,16 @@ public class MaterialDebug : MonoBehaviour
             mat = meshRenderer.sharedMaterial;
         }
 
+        if(shaderName.Equals(string.Empty))
+        {
+            shaderName = mat.shader.name;
+            Debug.Log(shaderName);
+        }
+
         mat.SetTexture("_MainTex", MainTex);
+
+        mat.SetFloat("_MinFade", width);
+        mat.SetFloat("_MaxFade", smooth);
 
         SetAllSaturation();
         SetAllColorsFromRange();
@@ -117,11 +131,12 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(GREEN_RANGE_END, greenRangeEnd);
         mat.SetFloat(LIGHT_BLUE_RANGE_END, lightBlueRangeEnd);
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
+        mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
     }
     
     public void SetAllSaturation()
     {
-        mat.SetFloat(RED_1, redSaturation);
+        mat.SetFloat(RED, redSaturation);
         mat.SetFloat(ORANGE, orangeSaturation);
         mat.SetFloat(YELLOW, yellowSaturation);
         mat.SetFloat(GREEN, greenSaturation);
@@ -148,7 +163,7 @@ public class MaterialDebug : MonoBehaviour
         }
 
         float val = mat.GetFloat(rangeName);
-        val = val < 1 ? 1 : 0.0001f;
+        val = val < 1 ? 1 : 0.0f;
         enabled = val == 1;
         mat.SetFloat(rangeName, val);
         saturation = val;
@@ -156,7 +171,7 @@ public class MaterialDebug : MonoBehaviour
 
     public void Toggle_Red()
     {
-        Toggle_Color(RED_1, ref redEnabled, ref redSaturation);
+        Toggle_Color(RED, ref redEnabled, ref redSaturation);
     }
 
     public void Toggle_Orange()
@@ -209,6 +224,13 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(LIGHT_BLUE_RANGE_END, lightBlueRangeEnd);
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
         mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
+
+        width = 0.061f;
+        smooth = 0.13f;
+
+
+        mat.SetFloat("_MinFade", width);
+        mat.SetFloat("_MaxFade", smooth);
 
         SetAllColorsFromRange();
     }
