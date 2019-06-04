@@ -1,8 +1,9 @@
-﻿using Unity.Entities;
+﻿using Chroma.Infrastructure.Unity;
+using UnityEngine;
 
 namespace Chroma.Game.Containers
 {
-    public struct CharacterContainer : IComponentData
+    public class CharacterContainer : MonoBehaviour
     {
 
     }
