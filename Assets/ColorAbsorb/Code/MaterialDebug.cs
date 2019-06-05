@@ -29,44 +29,44 @@ public class MaterialDebug : MonoBehaviour
     [Header("Red"), Tooltip("Red goes from 0 to Red Range End, and Violet Range End to 360")]
     [SerializeField] public bool redEnabled = true;
     [Range(0, 360), SerializeField] public int redRangeEnd = 10;
-    [SerializeField] public Color redRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float redSaturation = 1f;
+    [SerializeField] public Color redRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float redSaturation = 1f;
 
     [Header("Orange"), Tooltip("Orange goes from Red Range End to Orange Range End")]
     [SerializeField] public bool orangeEnabled = true;
     [Range(0, 360), SerializeField] public int orangeRangeEnd = 40;
-    [SerializeField] public Color orangeRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float orangeSaturation = 1f;
+    [SerializeField] public Color orangeRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float orangeSaturation = 1f;
 
     [Header("Yellow"), Tooltip("Yellow goes from Orange Range End to Yellow Range End")]
     [SerializeField] public bool yellowEnabled = true;
     [Range(0, 360), SerializeField] public int yellowRangeEnd = 90;
-    [SerializeField] public Color yellowRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float yellowSaturation = 1f;
+    [SerializeField] public Color yellowRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float yellowSaturation = 1f;
 
     [Header("Green"), Tooltip("Green goes from Yellow Range End to Green Range End")]
     [SerializeField] public bool greenEnabled = true;
     [Range(0, 360), SerializeField] public int greenRangeEnd = 160;
-    [SerializeField] public Color greenRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float greenSaturation = 1f;
+    [SerializeField] public Color greenRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float greenSaturation = 1f;
 
     [Header("Light Blue"), Tooltip("Light Blue goes from Green Range End to Light Blue Range End")]
     [SerializeField] public bool lightBlueEnabled = true;
     [Range(0, 360), SerializeField] public int lightBlueRangeEnd = 230;
-    [SerializeField] public Color lightBlueRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float lightBlueSaturation = 1f;
+    [SerializeField] public Color lightBlueRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float lightBlueSaturation = 1f;
 
     [Header("Blue"), Tooltip("Blue goes from Light Blue Range End to Blue Range End")]
     [SerializeField] public bool blueEnabled = true;
     [Range(0, 360), SerializeField] public int blueRangeEnd = 270;
-    [SerializeField] public Color blueRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float blueSaturation = 1f;
+    [SerializeField] public Color blueRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float blueSaturation = 1f;
 
     [Header("Violet"), Tooltip("Violet goes from Blue Range End to Violet Range End")]
     [SerializeField] public bool violetEnabled = true;
     [Range(0, 360), SerializeField] public int violetRangeEnd = 330;
-    [SerializeField] public Color violetRangeEndColor = new Color(1,1,1,1);
-    [Range(0.0001f, 1f), SerializeField] public float violetSaturation = 1f;
+    [SerializeField] public Color violetRangeEndColor = new Color(1, 1, 1, 1);
+    [Range(0f, 1f), SerializeField] public float violetSaturation = 1f;
 
     [Range(0F, 1f), SerializeField] public float width = 0.061f;
     [Range(0F, 1f), SerializeField] public float smooth = 0.13f;
@@ -86,7 +86,6 @@ public class MaterialDebug : MonoBehaviour
         if(shaderName.Equals(string.Empty))
         {
             shaderName = mat.shader.name;
-            Debug.Log(shaderName);
         }
 
         mat.SetTexture("_MainTex", MainTex);
@@ -133,7 +132,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
         mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
     }
-    
+
     public void SetAllSaturation()
     {
         mat.SetFloat(RED, redSaturation);

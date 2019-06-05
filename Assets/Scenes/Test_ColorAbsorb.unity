@@ -1009,7 +1009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18622
+  m_Name: pb_Mesh18644
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1472,13 +1472,13 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4eddb01948bcb6a4cb6d0753a31e2fa6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2530f848cb91834db0eb47a8dab747d, type: 3}
---- !u!43 &1607180897
+--- !u!43 &1589572996
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18604
+  m_Name: pb_Mesh18630
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2225,7 +2225,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903660263}
-  m_Mesh: {fileID: 1607180897}
+  m_Mesh: {fileID: 1589572996}
 --- !u!4 &1903660268
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,14 +2255,14 @@ MonoBehaviour:
   meshRenderer: {fileID: 1903660266}
   mat: {fileID: 2100000, guid: c31b4c86fe16cbb489a62453217eaaf9, type: 2}
   MainTex: {fileID: 2800000, guid: 798abf36c9d434b4499584c588195a51, type: 3}
-  redEnabled: 0
+  redEnabled: 1
   redRangeEnd: 10
   redRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
-  redSaturation: 0
-  orangeEnabled: 0
+  redSaturation: 1
+  orangeEnabled: 1
   orangeRangeEnd: 40
   orangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
-  orangeSaturation: 0.0001
+  orangeSaturation: 1
   yellowEnabled: 1
   yellowRangeEnd: 90
   yellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
@@ -2285,6 +2285,7 @@ MonoBehaviour:
   violetSaturation: 1
   width: 0
   smooth: 0
+  shaderName: Shader Graphs/Color_Absorber
 --- !u!4 &1924800653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1564942932181659039, guid: a2530f848cb91834db0eb47a8dab747d,
@@ -2601,28 +2602,28 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: e146df069cd1fc644844f26c15181232, type: 2}
   MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
   redEnabled: 1
-  redRangeEnd: 10
-  redRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
+  redRangeEnd: 5
+  redRangeEndColor: {r: 1, g: 0.083333336, b: 0, a: 1}
   redSaturation: 1
   orangeEnabled: 1
-  orangeRangeEnd: 40
-  orangeRangeEndColor: {r: 1, g: 0.6666667, b: 0, a: 1}
+  orangeRangeEnd: 50
+  orangeRangeEndColor: {r: 1, g: 0.8333334, b: 0, a: 1}
   orangeSaturation: 1
   yellowEnabled: 1
-  yellowRangeEnd: 90
-  yellowRangeEndColor: {r: 0.5, g: 1, b: 0, a: 1}
+  yellowRangeEnd: 63
+  yellowRangeEndColor: {r: 0.95000005, g: 1, b: 0, a: 1}
   yellowSaturation: 1
   greenEnabled: 1
-  greenRangeEnd: 160
-  greenRangeEndColor: {r: 0, g: 1, b: 0.66666675, a: 1}
+  greenRangeEnd: 147
+  greenRangeEndColor: {r: 0, g: 1, b: 0.45000005, a: 1}
   greenSaturation: 1
   lightBlueEnabled: 1
-  lightBlueRangeEnd: 230
-  lightBlueRangeEndColor: {r: 0, g: 0.16666651, b: 1, a: 1}
+  lightBlueRangeEnd: 207
+  lightBlueRangeEndColor: {r: 0, g: 0.5500002, b: 1, a: 1}
   lightBlueSaturation: 1
   blueEnabled: 1
-  blueRangeEnd: 270
-  blueRangeEndColor: {r: 0.5, g: 0, b: 1, a: 1}
+  blueRangeEnd: 260
+  blueRangeEndColor: {r: 0.33333302, g: 0, b: 1, a: 1}
   blueSaturation: 1
   violetEnabled: 1
   violetRangeEnd: 330
@@ -2630,6 +2631,7 @@ MonoBehaviour:
   violetSaturation: 1
   width: 0.061
   smooth: 0.13
+  shaderName: Shader Graphs/Color_Absorber_Smoothed
 --- !u!4 &2008804106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2678594003871617996, guid: 31c66c9c15bca5b40ba0268bffc79687,
