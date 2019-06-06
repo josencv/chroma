@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   invertYAxis: 1
-  invertXAxis: 0
+  invertXAxis: 1
   horizontalRotationEnabled: 1
   verticalRotationEnabled: 1
   minDistanceToTarget: 5
