@@ -17,6 +17,10 @@ dotnet_style_coalesce_expression = true : error
 dotnet_style_explicit_tuple_names = true : error
 dotnet_style_predefined_type_for_locals_parameters_members = true : error
 dotnet_style_predefined_type_for_member_access = true : error
+dotnet_style_qualification_for_field = false : error
+dotnet_style_qualification_for_property = false : error
+dotnet_style_qualification_for_method = false : error
+dotnet_style_qualification_for_event = false : error
 
 indent_size = 4
 indent_style = space
