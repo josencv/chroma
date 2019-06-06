@@ -49,7 +49,7 @@ namespace Chroma.Components.Camera
         private void Awake()
         {
             pivot = transform;
-            this.camera = UnityEngine.Camera.main.transform;
+            camera = UnityEngine.Camera.main.transform;
 
             if(target == null)
             {

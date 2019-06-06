@@ -1,5 +1,4 @@
-﻿using Chroma.Infrastructure.Unity;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Chroma.Game.Containers
 {

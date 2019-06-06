@@ -13,13 +13,13 @@ namespace Chroma.Components.Movement
         private new UnityEngine.Camera camera;
         private Vector3 gravity;
 
-        [SerializeField] protected float speed = 3;
+        [SerializeField] private float speed = 3;
 
         private void Awake()
         {
             gravity = Physics.gravity;
             camera = UnityEngine.Camera.main;
-            this.controller = GetComponent<CharacterController>();
+            controller = GetComponent<CharacterController>();
         }
 
         public void Move(float x, float z)
