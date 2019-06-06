@@ -6,9 +6,9 @@ namespace Chroma.Tests
     {
         #region Private fields
 
-        [SerializeField, Tooltip("Pess 'A' to toggle Maintain Speed.")] private Animator _anim;
-        [SerializeField] private bool _maintainSpeed = false;
-        [SerializeField, Tooltip("Press the Right arrow key to play animation."), Range(0.0f, 1.0f)] private float _speed = 0.0f;
+        [SerializeField, Tooltip("Pess 'A' to toggle Maintain Speed.")] private Animator anim;
+        [SerializeField] private bool maintainSpeed = false;
+        [SerializeField, Tooltip("Press the Right arrow key to play animation."), Range(0.0f, 1.0f)] private float speed = 0.0f;
 
         #endregion
 
@@ -19,9 +19,9 @@ namespace Chroma.Tests
             Debug.Log("To test the animation, press the <b>RIGHT</b> arrow key.");
             Debug.Log("To toggle Maintain Speed, press the <b>A</b> key.");
 
-            if(_anim == null)
+            if(anim == null)
             {
-                _anim = GetComponent<Animator>();
+                anim = GetComponent<Animator>();
             }
         }
 
@@ -29,7 +29,7 @@ namespace Chroma.Tests
         {
             SetSpeed();
             ToggleMaintainSpeed();
-            _anim.SetFloat(Constants.blend, _speed);
+            anim.SetFloat(Constants.blend, speed);
         }
 
         #endregion
@@ -40,14 +40,14 @@ namespace Chroma.Tests
         {
             float input = Input.GetAxis(Constants.horizontal);
             
-            if(_maintainSpeed)
+            if(maintainSpeed)
             {
-                _speed += input / 100f;
-                _speed = Mathf.Clamp01(_speed);
+                speed += input / 100f;
+                speed = Mathf.Clamp01(speed);
             }
             else
             {
-                _speed = Input.GetAxis(Constants.horizontal);
+                speed = Input.GetAxis(Constants.horizontal);
             }
         }
 
@@ -55,7 +55,7 @@ namespace Chroma.Tests
         {
             if(Input.GetKeyDown(KeyCode.A))
             {
-                _maintainSpeed = !_maintainSpeed;
+                maintainSpeed = !maintainSpeed;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Chroma.Tests
     internal class Constants
     {
         public const string blend = "Blend";
-        public const string horizontal = "Horizontal";
+        public const string horizontal = "LeftStickHorizontal";
     }
     #endregion
 }
