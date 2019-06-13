@@ -124,10 +124,6 @@ namespace Chroma.Infrastructure.Input
 
         #endregion
 
-        // Properties ==========================================================
-
         public PlayerInputNumber PlayerInputNumber { get { return playerInputNumber; } }
-
     }
-
 }
