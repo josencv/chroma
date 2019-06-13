@@ -1,4 +1,5 @@
-﻿using Chroma.Infrastructure.Unity;
+﻿using Chroma.Infrastructure.Input;
+using Chroma.Infrastructure.Unity;
 using Chroma.Utility;
 using UnityEngine;
 
@@ -43,8 +44,8 @@ namespace Chroma.Components.Movement
 
         private void Update()
         {
-            // Note: we can change how we receive the input later
-            Move(Input.GetAxis("LeftStickHorizontal"), Input.GetAxis("LeftStickVertical"));
+            float[] leftStickValues = InputManager.CurrentGameInput.GetStickState(GameInputStick.Left);
+            Move(leftStickValues[0], leftStickValues[1]);
         }
 
         public void Stop()

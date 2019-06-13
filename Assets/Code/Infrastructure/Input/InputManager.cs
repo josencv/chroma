@@ -10,20 +10,22 @@ namespace Chroma.Infrastructure.Input {
     /// to the correct action, depending on the game context or state.
     /// </summary>
     public class InputManager {
-
         public event InputChangeEventHandler InputChange;
-        private GameInput gameInput;
+
         private InputType currentInputType;
+
+        // TODO: change access mechanism to DI or something else
+        public static GameInput CurrentGameInput { get; private set; }
 
         public InputManager()
         {
-            gameInput = new XboxGameInput(PlayerInputNumber.Player2, XboxController.First);
+            CurrentGameInput = new XboxGameInput(PlayerInputNumber.Player1, XboxController.First);
             currentInputType = InputType.Xbox;
         }
 
         public void ProcessGameInputs() 
         {
-            gameInput.UpdateState();
+            CurrentGameInput.UpdateState();
         }
 
         public void DetectGameInputType()
@@ -31,27 +33,26 @@ namespace Chroma.Infrastructure.Input {
             if (currentInputType == InputType.Xbox && UnityEngine.Input.GetKeyDown(KeyCode.A))
             {
                 Debug.Log("Changing to Keyboard Controller");
-                gameInput.CleanState();
-                gameInput = new KeyboardGameInput(PlayerInputNumber.Player1);
+                CurrentGameInput.CleanState();
+                CurrentGameInput = new KeyboardGameInput(PlayerInputNumber.Player1);
                 currentInputType = InputType.Keyboard;
-                InputChange?.Invoke(gameInput);
+                InputChange?.Invoke(CurrentGameInput);
             }
 
             // Using XboxCtrlrInput to detect XBox controller type defeats one of the purposes of having an abstraction of the game input, but I think is unavoidable
             else if (currentInputType == InputType.Keyboard && XCI.GetButtonDown(XboxButton.A))
             {
                 Debug.Log("Changing to XBox Controller");
-                gameInput.CleanState();
-                gameInput = new XboxGameInput(PlayerInputNumber.Player2, XboxController.First);  // TODO: resolve with DI
+                CurrentGameInput.CleanState();
+                CurrentGameInput = new XboxGameInput(PlayerInputNumber.Player2, XboxController.First);  // TODO: resolve with DI
                 currentInputType = InputType.Xbox;
-                InputChange?.Invoke(gameInput);
+                InputChange?.Invoke(CurrentGameInput);
             }
         }
 
         public GameInput GetGameInput()
         {
-            return gameInput;
+            return CurrentGameInput;
         }
     }
-
 }
