@@ -1,5 +1,6 @@
 ﻿using System;
 using Chroma.Game.Containers;
+using Chroma.Infrastructure.Input;
 using Chroma.Infrastructure.Unity;
 using UnityEngine;
 
@@ -75,8 +76,9 @@ namespace Chroma.Components.Camera
 
         private void ControlCamera()
         {
-            RotateHorizontally(Input.GetAxis("RightStickHorizontal"));
-            RotateVertically(Input.GetAxis("RightStickVertical"));
+            float[] rightStickValues = InputManager.CurrentGameInput.GetStickState(GameInputStick.Right);
+            RotateHorizontally(rightStickValues[0]);
+            RotateVertically(rightStickValues[1]);
         }
 
         private void RotateHorizontally(float amount)

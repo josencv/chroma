@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Chroma.Infrastructure.Input;
 using Chroma.Infrastructure.Unity;
 using Chroma.Utility;
 using UnityEngine;
@@ -11,7 +11,6 @@ namespace Chroma.Components.Movement
         private const float minMovementInputThreshold = 0.15f;
 
         private CharacterController controller;
-        private CharacterControllerAnimation anim;
         private new UnityEngine.Camera camera;
         private Vector3 gravity;
 
@@ -22,17 +21,6 @@ namespace Chroma.Components.Movement
             gravity = Physics.gravity;
             camera = UnityEngine.Camera.main;
             controller = GetComponent<CharacterController>();
-            anim = GetComponent<CharacterControllerAnimation>();
-        }
-
-        private void Update()
-        {
-            // Note: we can change how we receive the input later
-            float vertical = Input.GetAxis("LeftStickVertical");
-            float horizontal = Input.GetAxis("LeftStickHorizontal");
-
-            Move(horizontal, -vertical);
-            Animate(horizontal, vertical);
         }
 
         public void Move(float x, float z)
@@ -54,16 +42,15 @@ namespace Chroma.Components.Movement
             }
         }
 
+        private void Update()
+        {
+            float[] leftStickValues = InputManager.CurrentGameInput.GetStickState(GameInputStick.Left);
+            Move(leftStickValues[0], leftStickValues[1]);
+        }
+
         public void Stop()
         {
             controller.Move(Vector3.zero);
-        }
-
-        private void Animate(float x, float z)
-        {
-            float value = new Vector2(x, z).magnitude;
-
-            anim.Animate("speed", value);
         }
     }
 }
