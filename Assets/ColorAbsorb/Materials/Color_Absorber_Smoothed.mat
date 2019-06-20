@@ -265,17 +265,17 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Range_1: 1
     - _Range_11_End: 0
-    - _Range_1_End: 5
+    - _Range_1_End: 10
     - _Range_2: 1
-    - _Range_2_End: 50
+    - _Range_2_End: 40
     - _Range_3: 1
-    - _Range_3_End: 63
+    - _Range_3_End: 90
     - _Range_4: 1
-    - _Range_4_End: 147
+    - _Range_4_End: 160
     - _Range_5: 1
-    - _Range_5_End: 207
+    - _Range_5_End: 230
     - _Range_6: 1
-    - _Range_6_End: 260
+    - _Range_6_End: 270
     - _Range_7: 1
     - _Range_7_End: 330
     - _Range_8: 1
@@ -360,7 +360,7 @@ Material:
     - Color_C7527279: {r: 1, g: 0.45679283, b: 0, a: 1}
     - Color_CC523757: {r: 0, g: 1, b: 0.6500001, a: 1}
     - Color_DA755837: {r: 1, g: 0, b: 0.5448122, a: 1}
-    - Vector2_8D26CC90: {r: 0.005, g: 0.005, b: 1, a: 0}
+    - Vector2_8D26CC90: {r: 0.001, g: 0.001, b: 0, a: 0}
     - Vector2_CF4E51B4: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
