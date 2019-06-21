@@ -83,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 12932e7723f42404cabef54945513510, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b154072dced6f349b9d539eb9bc382b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -198,7 +198,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
-    - _MaxFade: 0.13
+    - _MaxFade: 0.231
     - _Metallic: 0
     - _MinFade: 0.061
     - _NormalMapSpace: 0
@@ -208,21 +208,21 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
-    - _Range_1: 0
+    - _Range_1: 1
     - _Range_11_End: 0
-    - _Range_1_End: 10
+    - _Range_1_End: 4
     - _Range_2: 1
-    - _Range_2_End: 40
+    - _Range_2_End: 45
     - _Range_3: 1
     - _Range_3_End: 75
-    - _Range_4: 0
+    - _Range_4: 1
     - _Range_4_End: 150
     - _Range_5: 1
     - _Range_5_End: 205
     - _Range_6: 1
     - _Range_6_End: 263
     - _Range_7: 1
-    - _Range_7_End: 329
+    - _Range_7_End: 330
     - _Range_8: 1
     - _Range_8_End: 340
     - _Range_9_End: 360

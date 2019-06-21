@@ -263,20 +263,20 @@ Material:
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
-    - _Range_1: 1
+    - _Range_1: 0
     - _Range_11_End: 0
     - _Range_1_End: 10
-    - _Range_2: 1
-    - _Range_2_End: 40
-    - _Range_3: 1
-    - _Range_3_End: 90
-    - _Range_4: 1
-    - _Range_4_End: 160
-    - _Range_5: 1
-    - _Range_5_End: 230
-    - _Range_6: 1
-    - _Range_6_End: 270
-    - _Range_7: 1
+    - _Range_2: 0
+    - _Range_2_End: 35
+    - _Range_3: 0
+    - _Range_3_End: 65
+    - _Range_4: 0
+    - _Range_4_End: 150
+    - _Range_5: 0
+    - _Range_5_End: 205
+    - _Range_6: 0
+    - _Range_6_End: 263
+    - _Range_7: 0
     - _Range_7_End: 330
     - _Range_8: 1
     - _Range_8_End: 360

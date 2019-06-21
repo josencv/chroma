@@ -7,8 +7,6 @@ void HueSaturationFilter_float(
     float Amount,
     float LowerLimit,
     float UpperLimit,
-    float MinFade,
-    float MaxFade,
     out float4 Output,
     out float HueOut,
     out float3 PlayerPosOut,
@@ -29,10 +27,12 @@ void HueSaturationFilter_float(
         LowerLimit /= 360.0;
         UpperLimit /= 360.0;
 
-        float limitMean = (UpperLimit + LowerLimit) * 0.5;
-        float difference = abs(Hue - limitMean);
+        float difference = (UpperLimit - LowerLimit) * 1.25;
 
-        float hueMask = smoothstep(MinFade, MaxFade, difference) + Amount;
+        float limitMean = (UpperLimit + LowerLimit) * 0.5;
+        float absDistance = abs(Hue - limitMean);
+
+        float hueMask = smoothstep(min(0.035, difference), difference, absDistance) + Amount;
 
         hueMask = clamp(hueMask, 0.0, 1.0);
 

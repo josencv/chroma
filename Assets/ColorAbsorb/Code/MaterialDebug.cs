@@ -68,8 +68,8 @@ public class MaterialDebug : MonoBehaviour
     [SerializeField] public Color violetRangeEndColor = new Color(1, 1, 1, 1);
     [Range(0f, 1f), SerializeField] public float violetSaturation = 1f;
 
-    [Range(0F, 1f), SerializeField] public float width = 0.061f;
-    [Range(0F, 1f), SerializeField] public float smooth = 0.13f;
+    //[Range(0F, 1f), SerializeField] public float width = 0.061f;
+    //[Range(0F, 1f), SerializeField] public float smooth = 0.13f;
 
     public string shaderName = string.Empty;
 
@@ -79,7 +79,7 @@ public class MaterialDebug : MonoBehaviour
     {
         if(!mat)
         {
-            meshRenderer = this.GetComponent<MeshRenderer>();
+            meshRenderer = GetComponent<MeshRenderer>();
             mat = meshRenderer.sharedMaterial;
         }
 
@@ -90,8 +90,8 @@ public class MaterialDebug : MonoBehaviour
 
         mat.SetTexture("_MainTex", MainTex);
 
-        mat.SetFloat("_MinFade", width);
-        mat.SetFloat("_MaxFade", smooth);
+        //mat.SetFloat("_MinFade", width);
+        //mat.SetFloat("_MaxFade", smooth);
 
         SetAllSaturation();
         SetAllColorsFromRange();
@@ -224,12 +224,12 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
         mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
 
-        width = 0.061f;
-        smooth = 0.231f;
+        //width = 0.061f;
+        //smooth = 0.231f;
 
 
-        mat.SetFloat("_MinFade", width);
-        mat.SetFloat("_MaxFade", smooth);
+        //mat.SetFloat("_MinFade", width);
+        //mat.SetFloat("_MaxFade", smooth);
 
         SetAllColorsFromRange();
     }
