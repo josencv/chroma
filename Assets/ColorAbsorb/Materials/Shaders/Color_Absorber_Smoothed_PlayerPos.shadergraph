@@ -10,7 +10,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.ColorShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Name\": \"Base Map\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"43a3f699-38ac-4dee-959a-7dffc11ffafa\"\n    },\n    \"m_DefaultReferenceName\": \"Color_F1A4647\",\n    \"m_OverrideReferenceName\": \"_Color\",\n    \"m_Value\": {\n        \"r\": 0.3323690891265869,\n        \"g\": 0.5625016689300537,\n        \"b\": 0.9150943160057068,\n        \"a\": 1.0\n    },\n    \"m_ColorMode\": 0,\n    \"m_Hidden\": false\n}"
+            "JSONnodeData": "{\n    \"m_Name\": \"Base Map\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"43a3f699-38ac-4dee-959a-7dffc11ffafa\"\n    },\n    \"m_DefaultReferenceName\": \"Color_F1A4647\",\n    \"m_OverrideReferenceName\": \"_Color\",\n    \"m_Value\": {\n        \"r\": 1.0,\n        \"g\": 1.0,\n        \"b\": 1.0,\n        \"a\": 1.0\n    },\n    \"m_ColorMode\": 0,\n    \"m_Hidden\": false\n}"
         },
         {
             "typeInfo": {
@@ -843,5 +843,5 @@
             "m_Guid": "0000000000000000e000000000000000"
         }
     },
-    "m_Path": "Shader Graphs"
+    "m_Path": "Chroma"
 }
