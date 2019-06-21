@@ -32,7 +32,7 @@ void HueSaturationFilter_float(
         float limitMean = (UpperLimit + LowerLimit) * 0.5;
         float difference = abs(Hue - limitMean);
 
-        float hueMask = smoothstep(MinFade * Amount, MaxFade, difference) + Amount;
+        float hueMask = smoothstep(MinFade, MaxFade, difference) + Amount;
 
         hueMask = clamp(hueMask, 0.0, 1.0);
 

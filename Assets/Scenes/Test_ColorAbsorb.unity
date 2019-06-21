@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1512.4044, g: 2142.6382, b: 3417.7368, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1009,7 +1009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24046
+  m_Name: pb_Mesh57746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2601,36 +2601,36 @@ MonoBehaviour:
   meshRenderer: {fileID: 1938115682}
   mat: {fileID: 2100000, guid: e146df069cd1fc644844f26c15181232, type: 2}
   MainTex: {fileID: 2800000, guid: c6c9258d3dfa9fb418c21ab3594a7e28, type: 3}
-  redEnabled: 1
-  redRangeEnd: 5
-  redRangeEndColor: {r: 1, g: 0.083333336, b: 0, a: 1}
-  redSaturation: 1
+  redEnabled: 0
+  redRangeEnd: 23
+  redRangeEndColor: {r: 1, g: 0.38333336, b: 0, a: 1}
+  redSaturation: 0
   orangeEnabled: 1
-  orangeRangeEnd: 50
-  orangeRangeEndColor: {r: 1, g: 0.8333334, b: 0, a: 1}
+  orangeRangeEnd: 45
+  orangeRangeEndColor: {r: 1, g: 0.75, b: 0, a: 1}
   orangeSaturation: 1
   yellowEnabled: 1
-  yellowRangeEnd: 63
-  yellowRangeEndColor: {r: 0.95000005, g: 1, b: 0, a: 1}
+  yellowRangeEnd: 75
+  yellowRangeEndColor: {r: 0.75, g: 1, b: 0, a: 1}
   yellowSaturation: 1
   greenEnabled: 1
-  greenRangeEnd: 147
-  greenRangeEndColor: {r: 0, g: 1, b: 0.45000005, a: 1}
+  greenRangeEnd: 150
+  greenRangeEndColor: {r: 0, g: 1, b: 0.5, a: 1}
   greenSaturation: 1
   lightBlueEnabled: 1
-  lightBlueRangeEnd: 207
-  lightBlueRangeEndColor: {r: 0, g: 0.5500002, b: 1, a: 1}
+  lightBlueRangeEnd: 205
+  lightBlueRangeEndColor: {r: 0, g: 0.5833335, b: 1, a: 1}
   lightBlueSaturation: 1
   blueEnabled: 1
-  blueRangeEnd: 260
-  blueRangeEndColor: {r: 0.33333302, g: 0, b: 1, a: 1}
+  blueRangeEnd: 263
+  blueRangeEndColor: {r: 0.3833332, g: 0, b: 1, a: 1}
   blueSaturation: 1
   violetEnabled: 1
   violetRangeEnd: 330
   violetRangeEndColor: {r: 1, g: 0, b: 0.5, a: 1}
   violetSaturation: 1
   width: 0.061
-  smooth: 0.13
+  smooth: 0.231
   shaderName: Shader Graphs/Color_Absorber_Smoothed
 --- !u!4 &2008804106 stripped
 Transform:

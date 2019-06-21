@@ -208,12 +208,12 @@ public class MaterialDebug : MonoBehaviour
     [ContextMenu("Set Defaults")]
     public void SetDefualts()
     {
-        redRangeEnd = 10;
-        orangeRangeEnd = 40;
-        yellowRangeEnd = 90;
-        greenRangeEnd = 160;
-        lightBlueRangeEnd = 230;
-        blueRangeEnd = 270;
+        redRangeEnd = 23;
+        orangeRangeEnd = 45;
+        yellowRangeEnd = 75;
+        greenRangeEnd = 150;
+        lightBlueRangeEnd = 205;
+        blueRangeEnd = 263;
         violetRangeEnd = 330;
 
         mat.SetFloat(RED_RANGE_END, redRangeEnd);
@@ -225,7 +225,7 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
 
         width = 0.061f;
-        smooth = 0.13f;
+        smooth = 0.231f;
 
 
         mat.SetFloat("_MinFade", width);

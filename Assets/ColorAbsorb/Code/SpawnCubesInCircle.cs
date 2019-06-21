@@ -1,36 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Chroma.Infrastructure.Input;
 
 public class SpawnCubesInCircle : MonoBehaviour
 {
-    public GameObject prefab;
-    public Transform player;
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private Transform player;
 
-    [Range(0.0001f, 100f)] public float radius = 20f;
-    public float speed = 10f;
+    [SerializeField] private float radialGrowthSpeed = 20f;
+    private float radius = 5f;
 
+    [SerializeField] private int cubeDensity = 6;
+    [SerializeField] private int totalLevels = 60;
+    private float angle = 360f;
+    private float step;
 
-    public int numObjects = 10;
-    public int numCircles = 20;
-    float angle = 360;
-    float step;
+    public MaterialDebug materialDebug;
 
-    void Start()
+    private void Start()
     {
-        for(int i = 1; i <= numCircles; i++)
+        LogInstuction(GameInputButton.B, "Red");
+        LogInstuction(GameInputButton.DPadUp, "Orange --Not Working");
+        LogInstuction(GameInputButton.Y, "Yellow");
+        LogInstuction(GameInputButton.A, "Green");
+        LogInstuction(GameInputButton.L1, "Cyan");
+        LogInstuction(GameInputButton.X, "Blue");
+        LogInstuction(GameInputButton.R1, "Purple");
+        StartCoroutine(SpawnCubes());
+    }
+
+
+    private IEnumerator SpawnCubes()
+    {
+        for(int i = 1; i <= totalLevels; i++)
         {
             Vector3 center = transform.position;
-            step = angle / (numObjects * i);
+            step = angle / (cubeDensity * i);
             angle = 0;
 
-            for(int j = 0; j < numObjects * i; j++)
+            int count = 0;
+            for(int j = 0; j < cubeDensity * i; j++)
             {
+                count++;
                 Vector3 pos = RandomCircle(center, 1.5f * i, angle);
-                Quaternion rot = Quaternion.identity;// Quaternion.FromToRotation(Vector3.up, center - pos);
-                Instantiate(prefab, pos, rot);
+                Quaternion rot =  Quaternion.FromToRotation(Vector3.up, center - pos);
+                Instantiate(prefab, pos, rot, transform);
                 angle += step;
+
+                if(count > 100)
+                {
+                    count = 0;
+                    yield return new WaitForEndOfFrame();
+                }
             }
+
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -46,17 +71,61 @@ public class SpawnCubesInCircle : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.R))
+        //GameInputButtonState didClickR1 = InputManager.CurrentGameInput.GetButtonState(GameInputButton.R1);
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R2) == GameInputButtonState.Pressed)
         {
-            radius += speed * Time.deltaTime;
+            radius += radialGrowthSpeed * Time.deltaTime;
         }
-        if(Input.GetKey(KeyCode.S))
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L2) == GameInputButtonState.Pressed)
         {
-            radius -= speed * Time.deltaTime;
+            radius -= radialGrowthSpeed * Time.deltaTime;
         }
+
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.B) == GameInputButtonState.Down)
+        {
+
+            materialDebug.Toggle_Red();
+        }
+
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.DPadUp) == GameInputButtonState.Down)
+        {
+            materialDebug.Toggle_Orange();
+        }
+
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.Y) == GameInputButtonState.Down)
+        {
+            materialDebug.Toggle_Yellow();
+        }
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
+        {
+            materialDebug.Toggle_Green();
+        }
+
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L1) == GameInputButtonState.Down)
+        {
+            materialDebug.Toggle_LightBlue();
+        }
+
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
+        {
+            materialDebug.Toggle_Blue();
+        }
+        
+        if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R1) == GameInputButtonState.Down)
+        {
+            materialDebug.Toggle_Violet();
+        }
+
+
         radius = Mathf.Clamp(radius, 0.0001f, 100f);
 
         Shader.SetGlobalFloat("_Range", radius);
         Shader.SetGlobalVector("_PlayerPos", player.position);
     }
+
+    private void LogInstuction(GameInputButton button, string color)
+    {
+        Debug.Log($"Press <b>{button}</b> for <b><color={color}>{color}</color></b>");
+    }
+
 }
