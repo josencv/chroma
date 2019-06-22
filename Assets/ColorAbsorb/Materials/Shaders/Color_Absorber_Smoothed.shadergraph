@@ -16,7 +16,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Name\": \"Range_Begin\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"e77dd3ed-f0a6-47bc-bba4-0d34dfbf0e0a\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_BD208425\",\n    \"m_OverrideReferenceName\": \"_Range_Begin\",\n    \"m_Value\": 0.0010000000474974514,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    },\n    \"m_Hidden\": false\n}"
+            "JSONnodeData": "{\n    \"m_Name\": \"Range_Begin\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"e77dd3ed-f0a6-47bc-bba4-0d34dfbf0e0a\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_BD208425\",\n    \"m_OverrideReferenceName\": \"_Range_Begin\",\n    \"m_Value\": -0.10000000149011612,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    },\n    \"m_Hidden\": false\n}"
         },
         {
             "typeInfo": {

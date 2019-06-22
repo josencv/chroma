@@ -104,9 +104,9 @@ public class MaterialDebug_Editor : Editor
         DoRange("Blue", wholeStyle, ref _blueRangeEnd, ref _materialDebug.blueRangeEndColor, ref _materialDebug.blueEnabled, ref _blueSaturation, _materialDebug.Toggle_Blue);
         DoRange("Violet", wholeStyle, ref _violetRangeEnd, ref _materialDebug.violetRangeEndColor, ref _materialDebug.violetEnabled, ref _violetSaturation, _materialDebug.Toggle_Violet);
 
-        if(GUILayout.Button("Set Defualts"))
+        if(GUILayout.Button("Set Defaults"))
         {
-            _materialDebug.SetDefualts();
+            _materialDebug.SetDefaults();
         }
 
         serializedObject.ApplyModifiedProperties();

@@ -77,6 +77,7 @@ public class MaterialDebug : MonoBehaviour
 
     public void OnValidate()
     {
+            meshRenderer = GetComponent<MeshRenderer>();
         if(!mat)
         {
             meshRenderer = GetComponent<MeshRenderer>();
@@ -206,11 +207,11 @@ public class MaterialDebug : MonoBehaviour
 
     #region Debug
     [ContextMenu("Set Defaults")]
-    public void SetDefualts()
+    public void SetDefaults()
     {
-        redRangeEnd = 23;
-        orangeRangeEnd = 45;
-        yellowRangeEnd = 75;
+        redRangeEnd = 2;
+        orangeRangeEnd = 35;
+        yellowRangeEnd = 70;
         greenRangeEnd = 150;
         lightBlueRangeEnd = 205;
         blueRangeEnd = 263;
@@ -224,6 +225,15 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
         mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
 
+        mat.SetFloat(RED, 1);
+        mat.SetFloat(ORANGE, 1);
+        mat.SetFloat(YELLOW, 1);
+        mat.SetFloat(GREEN, 1);
+        mat.SetFloat(LIGHTBLUE, 1);
+        mat.SetFloat(BLUE, 1);
+        mat.SetFloat(VIOLET, 1);
+
+        redEnabled = orangeEnabled = yellowEnabled = greenEnabled = lightBlueEnabled = blueEnabled = violetEnabled = true;
         //width = 0.061f;
         //smooth = 0.231f;
 

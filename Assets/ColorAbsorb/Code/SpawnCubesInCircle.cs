@@ -10,7 +10,7 @@ namespace Chroma.Tests
 
         [Header("Scene Obejcts")]
         [SerializeField] private Transform player;
-        [SerializeField] private MaterialDebug materialDebug;
+        [SerializeField] private MaterialDebug[] materialDebugs;
 
         [Header("Configure Spawned Cubes")]
         [SerializeField] private GameObject prefab;
@@ -28,6 +28,7 @@ namespace Chroma.Tests
 
         private void Start()
         {
+            //materialDebugs = FindObjectsOfType<MaterialDebug>();
             LogInstuction(GameInputButton.B, "Red");
             LogInstuction(GameInputButton.DPadUp, "Orange");
             LogInstuction(GameInputButton.Y, "Yellow");
@@ -111,36 +112,57 @@ namespace Chroma.Tests
         {
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.B) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_Red();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_Red();
+                }
             }
 
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.DPadUp) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_Orange();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_Orange();
+                }
             }
 
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.Y) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_Yellow();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_Yellow();
+                }
             }
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_Green();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_Green();
+                }
             }
 
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L1) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_LightBlue();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_LightBlue();
+                }
             }
 
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_Blue();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_Blue();
+                }
             }
 
             if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R1) == GameInputButtonState.Down)
             {
-                materialDebug.Toggle_Violet();
+                for(int i = 0; i < materialDebugs.Length; i++)
+                {
+                    materialDebugs[i].Toggle_Violet();
+                }
             }
         }
 
