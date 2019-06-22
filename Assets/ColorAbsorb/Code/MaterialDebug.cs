@@ -210,8 +210,8 @@ public class MaterialDebug : MonoBehaviour
     public void SetDefaults()
     {
         redRangeEnd = 2;
-        orangeRangeEnd = 35;
-        yellowRangeEnd = 70;
+        orangeRangeEnd = 30;
+        yellowRangeEnd = 75;
         greenRangeEnd = 150;
         lightBlueRangeEnd = 205;
         blueRangeEnd = 263;

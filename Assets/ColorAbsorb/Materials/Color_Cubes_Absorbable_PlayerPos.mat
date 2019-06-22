@@ -210,11 +210,11 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Range_1: 1
     - _Range_11_End: 0
-    - _Range_1_End: 10
+    - _Range_1_End: 2
     - _Range_2: 1
-    - _Range_2_End: 35
+    - _Range_2_End: 30
     - _Range_3: 1
-    - _Range_3_End: 70
+    - _Range_3_End: 75
     - _Range_4: 1
     - _Range_4_End: 150
     - _Range_5: 1

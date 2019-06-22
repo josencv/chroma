@@ -94,20 +94,20 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: e50282f836ae83d4589a7fb7b0272a54, type: 2}
   MainTex: {fileID: 2800000, guid: 6b154072dced6f349b9d539eb9bc382b, type: 3}
   redEnabled: 1
-  redRangeEnd: 10
-  redRangeEndColor: {r: 1, g: 0.16666667, b: 0, a: 1}
+  redRangeEnd: 2
+  redRangeEndColor: {r: 1, g: 0.033333335, b: 0, a: 1}
   redSaturation: 1
   orangeEnabled: 1
-  orangeRangeEnd: 35
-  orangeRangeEndColor: {r: 1, g: 0.5833334, b: 0, a: 1}
+  orangeRangeEnd: 30
+  orangeRangeEndColor: {r: 1, g: 0.5, b: 0, a: 1}
   orangeSaturation: 1
   yellowEnabled: 1
-  yellowRangeEnd: 70
-  yellowRangeEndColor: {r: 0.83333325, g: 1, b: 0, a: 1}
+  yellowRangeEnd: 75
+  yellowRangeEndColor: {r: 0.75, g: 1, b: 0, a: 1}
   yellowSaturation: 1
   greenEnabled: 1
-  greenRangeEnd: 150
-  greenRangeEndColor: {r: 0, g: 1, b: 0.5, a: 1}
+  greenRangeEnd: 165
+  greenRangeEndColor: {r: 0, g: 1, b: 0.75, a: 1}
   greenSaturation: 1
   lightBlueEnabled: 1
   lightBlueRangeEnd: 205
