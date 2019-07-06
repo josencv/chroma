@@ -11,7 +11,7 @@ namespace Chroma.Components.Movement
         private const float minMovementInputThreshold = 0.15f;
 
         private CharacterController controller;
-        private CharacterControllerAnimation anim;
+        private CharacterControllerAnimation animator;
         private new UnityEngine.Camera camera;
         private Vector3 gravity;
 
@@ -22,7 +22,7 @@ namespace Chroma.Components.Movement
             gravity = Physics.gravity;
             camera = UnityEngine.Camera.main;
             controller = GetComponent<CharacterController>();
-            anim = GetComponent<CharacterControllerAnimation>();
+            animator = GetComponent<CharacterControllerAnimation>();
         }
 
         private void Update()
@@ -55,7 +55,11 @@ namespace Chroma.Components.Movement
         {
             float value = new Vector2(x, z).magnitude;
 
-            anim.Animate("speed", value);
+            // JIN: I'm adding a null check for now. We can later decide if the animator should be a required component
+            if(animator != null)
+            {
+                animator.Animate("speed", value);
+            }
         }
 
         public void Stop()
