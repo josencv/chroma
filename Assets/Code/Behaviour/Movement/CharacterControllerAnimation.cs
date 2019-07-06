@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Chroma.Components.Movement
 {
-    [RequireComponent(typeof(CharacterController), typeof(CharacterControllerMovement))]
+    [RequireComponent(typeof(CharacterController), typeof(CharacterControllerMovement), typeof(Animator))]
     public class CharacterControllerAnimation : MonoBehaviour
     {
         private Animator anim;
