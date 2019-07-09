@@ -44,7 +44,7 @@ namespace Chroma.Infrastructure.Input {
             {
                 Debug.Log("Changing to XBox Controller");
                 CurrentGameInput.CleanState();
-                CurrentGameInput = new XboxGameInput(PlayerInputNumber.Player2, XboxController.First);  // TODO: resolve with DI
+                CurrentGameInput = new XboxGameInput(PlayerInputNumber.Player2, XboxController.First);
                 currentInputType = InputType.Xbox;
                 InputChange?.Invoke(CurrentGameInput);
             }

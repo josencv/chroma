@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Chroma.Components.Movement
 {
     [RequireComponent(typeof(CharacterController), typeof(CharacterControllerMovement), typeof(Animator))]
     public class CharacterControllerAnimation : MonoBehaviour
     {
-        private Animator anim;
+        private Animator animator;
 
-        private void Awake()
+        [Inject]
+        private void Inject(Animator animator)
         {
-            anim = GetComponent<Animator>();
+            this.animator = animator;
         }
 
         public void Animate(string parameter, float amount)
         {
-            anim.SetFloat(parameter, amount);
+            animator.SetFloat(parameter, amount);
         }
     }
 }

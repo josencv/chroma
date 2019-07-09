@@ -1,15 +1,17 @@
 ﻿using Chroma.Infrastructure.Input;
-using Chroma.Infrastructure.Unity;
+using UnityEngine;
+using Zenject;
 
 namespace Chroma.Assets.Code.Game
 {
-    public class GameLoop : MonoBehaviourExtension
+    public class GameLoop : MonoBehaviour
     {
         private InputManager inputManager;
 
-        private void Awake()
+        [Inject]
+        private void Inject(InputManager inputManager)
         {
-            inputManager = new InputManager();
+            this.inputManager = inputManager;
         }
 
         private void Update()
