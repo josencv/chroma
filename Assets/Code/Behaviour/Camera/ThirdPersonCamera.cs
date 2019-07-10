@@ -1,15 +1,15 @@
 ﻿using System;
 using Chroma.Game.Containers;
 using Chroma.Infrastructure.Input;
-using Chroma.Infrastructure.Unity;
 using UnityEngine;
+using Zenject;
 
 namespace Chroma.Components.Camera
 {
     /// <summary>
     /// Meant to be attached to the pivot of the camera arm.
     /// </summary>
-    public class ThirdPersonCamera : MonoBehaviourExtension
+    public class ThirdPersonCamera : MonoBehaviour
     {
         private const float minHorizontalTurnSpeed = 50;
         private const float maxHorizontalTurnSpeed = 150;
@@ -19,8 +19,9 @@ namespace Chroma.Components.Camera
         private const float minVerticalRotation = -20;
         private const float minInputThreshold = 0.15f;
 
+        private CharacterContainer characterContainer;
         private Transform pivot;
-        private new Transform camera;
+        private Transform cameraTransform;
         private float verticalPositionOffset;
 
         [SerializeField] private Transform target;  // The target followed by the camera
@@ -47,14 +48,20 @@ namespace Chroma.Components.Camera
         [Range(minVerticalTurnSpeed, maxVerticalTurnSpeed)]
         private float verticalTurnSpeed = 50;
 
+        [Inject]
+        private void Inject(UnityEngine.Camera camera, CharacterContainer characterContainer)
+        {
+            cameraTransform = camera.transform;
+            this.characterContainer = characterContainer;
+        }
+
         private void Awake()
         {
             pivot = transform;
-            camera = UnityEngine.Camera.main.transform;
 
             if(target == null)
             {
-                target = FindObjectOfType<CharacterContainer>().GetComponent<Transform>();
+                target = characterContainer.GetComponent<Transform>();
             }
         }
 
@@ -126,7 +133,7 @@ namespace Chroma.Components.Camera
         private void AdjustDistanceToTarget()
         {
             float distance = minDistanceToTarget + (verticalRotation) / 10.0f * distanceToTargetFactor;
-            camera.transform.localPosition = new Vector3(camera.transform.localPosition.x, camera.transform.localPosition.y, -distance);
+            cameraTransform.transform.localPosition = new Vector3(cameraTransform.transform.localPosition.x, cameraTransform.transform.localPosition.y, -distance);
         }
 
         private void AdjustVerticalPositionOffset()

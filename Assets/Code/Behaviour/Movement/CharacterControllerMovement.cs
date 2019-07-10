@@ -1,12 +1,12 @@
 ﻿using Chroma.Infrastructure.Input;
-using Chroma.Infrastructure.Unity;
 using Chroma.Utility;
 using UnityEngine;
+using Zenject;
 
 namespace Chroma.Components.Movement
 {
     [RequireComponent(typeof(CharacterController))]
-    public class CharacterControllerMovement : MonoBehaviourExtension
+    public class CharacterControllerMovement : MonoBehaviour
     {
         private const float minMovementInputThreshold = 0.15f;
 
@@ -17,12 +17,20 @@ namespace Chroma.Components.Movement
 
         [SerializeField] private float speed = 3;
 
+        [Inject]
+        private void Inject(
+            UnityEngine.Camera camera,
+            CharacterController controller,
+            [InjectOptional] CharacterControllerAnimation animator)
+        {
+            this.camera = camera;
+            this.controller = controller;
+            this.animator = animator;
+        }
+
         private void Awake()
         {
             gravity = Physics.gravity;
-            camera = UnityEngine.Camera.main;
-            controller = GetComponent<CharacterController>();
-            animator = GetComponent<CharacterControllerAnimation>();
         }
 
         private void Update()
