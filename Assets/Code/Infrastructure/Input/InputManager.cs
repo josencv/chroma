@@ -9,7 +9,8 @@ namespace Chroma.Infrastructure.Input {
     /// Input manager service that manages all input received and maps
     /// to the correct action, depending on the game context or state.
     /// </summary>
-    public class InputManager {
+    public class InputManager
+    {
         public event InputChangeEventHandler InputChange;
 
         private InputType currentInputType;
