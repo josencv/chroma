@@ -28,6 +28,7 @@ namespace Chroma.Game.MenuScreens
         public void OnPlayButtonPressed()
         {
             gameManager.StartGame();
+            gameObject.SetActive(false);
         }
 
         public void OnQuitButtonPressed()
