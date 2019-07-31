@@ -1,15 +1,10 @@
 {
   "dependencies": {
-    "com.unity.burst": "1.0.4",
-    "com.unity.collections": "0.0.9-preview.20",
-    "com.unity.entities": "0.0.12-preview.33",
-    "com.unity.jobs": "0.0.7-preview.13",
-    "com.unity.mathematics": "1.0.1",
     "com.unity.memoryprofiler": "0.1.0-preview.6",
     "com.unity.package-manager-ui": "2.1.2",
-    "com.unity.performance.profile-analyzer": "0.4.0-preview.5",
-    "com.unity.polybrush": "1.0.0-preview.17",
-    "com.unity.probuilder": "4.0.5",
+    "com.unity.performance.profile-analyzer": "0.4.0-preview.6",
+    "com.unity.polybrush": "1.0.0",
+    "com.unity.probuilder": "4.1.0",
     "com.unity.progrids": "3.0.3-preview.4",
     "com.unity.render-pipelines.high-definition": "5.16.1-preview",
     "com.unity.terrain-tools": "1.1.4-preview",
