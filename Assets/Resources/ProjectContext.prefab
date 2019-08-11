@@ -76,7 +76,7 @@ MonoBehaviour:
   settings:
     GameLoopPrefab: {fileID: 5232534478458851027, guid: e14e51ba73d67034ba558e6007bd7129,
       type: 3}
-    levelLoaderPrefab: {fileID: 8336495925944573139, guid: 7b9f7335e1387d042a817037e514a12e,
+    LevelLoaderPrefab: {fileID: 8336495925944573139, guid: 7b9f7335e1387d042a817037e514a12e,
       type: 3}
     LoadingScreenPrefab: {fileID: -6983498868447099931, guid: 47f59302bd28ace4384702e3fc4aef2d,
       type: 3}
