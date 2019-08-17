@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 477984621266097257}
   - component: {fileID: 477984621266097256}
   - component: {fileID: 477984621266097259}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4888816506479106470}
+  - {fileID: 9200526099814533307}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67,6 +68,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5717d03dbb6926e47a03af72d77eea6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3124038501929508148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9200526099814533307}
+  - component: {fileID: 4288378338240545881}
+  m_Layer: 10
+  m_Name: Eyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9200526099814533307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124038501929508148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.95, z: 0.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477984621266097257}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4288378338240545881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124038501929508148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8c7921334402544995271c5ca14e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightDistance: 15
 --- !u!1001 &477984622921740988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,6 +123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cube_enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1d34c3f079b978f479e8c51d15f15994,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1d34c3f079b978f479e8c51d15f15994,
         type: 3}
