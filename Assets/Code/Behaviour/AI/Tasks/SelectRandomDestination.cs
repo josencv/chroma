@@ -34,20 +34,13 @@ namespace Chroma.Behaviour.AI.Tasks
             Initialize();
 
             // Note: because getting the nearest point to the nav mesh can fail, we try
-            // to select random point until the max retries amount has been reached.
+            // to select a random point until the max retries amount has been reached.
             while(!TrySelectRandomPoint() && failedTries < MaxRetries)
             {
                 failedTries++;
             }
 
-            if(failedTries < MaxRetries)
-            {
-                Stopped(true);
-            }
-            else
-            {
-                Stopped(false);
-            }
+            Stopped(failedTries < MaxRetries);
         }
 
         /// <summary>
@@ -69,10 +62,8 @@ namespace Chroma.Behaviour.AI.Tasks
                 Blackboard.Set(destinationVarname, hit.position);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         protected override void DoStop()

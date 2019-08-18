@@ -24,7 +24,7 @@ namespace Chroma.Behaviour.AI.Tasks
 
         /// <summary>
         /// A base number used to define the max distance checks, depending of the check interval.
-        /// The idea behind of this variable is to keep a number of maximum failed checks tha is
+        /// The idea behind of this variable is to keep a number of maximum failed checks that is
         /// inversely proportional to the step check interval
         /// </summary>
         private const int MaxDistanceChecksBase = 30;
@@ -77,6 +77,7 @@ namespace Chroma.Behaviour.AI.Tasks
             if(sqrDistance < SqrMinDistanceThreshold)
             {
                 CleanAndStop(true);
+                return;
             }
 
             if(hasDistanceImproved)

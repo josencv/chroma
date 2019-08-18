@@ -43,7 +43,6 @@ namespace Chroma.Behaviour.AI.Components
             {
                 RaycastHit hit;
                 Ray ray = new Ray(transform.position, vectorInBetween);
-                Debug.DrawRay(transform.position, vectorInBetween, Color.red);
 
                 // TODO: add a layer mask to check only the relevant layers
                 if(Physics.Raycast(ray, out hit, sightDistance) && hit.collider.tag == Tags.Player)
@@ -57,8 +56,6 @@ namespace Chroma.Behaviour.AI.Components
 
         private bool IsTargetInFieldOfVision(Vector3 vectorInBetween)
         {
-            Debug.Log("Is the player in sight distance: " + (vectorInBetween.sqrMagnitude <= sqrSightDistance));
-            Debug.Log("Is the player in fov angle: " + (Vector3.Angle(transform.forward, vectorInBetween) <= fovAngle));
             return vectorInBetween.sqrMagnitude <= sqrSightDistance &&
                 Vector3.Angle(transform.forward, vectorInBetween) <= fovAngle;
         }
