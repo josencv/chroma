@@ -1,6 +1,8 @@
-﻿using Chroma.Components.Movement;
+﻿using Chroma.Behaviour.AI.Components;
+using Chroma.Components.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 namespace Chroma.Game.Configuration
@@ -23,6 +25,10 @@ namespace Chroma.Game.Configuration
             Container.Bind<CharacterController>().FromComponentSibling();
             Container.Bind<Animator>().FromComponentSibling();
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
+
+            // AI related
+            Container.Bind<NavMeshAgent>().FromComponentSibling();
+            Container.Bind<Eyes>().FromComponentInChildren();
         }
 
         public class Settings
