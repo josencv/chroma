@@ -12,7 +12,7 @@ namespace Chroma.Assets.Code.Behaviour.AI
     public class EnemyBasicAI : MonoBehaviour
     {
         private const string randomDestinationVarname = "randomDestination";
-        private const string pursuingEnemyVarname = "pursuingEnemy";
+        private const string chasingEnemyVarname = "chasingEnemy";
         private const string enemyLastSeenPosVarname = "enemyLastSeenPos";
 
         private NavMeshAgent agent;
@@ -53,14 +53,14 @@ namespace Chroma.Assets.Code.Behaviour.AI
             var wait = new Wait(5, 2.5f);   // Wait 5s with a variance of 2.5s
             var wanderST = new Sequence(selectDestination, moveTo, wait);
 
-            var pursuitPlayer = new MoveTo(agent, enemyLastSeenPosVarname);
+            var chasePlayer = new MoveTo(agent, enemyLastSeenPosVarname);
             var attack = new Wait(1.0f);    // Not really attacking
-            var stopPursuing = new Action(() => behaviorTree.Blackboard.Set(pursuingEnemyVarname, false));
-            var pursuitEnemyST = new Sequence(pursuitPlayer, attack, stopPursuing);
-            var isEnemyInSight = new BlackboardCondition(pursuingEnemyVarname, Operator.IS_EQUAL, true, Stops.IMMEDIATE_RESTART, pursuitEnemyST);
+            var stopChasing = new Action(() => behaviorTree.Blackboard.Set(chasingEnemyVarname, false));
+            var chaseEnemyST = new Sequence(chasePlayer, attack, stopChasing);
+            var isEnemyInSight = new BlackboardCondition(chasingEnemyVarname, Operator.IS_EQUAL, true, Stops.IMMEDIATE_RESTART, chaseEnemyST);
 
             var rootSelector = new Selector(isEnemyInSight, wanderST);
-            var rootChild = new IsEnemyOnSight(eyes, character, 0.1f, pursuingEnemyVarname, enemyLastSeenPosVarname, rootSelector);
+            var rootChild = new IsEnemyOnSight(eyes, character, 0.1f, chasingEnemyVarname, enemyLastSeenPosVarname, rootSelector);
             behaviorTree = new Root(rootChild);
         }
 
