@@ -20,7 +20,7 @@ namespace Chroma.Behaviour.AI.Tasks
         /// <summary>
         /// The frequency (interval in seconds) the script checks if the agent reached its destination
         /// </summary>
-        private const float StepCheckInterval = 0.3f;
+        private const float StepCheckInterval = 0.1f;
 
         /// <summary>
         /// A base number used to define the max distance checks, depending of the check interval.
@@ -40,7 +40,7 @@ namespace Chroma.Behaviour.AI.Tasks
         private float lastSqrDistance;
         private int failedChecks;
 
-        public MoveTo(string destinationVarname, NavMeshAgent agent) : base("MoveTo")
+        public MoveTo(NavMeshAgent agent, string destinationVarname) : base("MoveTo")
         {
             this.destinationVarname = destinationVarname;
             this.agent = agent;
@@ -48,7 +48,7 @@ namespace Chroma.Behaviour.AI.Tasks
             failedChecks = 0;
         }
 
-        private void Initialize()
+        private void Reset()
         {
             lastSqrDistance = float.MaxValue;
             failedChecks = 0;
@@ -56,9 +56,8 @@ namespace Chroma.Behaviour.AI.Tasks
 
         protected override void DoStart()
         {
-            Initialize();
-            Vector3 destination = Blackboard.Get<Vector3>(destinationVarname);
-            agent.destination = destination;
+            Reset();
+            Clock.AddTimer(StepCheckInterval, -1, CheckIfDestinationWasReached);
             CheckIfDestinationWasReached();
         }
 
@@ -69,8 +68,14 @@ namespace Chroma.Behaviour.AI.Tasks
 
         private void CheckIfDestinationWasReached()
         {
-            // TODO: wait for a fix to the timer with repetitions problem: https://github.com/meniku/NPBehave/issues/20
-            Clock.AddTimer(StepCheckInterval, 0, 0, CheckIfDestinationWasReached);
+            // Update agent destination before doing calculations
+            Vector3 newDestination = Blackboard.Get<Vector3>(destinationVarname);
+            if(agent.destination != newDestination)
+            {
+                Reset();
+                agent.destination = Blackboard.Get<Vector3>(destinationVarname);
+            }
+
             float sqrDistance = Vector3.SqrMagnitude(agent.destination - agent.transform.position);
             bool hasDistanceImproved = lastSqrDistance - sqrDistance > 0;
 

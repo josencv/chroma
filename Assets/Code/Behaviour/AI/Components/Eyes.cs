@@ -26,13 +26,10 @@ namespace Chroma.Behaviour.AI.Components
             sqrSightDistance = sightDistance * sightDistance;
         }
 
-
-#if UNITY_EDITOR
-        private void Update()
+        private void OnDrawGizmos()
         {
             Debug.DrawRay(transform.position, transform.forward * sightDistance, Color.red);
         }
-#endif
 
         public bool IsTargetOnSight()
         {
@@ -41,6 +38,7 @@ namespace Chroma.Behaviour.AI.Components
             Vector3 vectorInBetween = (character.transform.position + Vector3.up * 0.5f) - transform.position;
             if(IsTargetInFieldOfVision(vectorInBetween))
             {
+                // Check if there are any obstacles between this object and the target
                 RaycastHit hit;
                 Ray ray = new Ray(transform.position, vectorInBetween);
 
