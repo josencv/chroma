@@ -24,6 +24,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<CharacterControllerMovement>().FromComponentSibling();
             Container.Bind<CharacterController>().FromComponentSibling();
             Container.Bind<Animator>().FromComponentSibling();
+            Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
 
             // AI related
