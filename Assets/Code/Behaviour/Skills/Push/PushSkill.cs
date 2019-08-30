@@ -45,6 +45,8 @@ namespace Chroma.Behaviour.Skills.Push
                 Pushable pushable = hit.collider.GetComponent<Pushable>();
                 Push(pushable);
             }
+
+            chargedAmount = 0;
         }
 
         private void Push(Pushable pushable)
@@ -52,7 +54,6 @@ namespace Chroma.Behaviour.Skills.Push
             Vector3 direction = transform.forward;
             Vector3 force = direction * Mathf.Min(chargedAmount, chargeMaxCap) * timeToForceCoefficient;
             pushable.GetPushed(force);
-            chargedAmount = 0;
         }
     }
 }
