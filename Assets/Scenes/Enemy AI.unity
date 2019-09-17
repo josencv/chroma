@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1614.2306, g: 2309.9792, b: 3707.4363, a: 1}
+  m_IndirectSpecularColor: {r: 1609.8351, g: 2304.1384, b: 3700.6965, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 1.5
+    agentRadius: 0.9
+    agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.6
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.29999998
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -30554,7 +30554,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22924
+  m_Name: pb_Mesh-20846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -81410,6 +81410,12 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[953].z
       value: 0.9816804
       objectReference: {fileID: 0}
+    - target: {fileID: 7173568081436683759, guid: 8cf791231b9ad284bb52883ba3601f6b,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: cdcc25973c6172d4e84dbff787bcb572,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cf791231b9ad284bb52883ba3601f6b, type: 3}
 --- !u!1001 &8329827864521543448
@@ -81494,5 +81500,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1238257694}
+    - target: {fileID: 8329827864480658946, guid: 234d4855b19a248448c1668ebc04f171,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: cdcc25973c6172d4e84dbff787bcb572,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 234d4855b19a248448c1668ebc04f171, type: 3}
