@@ -47,7 +47,7 @@ namespace Chroma.Behaviour.Skills.Push
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.gameObject.tag == Tags.Enemy)
+            if(collision.gameObject.tag == GameTag.Enemy)
             {
                 Health health = collision.gameObject.GetComponent<Health>();
                 if(health)

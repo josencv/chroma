@@ -40856,7 +40856,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1364
+  m_Name: pb_Mesh-1730
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -50500,6 +50500,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7173568082696287236}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1331841694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8036321510828342395, guid: e60a5d94d91858d47bdd583d026a9258,
+    type: 3}
+  m_PrefabInstance: {fileID: 1220946032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331841695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331841694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594635b4e8aded1418c52869fbc01b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1001 &1405206115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61955,7 +61974,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1318
+  m_Name: pb_Mesh-1642
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72181,6 +72200,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 890334240916120956, guid: 803d398fdb2cf674b86b917355e0ea38,
+        type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 790666759006331675, guid: 803d398fdb2cf674b86b917355e0ea38,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.4950844
+      objectReference: {fileID: 0}
+    - target: {fileID: 790666759006331675, guid: 803d398fdb2cf674b86b917355e0ea38,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000007844565
+      objectReference: {fileID: 0}
+    - target: {fileID: 790666759006331675, guid: 803d398fdb2cf674b86b917355e0ea38,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.77334684
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281669020244315520, guid: 803d398fdb2cf674b86b917355e0ea38,
+        type: 3}
+      propertyPath: attackDuration
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281669020244315520, guid: 803d398fdb2cf674b86b917355e0ea38,
+        type: 3}
+      propertyPath: range
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803d398fdb2cf674b86b917355e0ea38, type: 3}

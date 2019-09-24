@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Chroma.Behaviour.Body
 {
-
     public class Health : MonoBehaviour
     {
         public event Action Died;
