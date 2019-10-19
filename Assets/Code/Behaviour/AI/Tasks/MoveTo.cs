@@ -39,11 +39,13 @@ namespace Chroma.Behaviour.AI.Tasks
         private string destinationVarname;
         private float lastSqrDistance;
         private int failedChecks;
+        private float sqrRange;
 
-        public MoveTo(NavMeshAgent agent, string destinationVarname) : base("MoveTo")
+        public MoveTo(NavMeshAgent agent, string destinationVarname, float range = 0) : base("MoveTo")
         {
             this.destinationVarname = destinationVarname;
             this.agent = agent;
+            sqrRange = range * range;
             lastSqrDistance = float.MaxValue;
             failedChecks = 0;
         }
@@ -79,7 +81,7 @@ namespace Chroma.Behaviour.AI.Tasks
             float sqrDistance = Vector3.SqrMagnitude(agent.destination - agent.transform.position);
             bool hasDistanceImproved = lastSqrDistance - sqrDistance > 0;
 
-            if(sqrDistance < SqrMinDistanceThreshold)
+            if(sqrDistance < SqrMinDistanceThreshold + sqrRange)
             {
                 CleanAndStop(true);
                 return;
@@ -101,7 +103,13 @@ namespace Chroma.Behaviour.AI.Tasks
 
         private void CleanAndStop(bool result)
         {
-            agent.destination = agent.transform.position;
+            // We add this check because when the game is closed this method is
+            // called after the agent is disabled, which causes an error.
+            if(agent.isActiveAndEnabled)
+            {
+                agent.destination = agent.transform.position;
+            }
+
             Clock.RemoveTimer(CheckIfDestinationWasReached);
             Stopped(result);
         }

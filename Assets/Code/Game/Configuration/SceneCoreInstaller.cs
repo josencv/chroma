@@ -1,4 +1,5 @@
 ﻿using Chroma.Behaviour.AI.Components;
+using Chroma.Behaviour.Attack;
 using Chroma.Components.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
@@ -26,6 +27,8 @@ namespace Chroma.Game.Configuration
             Container.Bind<Animator>().FromComponentSibling();
             Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
+            Container.Bind<SimpleAttack>().FromComponentSibling();
+            Container.Bind<Collider>().FromComponentSibling();
 
             // AI related
             Container.Bind<NavMeshAgent>().FromComponentSibling();
