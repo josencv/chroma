@@ -60,6 +60,7 @@ namespace Chroma.Behaviour.Attack
             lastAttackTime = DateTime.Now;
         }
 
+        // Simulates and attack animation: waits for the attack duration and then finishes the attack
         private IEnumerator AttackAnimation()
         {
             yield return new WaitForSeconds(weapon.AttackDuration / 1000);

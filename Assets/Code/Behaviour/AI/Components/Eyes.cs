@@ -43,11 +43,13 @@ namespace Chroma.Behaviour.AI.Components
                 Ray ray = new Ray(transform.position, vectorInBetween);
 
                 // TODO: add a layer mask to check only the relevant layers
-                if(Physics.Raycast(ray, out hit, sightDistance) && hit.collider.tag == GameTag.Player)
+                GameLayers layerMask = GameLayers.Characters;
+                if(Physics.Raycast(ray, out hit, sightDistance, (int)layerMask) && hit.collider.tag == GameTag.Player)
                 {
                     return true;
                 }
             }
+
 
             return false;
         }

@@ -1,23 +1,22 @@
 ﻿using Chroma.Behaviour.AI.Components;
 using Chroma.Game.Containers;
 using NPBehave;
-using UnityEngine;
 
 namespace Chroma.Behaviour.AI.Decorators
 {
-    public class IsEnemyOnSight : Decorator
+    public class DetectEnemy : Decorator
     {
         private Eyes eyes;
         private CharacterContainer character;
 
-        private float interval;
+        private float checkInterval;
         private string enemyDetectedVarname;
         private string enemyLastSeenPosVarname;
 
-        public IsEnemyOnSight(
+        public DetectEnemy(
             Eyes eyes,
             CharacterContainer character,
-            float interval,
+            float checkInterval,
             string enemyDetectedVarname,
             string enemyLastSeenPosVarname,
             Node decoratee)
@@ -25,16 +24,16 @@ namespace Chroma.Behaviour.AI.Decorators
         {
             this.eyes = eyes;
             this.character = character;
-            this.interval = interval;
+            this.checkInterval = checkInterval;
             this.enemyDetectedVarname = enemyDetectedVarname;
             this.enemyLastSeenPosVarname = enemyLastSeenPosVarname;
-            Label = "" + interval + "s";
+            Label = "" + checkInterval + "s";
         }
 
         protected override void DoStart()
         {
-            Clock.AddTimer(interval, -1, CheckIfEnemyIsInSight);
-            CheckIfEnemyIsInSight();
+            Clock.AddTimer(checkInterval, -1, CheckIfEnemyIsInSightAndSavePosition);
+            CheckIfEnemyIsInSightAndSavePosition();
             Decoratee.Start();
         }
 
@@ -45,11 +44,11 @@ namespace Chroma.Behaviour.AI.Decorators
 
         protected override void DoChildStopped(Node child, bool result)
         {
-            Clock.RemoveTimer(CheckIfEnemyIsInSight);
+            Clock.RemoveTimer(CheckIfEnemyIsInSightAndSavePosition);
             Stopped(result);
         }
 
-        public void CheckIfEnemyIsInSight()
+        public void CheckIfEnemyIsInSightAndSavePosition()
         {
             if(eyes.IsTargetOnSight())
             {
