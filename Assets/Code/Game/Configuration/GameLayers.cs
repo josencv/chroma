@@ -9,6 +9,8 @@ namespace Chroma.Game.Configuration
         Terrain = 512,          //  9
         Characters = 1024,      // 10
         Objects = 2048,         // 11
-        Buildings = 4096        // 12
+        Buildings = 4096,       // 12
+        Attacks = 8192,         // 13
+        ColorProbes = 16384,    // 14
     }
 }

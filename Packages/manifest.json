@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.entities": "0.1.1-preview",
     "com.unity.ext.nunit": "1.0.0",
     "com.unity.ide.vscode": "1.1.2",
     "com.unity.memoryprofiler": "0.1.0-preview.7",
