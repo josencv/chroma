@@ -1,5 +1,6 @@
 ﻿using Chroma.Behaviour.AI.Components;
 using Chroma.Behaviour.Attack;
+using Chroma.ColorSystem;
 using Chroma.Components.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
             Container.Bind<SimpleAttack>().FromComponentSibling();
             Container.Bind<Collider>().FromComponentSibling();
+            Container.Bind<Absorber>().FromComponentSibling();
 
             // AI related
             Container.Bind<NavMeshAgent>().FromComponentSibling();
