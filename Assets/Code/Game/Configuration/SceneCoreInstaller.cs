@@ -35,10 +35,13 @@ namespace Chroma.Game.Configuration
             // AI related
             Container.Bind<NavMeshAgent>().FromComponentSibling();
             Container.Bind<Eyes>().FromComponentInChildren();
+
+            // Color system
+            Container.Bind<ColorProbe>().FromComponentsInHierarchy();
         }
 
         public class Settings
-        {
+        {     
         }
     }
 }

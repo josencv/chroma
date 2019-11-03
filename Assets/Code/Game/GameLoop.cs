@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Chroma.Assets.Code.Game
+namespace Chroma.Game
 {
     public class GameLoop : MonoBehaviour
     {

@@ -6,7 +6,7 @@ namespace Chroma.ColorSystem
     {
         [SerializeField]
         private Color color = Color.Blue;
-        [SerializeField]
+
         private float maxAmount = 1.0f;
         private float currentAmount;
 
@@ -26,5 +26,7 @@ namespace Chroma.ColorSystem
 
             return absorbedAmount;
         }
+
+        public Color Color { get { return color; } }
     }
 }
