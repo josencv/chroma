@@ -7,7 +7,7 @@ namespace Chroma.Behaviour.AI.Decorators
     public class DetectEnemy : Decorator
     {
         private Eyes eyes;
-        private CharacterContainer character;
+        private Character character;
 
         private float checkInterval;
         private string enemyDetectedVarname;
@@ -15,7 +15,7 @@ namespace Chroma.Behaviour.AI.Decorators
 
         public DetectEnemy(
             Eyes eyes,
-            CharacterContainer character,
+            Character character,
             float checkInterval,
             string enemyDetectedVarname,
             string enemyLastSeenPosVarname,

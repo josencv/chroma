@@ -21,7 +21,7 @@ namespace Chroma.Game.Configuration
         {
             // Note: bindings can be grouped and moved to different installers to encourage re-usability
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<CharacterContainer>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<Character>().FromComponentInHierarchy().AsSingle();
 
             Container.Bind<CharacterControllerMovement>().FromComponentSibling();
             Container.Bind<CharacterController>().FromComponentSibling();
@@ -37,7 +37,8 @@ namespace Chroma.Game.Configuration
             Container.Bind<Eyes>().FromComponentInChildren();
 
             // Color system
-            Container.Bind<ColorProbe>().FromComponentsInHierarchy();
+            Container.Bind<ColorProbe>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<QuadrantSystem>().AsSingle().NonLazy();
         }
 
         public class Settings

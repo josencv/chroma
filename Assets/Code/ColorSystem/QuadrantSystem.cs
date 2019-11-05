@@ -1,30 +1,22 @@
 ﻿using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using Zenject;
 
 namespace Chroma.ColorSystem
 {
-    public class QuadrantSystem : MonoBehaviour
+    public class QuadrantSystem
     {
         public const float QuadrandSize = 10;
 
-        private List<ColorProbe> probes;
         private Dictionary<int, ColorProbeData[]> quadrants;
 
-        private void Awake()
+        public QuadrantSystem(List<ColorProbe> probes)
+        {
+            BuildQuadrantData(probes);
+        }
+
+        private void BuildQuadrantData(List<ColorProbe> probes)
         {
             quadrants = new Dictionary<int, ColorProbeData[]>();
-        }
-
-        [Inject]
-        private void Inject(List<ColorProbe> probes)
-        {
-            this.probes = probes;
-        }
-
-        private void Start()
-        {
             Dictionary<int, List<ColorProbeData>> quadrantsList = new Dictionary<int, List<ColorProbeData>>();
 
             int index;
@@ -36,7 +28,8 @@ namespace Chroma.ColorSystem
                     quadrantsList.Add(index, new List<ColorProbeData>());
                 }
 
-                quadrantsList[index].Add(new ColorProbeData(probe.Color));
+                quadrantsList[index].Add(new ColorProbeData(probe.transform.position, probe.Color));
+                Object.Destroy(probe.gameObject);
             }
 
             foreach(KeyValuePair<int, List<ColorProbeData>> pair in quadrantsList)
@@ -47,9 +40,26 @@ namespace Chroma.ColorSystem
 
         private static int GetQuadrantHash(Vector3 position)
         {
-            return (int)(math.floor(position.x / QuadrandSize) +
-                         math.floor(position.y / QuadrandSize) * 1000 +
-                         math.floor(position.z / QuadrandSize) * 1000000);
+            return (int)(Mathf.Floor(position.x / QuadrandSize) +
+                         Mathf.Floor(position.y / QuadrandSize) * 1000 +
+                         Mathf.Floor(position.z / QuadrandSize) * 1000000);
+        }
+
+        public static Vector3 GetQuadrantCenterFromPosition(Vector3 position)
+        {
+            return new Vector3
+            (
+                QuadrandSize * Mathf.Floor(position.x / QuadrandSize) + QuadrandSize / 2,
+                QuadrandSize * Mathf.Floor(position.y / QuadrandSize) + QuadrandSize / 2,
+                QuadrandSize * Mathf.Floor(position.z / QuadrandSize) + QuadrandSize / 2
+            );
+        }
+
+        public ColorProbeData[] GetProbesFromPosition(Vector3 position)
+        {
+            ColorProbeData[] probes;
+            quadrants.TryGetValue(GetQuadrantHash(position), out probes);
+            return probes ?? new ColorProbeData[0];
         }
     }
 }
