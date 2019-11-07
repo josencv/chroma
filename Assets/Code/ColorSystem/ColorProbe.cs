@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Chroma.ColorSystem
 {
@@ -25,6 +26,12 @@ namespace Chroma.ColorSystem
             }
 
             return absorbedAmount;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Handles.color = ColorProbeQuadrantSystemDebugger.GetProbeGizmoColor(color, maxAmount);
+            Handles.SphereHandleCap(GetHashCode(), transform.position, Quaternion.identity, 0.1f, EventType.Repaint);
         }
 
         public Color Color { get { return color; } }

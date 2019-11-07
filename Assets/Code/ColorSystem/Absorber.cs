@@ -1,10 +1,14 @@
-﻿using Chroma.Game.Configuration;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Chroma.ColorSystem
 {
     public class Absorber : MonoBehaviour
     {
+        private ColorProbeQuadrantSystem quadrantSystem;
+        private ColorProbeRecoverySystem recoverySystem;
+
         [SerializeField]
         private float maxRadius = 5.0f;
 
@@ -12,6 +16,13 @@ namespace Chroma.ColorSystem
         private float growthRate = 3.0f;
         private float elapsedTime;
         private float currentRadius;
+
+        [Inject]
+        private void Inject(ColorProbeQuadrantSystem quadrantSystem, ColorProbeRecoverySystem recoverySystem)
+        {
+            this.quadrantSystem = quadrantSystem;
+            this.recoverySystem = recoverySystem;
+        }
 
         private void Start()
         {
@@ -37,15 +48,29 @@ namespace Chroma.ColorSystem
             enabled = true;
         }
 
+        // TODO: filter by selected color to absorb
         public float ExecuteAbsobption(Color colorToAbsorb)
         {
             float absorbedAmount = 0;
-            GameLayers layerMask = GameLayers.ColorProbes;
-            // TODO: consider using OverlapSphereNonAlloc if this needs to be called very frequently
-            Collider[] colorProbes = Physics.OverlapSphere(transform.position, currentRadius, (int)layerMask);
-            foreach(Collider probe in colorProbes)
+            List<ColorProbeData[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
+
+            foreach(ColorProbeData[] probes in quadrantsToCheck)
             {
-                absorbedAmount += probe.GetComponent<ColorProbe>().Absorb(colorToAbsorb);
+                for(int i = 0; i < probes.Length; i++)
+                {
+                    if(Vector3.Distance(probes[i].Position, transform.position) <= currentRadius)
+                    {
+                        float amount = probes[i].GetAbsorbed();
+                        absorbedAmount += amount;
+
+                        // We add the probe to the recovery system only if it was full, because otherwise it means it's already
+                        // in the recovery system
+                        if(amount == 1)
+                        {
+                            recoverySystem.AddProbeHashIndexPair(ColorProbeQuadrantSystem.GetQuadrantHash(probes[i].Position), i);
+                        }
+                    }
+                }
             }
             
             enabled = false;
@@ -54,8 +79,11 @@ namespace Chroma.ColorSystem
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = UnityEngine.Color.cyan;
-            Gizmos.DrawWireSphere(transform.position, currentRadius);
+            if(enabled)
+            {
+                Gizmos.color = UnityEngine.Color.cyan;
+                Gizmos.DrawWireSphere(transform.position, currentRadius);
+            }
         }
     }
 }
