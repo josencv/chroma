@@ -6,7 +6,7 @@ namespace Chroma.Behaviour.Skills.Push
     public class PushSkill
     {
         private const GameLayers pushablesLayerMask = GameLayers.Objects;
-        private const float amountToForceCoefficient = 50;   // seconds to... eh... whatever unity uses as force unit? Newtons?
+        private const float amountToForceCoefficient = 50;
         private const float pushDistance = 2.0f;
         private const float pushFov = 30;       // The "field of vision" of the emission, in euler degrees. TODO: use it
         private const float raycastHeightOffset = 0.4f;     // How much the raycast start point should be displaced up
