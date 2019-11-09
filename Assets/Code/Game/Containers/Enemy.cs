@@ -2,7 +2,7 @@
 
 namespace Chroma.Game.Containers
 {
-    public class EnemyContainer : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
         
     }

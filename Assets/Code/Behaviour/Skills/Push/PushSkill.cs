@@ -6,33 +6,26 @@ namespace Chroma.Behaviour.Skills.Push
     public class PushSkill
     {
         private const GameLayers pushablesLayerMask = GameLayers.Objects;
-        private const float timeToForceCoefficient = 500;   // seconds to... eh... whatever unity uses as force unit? Newtons?
+        private const float amountToForceCoefficient = 50;
         private const float pushDistance = 2.0f;
         private const float pushFov = 30;       // The "field of vision" of the emission, in euler degrees. TODO: use it
         private const float raycastHeightOffset = 0.4f;     // How much the raycast start point should be displaced up
 
         private Transform transform;
 
-        private float chargeThreshold = 1;  // In seconds
-        private float chargeMaxCap = 5;     // In seconds
-        private float chargedAmount;        // In seconds
+        private float minAmountThreshold = 5;  // In seconds
+        private float maxAmountCap = 50;     // In seconds
 
         public PushSkill(Transform transform)
         {
             this.transform = transform;
-            chargedAmount = 0;
         }
 
-        public void Charge(float deltaTime)
+        public void Push(float amount)
         {
-            chargedAmount += deltaTime;
-        }
-
-        public void Release()
-        {
-            if(chargedAmount < chargeThreshold)
+            Debug.Log("Trying to push object with an amount of " + amount);
+            if(amount < minAmountThreshold)
             {
-                chargedAmount = 0;
                 return;
             }
 
@@ -43,16 +36,14 @@ namespace Chroma.Behaviour.Skills.Push
             if(Physics.Raycast(ray, out hit, pushDistance, (int)pushablesLayerMask))
             {
                 Pushable pushable = hit.collider.GetComponent<Pushable>();
-                Push(pushable);
+                PushObject(pushable, amount);
             }
-
-            chargedAmount = 0;
         }
 
-        private void Push(Pushable pushable)
+        private void PushObject(Pushable pushable, float amount)
         {
             Vector3 direction = transform.forward;
-            Vector3 force = direction * Mathf.Min(chargedAmount, chargeMaxCap) * timeToForceCoefficient;
+            Vector3 force = direction * Mathf.Min(amount, maxAmountCap) * amountToForceCoefficient;
             pushable.GetPushed(force);
         }
     }

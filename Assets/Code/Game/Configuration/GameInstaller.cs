@@ -1,5 +1,4 @@
 ﻿using System;
-using Chroma.Assets.Code.Game;
 using Chroma.Game.LevelManagement;
 using Chroma.Game.LoadingScreens;
 using Chroma.Infrastructure.Input;

@@ -7,7 +7,7 @@ namespace Chroma.Behaviour.AI.Components
 {
     public class Eyes : MonoBehaviour
     {
-        private CharacterContainer character;
+        private Character character;
 
         [SerializeField]
         private float sightDistance = 10.0f;
@@ -16,7 +16,7 @@ namespace Chroma.Behaviour.AI.Components
         private float fovAngle = 45.0f;  // In degrees
 
         [Inject]
-        private void Inject(CharacterContainer character)
+        private void Inject(Character character)
         {
             this.character = character;
         }

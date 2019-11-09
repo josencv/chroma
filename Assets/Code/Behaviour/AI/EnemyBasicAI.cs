@@ -19,13 +19,13 @@ namespace Chroma.Assets.Code.Behaviour.AI
 
         private NavMeshAgent agent;
         private Eyes eyes;
-        private CharacterContainer character;
+        private Character character;
         private SimpleAttack simpleAttack;
 
         private Root behaviorTree;
 
         [Inject]
-        private void Inject(NavMeshAgent agent, Eyes eyes, CharacterContainer character, SimpleAttack simpleAttack)
+        private void Inject(NavMeshAgent agent, Eyes eyes, Character character, SimpleAttack simpleAttack)
         {
             this.agent = agent;
             this.eyes = eyes;

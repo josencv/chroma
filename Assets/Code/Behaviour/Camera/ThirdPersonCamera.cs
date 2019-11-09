@@ -19,7 +19,7 @@ namespace Chroma.Components.Camera
         private const float minVerticalRotation = -20;
         private const float minInputThreshold = 0.15f;
 
-        private CharacterContainer characterContainer;
+        private Character characterContainer;
         private Transform pivot;
         private Transform cameraTransform;
         private float verticalPositionOffset;
@@ -49,7 +49,7 @@ namespace Chroma.Components.Camera
         private float verticalTurnSpeed = 50;
 
         [Inject]
-        private void Inject(UnityEngine.Camera camera, CharacterContainer characterContainer)
+        private void Inject(UnityEngine.Camera camera, Character characterContainer)
         {
             cameraTransform = camera.transform;
             this.characterContainer = characterContainer;
