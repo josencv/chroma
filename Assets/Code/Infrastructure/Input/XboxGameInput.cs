@@ -42,11 +42,17 @@ namespace Chroma.Infrastructure.Input
             buttonMapper.Add(XboxButton.Start, GameInputButton.Start);
             buttonMapper.Add(XboxButton.Back, GameInputButton.Back);
 
+            // D-pad
+            buttonMapper.Add(XboxButton.DPadUp, GameInputButton.DPadUp);
+            buttonMapper.Add(XboxButton.DPadLeft, GameInputButton.DPadLeft);
+            buttonMapper.Add(XboxButton.DPadDown, GameInputButton.DPadDown);
+            buttonMapper.Add(XboxButton.DPadRight, GameInputButton.DPadRight);
+            /*
             DPadMapper.Add(XboxDPad.Up, GameInputButton.DPadUp);
             DPadMapper.Add(XboxDPad.Left, GameInputButton.DPadLeft);
             DPadMapper.Add(XboxDPad.Down, GameInputButton.DPadDown);
             DPadMapper.Add(XboxDPad.Right, GameInputButton.DPadRight);
-
+            */
             axisMapper.Add(XboxAxis.LeftStickX, GameInputAxis.LeftStickX);
             axisMapper.Add(XboxAxis.LeftStickY, GameInputAxis.LeftStickY);
             axisMapper.Add(XboxAxis.RightStickX, GameInputAxis.RightStickX);
@@ -80,6 +86,27 @@ namespace Chroma.Infrastructure.Input
                     currentButtonState[entry.Value] = GameInputButtonState.Released;
                 }
             }
+
+            //// Triggers dpad game events
+            //foreach (KeyValuePair<XboxDPad, GameInputButton> entry in DPadMapper)
+            //{
+            //    if (XCI.GetDPadDown(entry.Key, xboxControllerInputNumber))
+            //    {
+            //        currentButtonState[entry.Value] = GameInputButtonState.Down;
+            //    }
+            //    else if(XCI.GetDPadUp(entry.Key, xboxControllerInputNumber))
+            //    {
+            //        currentButtonState[entry.Value] = GameInputButtonState.Up;
+            //    }
+            //    else if (XCI.GetDPadDown(entry.Key, xboxControllerInputNumber))
+            //    {
+            //        currentButtonState[entry.Value] = GameInputButtonState.Pressed;
+            //    }
+            //    else
+            //    {
+            //        currentButtonState[entry.Value] = GameInputButtonState.Released;
+            //    }
+            //}
 
             // Special mapping for special mapper
             foreach (KeyValuePair<XboxAxis, GameInputButton> entry in specialMapper)

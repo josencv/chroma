@@ -68,8 +68,8 @@ public class MaterialDebug : MonoBehaviour
     [SerializeField] public Color violetRangeEndColor = new Color(1, 1, 1, 1);
     [Range(0f, 1f), SerializeField] public float violetSaturation = 1f;
 
-    [Range(0F, 1f), SerializeField] public float width = 0.061f;
-    [Range(0F, 1f), SerializeField] public float smooth = 0.13f;
+    //[Range(0F, 1f), SerializeField] public float width = 0.061f;
+    //[Range(0F, 1f), SerializeField] public float smooth = 0.13f;
 
     public string shaderName = string.Empty;
 
@@ -77,9 +77,10 @@ public class MaterialDebug : MonoBehaviour
 
     public void OnValidate()
     {
+            meshRenderer = GetComponent<MeshRenderer>();
         if(!mat)
         {
-            meshRenderer = this.GetComponent<MeshRenderer>();
+            meshRenderer = GetComponent<MeshRenderer>();
             mat = meshRenderer.sharedMaterial;
         }
 
@@ -90,8 +91,8 @@ public class MaterialDebug : MonoBehaviour
 
         mat.SetTexture("_MainTex", MainTex);
 
-        mat.SetFloat("_MinFade", width);
-        mat.SetFloat("_MaxFade", smooth);
+        //mat.SetFloat("_MinFade", width);
+        //mat.SetFloat("_MaxFade", smooth);
 
         SetAllSaturation();
         SetAllColorsFromRange();
@@ -206,14 +207,14 @@ public class MaterialDebug : MonoBehaviour
 
     #region Debug
     [ContextMenu("Set Defaults")]
-    public void SetDefualts()
+    public void SetDefaults()
     {
-        redRangeEnd = 10;
-        orangeRangeEnd = 40;
-        yellowRangeEnd = 90;
-        greenRangeEnd = 160;
-        lightBlueRangeEnd = 230;
-        blueRangeEnd = 270;
+        redRangeEnd = 2;
+        orangeRangeEnd = 30;
+        yellowRangeEnd = 75;
+        greenRangeEnd = 150;
+        lightBlueRangeEnd = 205;
+        blueRangeEnd = 263;
         violetRangeEnd = 330;
 
         mat.SetFloat(RED_RANGE_END, redRangeEnd);
@@ -224,12 +225,21 @@ public class MaterialDebug : MonoBehaviour
         mat.SetFloat(BLUE_RANGE_END, blueRangeEnd);
         mat.SetFloat(VIOLET_RANGE_END, violetRangeEnd);
 
-        width = 0.061f;
-        smooth = 0.13f;
+        mat.SetFloat(RED, 1);
+        mat.SetFloat(ORANGE, 1);
+        mat.SetFloat(YELLOW, 1);
+        mat.SetFloat(GREEN, 1);
+        mat.SetFloat(LIGHTBLUE, 1);
+        mat.SetFloat(BLUE, 1);
+        mat.SetFloat(VIOLET, 1);
+
+        redEnabled = orangeEnabled = yellowEnabled = greenEnabled = lightBlueEnabled = blueEnabled = violetEnabled = true;
+        //width = 0.061f;
+        //smooth = 0.231f;
 
 
-        mat.SetFloat("_MinFade", width);
-        mat.SetFloat("_MaxFade", smooth);
+        //mat.SetFloat("_MinFade", width);
+        //mat.SetFloat("_MaxFade", smooth);
 
         SetAllColorsFromRange();
     }

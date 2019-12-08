@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mainChar_Shirt
+  m_Name: Color_Cubes_Absorbable_PlayerPos
   m_Shader: {fileID: -6465566751694194690, guid: e758feb7cd6ec09428b88a751ea8f537,
     type: 3}
-  m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -18,14 +18,26 @@ Material:
   stringTagMap:
     MotionVector: User
   disabledShaderPasses:
-  - DistortionVectors
-  - TransparentDepthPrepass
-  - TransparentDepthPostpass
-  - TransparentBackface
   - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_29FB3566:
+        m_Texture: {fileID: 2800000, guid: faf4ee952be51054fb433f9750b00606, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_70770C55:
+        m_Texture: {fileID: 2800000, guid: 1bf923dec2409ca4492942faab2759f5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8A5E5E6E:
+        m_Texture: {fileID: 2800000, guid: 5b08f9b48967b0044afbc92194721d9e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_92BCC93C:
+        m_Texture: {fileID: 2800000, guid: 1bf923dec2409ca4492942faab2759f5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -71,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6b154072dced6f349b9d539eb9bc382b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
@@ -111,6 +123,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_8A6562FA: 0.298
+    - Vector1_BD208425: -0.001
+    - Vector1_CE76A658: 0
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -139,16 +154,16 @@ Material:
     - _DisplacementMode: 0
     - _DistortionBlendMode: 0
     - _DistortionBlurBlendMode: 0
-    - _DistortionBlurDstBlend: 1
+    - _DistortionBlurDstBlend: 0
     - _DistortionBlurRemapMax: 1
     - _DistortionBlurRemapMin: 0
     - _DistortionBlurScale: 1
-    - _DistortionBlurSrcBlend: 1
+    - _DistortionBlurSrcBlend: 0
     - _DistortionDepthTest: 1
-    - _DistortionDstBlend: 1
+    - _DistortionDstBlend: 0
     - _DistortionEnable: 0
     - _DistortionScale: 1
-    - _DistortionSrcBlend: 1
+    - _DistortionSrcBlend: 0
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
@@ -183,7 +198,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
-    - _MaxFade: 0.13
+    - _MaxFade: 0.231
     - _Metallic: 0
     - _MinFade: 0.061
     - _NormalMapSpace: 0
@@ -194,20 +209,24 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Range_1: 1
-    - _Range_1_End: 10
+    - _Range_11_End: 0
+    - _Range_1_End: 2
     - _Range_2: 1
-    - _Range_2_End: 40
+    - _Range_2_End: 30
     - _Range_3: 1
-    - _Range_3_End: 90
+    - _Range_3_End: 75
     - _Range_4: 1
-    - _Range_4_End: 160
+    - _Range_4_End: 165
     - _Range_5: 1
-    - _Range_5_End: 230
+    - _Range_5_End: 205
     - _Range_6: 1
-    - _Range_6_End: 270
+    - _Range_6_End: 263
     - _Range_7: 1
     - _Range_7_End: 330
-    - _Range_Begin: 0
+    - _Range_8: 1
+    - _Range_8_End: 340
+    - _Range_9_End: 360
+    - _Range_Begin: -0.1
     - _Range_End: 360
     - _ReceivesSSR: 1
     - _RefractionModel: 0
@@ -226,10 +245,10 @@ Material:
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 3
-    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskDepth: 32
     - _StencilWriteMaskDistortionVec: 64
-    - _StencilWriteMaskGBuffer: 51
-    - _StencilWriteMaskMV: 176
+    - _StencilWriteMaskGBuffer: 3
+    - _StencilWriteMaskMV: 128
     - _Stiffness: 1
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
@@ -249,14 +268,20 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
-    - _ZTestModeDistortion: 4
+    - _ZTestModeDistortion: 8
     - _ZWrite: 1
+    - _blue: 0
+    - _green: 0
+    - _red: 0
     m_Colors:
-    - _BaseColor: {r: 0.4811321, g: 0.13389997, b: 0.15797283, a: 1}
+    - Color_9FA7594F: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+    - Vector2_8D26CC90: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_CF4E51B4: {r: 1, g: 1, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.4811321, g: 0.13389993, b: 0.15797278, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

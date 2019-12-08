@@ -26,8 +26,8 @@ public class MaterialDebug_Editor : Editor
     SerializedProperty _blueSaturation;
     SerializedProperty _violetRangeEnd;
     SerializedProperty _violetSaturation;
-    SerializedProperty _width;
-    SerializedProperty _smooth;
+    //SerializedProperty _width;
+    //SerializedProperty _smooth;
 
     private void OnEnable()
     {
@@ -52,8 +52,8 @@ public class MaterialDebug_Editor : Editor
         _blueSaturation = serializedObject.FindProperty("blueSaturation");
         _violetRangeEnd = serializedObject.FindProperty("violetRangeEnd");
         _violetSaturation = serializedObject.FindProperty("violetSaturation");
-        _width = serializedObject.FindProperty("width");
-        _smooth = serializedObject.FindProperty("smooth");
+        //_width = serializedObject.FindProperty("width");
+        //_smooth = serializedObject.FindProperty("smooth");
     }
 
 
@@ -62,7 +62,7 @@ public class MaterialDebug_Editor : Editor
         var wholeStyle = new GUIStyle(GUI.skin.box) { alignment = TextAnchor.MiddleCenter };
         wholeStyle.richText = true;
         wholeStyle.stretchWidth = true;
-        var oldColor = GUI.backgroundColor;
+        Color oldColor = GUI.backgroundColor;
         var imageStyle = new GUIStyle(GUI.skin.window) { alignment = TextAnchor.MiddleCenter };
         imageStyle.richText = true;
 
@@ -90,11 +90,11 @@ public class MaterialDebug_Editor : Editor
         EditorGUILayout.EndHorizontal();
         GUI.backgroundColor = oldColor;
 
-        if(_materialDebug.shaderName.Equals("Shader Graphs/Color_Absorber_Smoothed"))
-        {
-            EditorGUILayout.PropertyField(_width, new GUIContent("Width"));
-            EditorGUILayout.PropertyField(_smooth, new GUIContent("Smooth"));
-        }
+        //if(_materialDebug.shaderName.Equals("Shader Graphs/Color_Absorber_Smoothed"))
+        //{
+        //    EditorGUILayout.PropertyField(_width, new GUIContent("Width"));
+        //    EditorGUILayout.PropertyField(_smooth, new GUIContent("Smooth"));
+        //}
 
         DoRange("Red", wholeStyle, ref _redRangeEnd, ref _materialDebug.redRangeEndColor, ref _materialDebug.redEnabled, ref _redSaturation, _materialDebug.Toggle_Red);
         DoRange("Orange", wholeStyle, ref _orangeRangeEnd, ref _materialDebug.orangeRangeEndColor, ref _materialDebug.orangeEnabled, ref _orangeSaturation, _materialDebug.Toggle_Orange);
@@ -104,9 +104,9 @@ public class MaterialDebug_Editor : Editor
         DoRange("Blue", wholeStyle, ref _blueRangeEnd, ref _materialDebug.blueRangeEndColor, ref _materialDebug.blueEnabled, ref _blueSaturation, _materialDebug.Toggle_Blue);
         DoRange("Violet", wholeStyle, ref _violetRangeEnd, ref _materialDebug.violetRangeEndColor, ref _materialDebug.violetEnabled, ref _violetSaturation, _materialDebug.Toggle_Violet);
 
-        if(GUILayout.Button("Set Defualts"))
+        if(GUILayout.Button("Set Defaults"))
         {
-            _materialDebug.SetDefualts();
+            _materialDebug.SetDefaults();
         }
 
         serializedObject.ApplyModifiedProperties();
@@ -114,7 +114,7 @@ public class MaterialDebug_Editor : Editor
 
     public void DoRange(string colorName, GUIStyle style, ref SerializedProperty rangeEnd, ref Color color, ref bool enabled, ref SerializedProperty saturation, Action action)
     {
-        var oldColor = GUI.backgroundColor;
+        Color oldColor = GUI.backgroundColor;
         EditorGUILayout.BeginHorizontal(style);
         {
             EditorGUILayout.BeginVertical(style);
