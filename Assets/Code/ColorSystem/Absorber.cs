@@ -6,6 +6,7 @@ namespace Chroma.ColorSystem
 {
     public class Absorber : MonoBehaviour
     {
+        private AbsorptionRenderSystem absorptionRenderSystem;
         private ColorProbeQuadrantSystem quadrantSystem;
         private ColorProbeRecoverySystem recoverySystem;
 
@@ -18,8 +19,13 @@ namespace Chroma.ColorSystem
         private float currentRadius;
 
         [Inject]
-        private void Inject(ColorProbeQuadrantSystem quadrantSystem, ColorProbeRecoverySystem recoverySystem)
+        private void Inject(
+            AbsorptionRenderSystem absorptionRenderSystem,
+            ColorProbeQuadrantSystem quadrantSystem,
+            ColorProbeRecoverySystem recoverySystem
+        )
         {
+            this.absorptionRenderSystem = absorptionRenderSystem;
             this.quadrantSystem = quadrantSystem;
             this.recoverySystem = recoverySystem;
         }
@@ -41,6 +47,7 @@ namespace Chroma.ColorSystem
             // The radius increases inverse exponentially (square root of the elapsed time)
             // until a maximum radius has been reached
             currentRadius = Mathf.Min(maxRadius, Mathf.Sqrt(elapsedTime * growthRate));
+            absorptionRenderSystem.UpdateCurrentAbsorptionPoint(transform.position, currentRadius);
         }
 
         public void StartAbsorption()
@@ -53,6 +60,7 @@ namespace Chroma.ColorSystem
         {
             float absorbedAmount = 0;
             List<ColorProbeData[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
+            absorptionRenderSystem.AddAbsorptionPoint(transform.position, currentRadius);
 
             foreach(ColorProbeData[] probes in quadrantsToCheck)
             {
@@ -73,6 +81,7 @@ namespace Chroma.ColorSystem
                 }
             }
             
+            absorptionRenderSystem.ReleaseCurrentAbsorptionPoint();
             enabled = false;
             return absorbedAmount;
         }

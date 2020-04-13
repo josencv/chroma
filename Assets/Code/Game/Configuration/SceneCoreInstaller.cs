@@ -22,8 +22,7 @@ namespace Chroma.Game.Configuration
         {
             // Note: bindings can be grouped and moved to different installers to encourage re-usability
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<Character
-                >().FromComponentInHierarchy().AsSingle();
+            Container.Bind<Character>().FromComponentInHierarchy().AsSingle();
 
             Container.Bind<CharacterControllerMovement>().FromComponentSibling();
             Container.Bind<CharacterController>().FromComponentSibling();
@@ -42,12 +41,16 @@ namespace Chroma.Game.Configuration
             Container.Bind<ColorProbe>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<ColorProbeQuadrantSystem>().AsSingle().NonLazy();
             Container.Bind<ColorProbeRecoverySystem>().FromComponentInNewPrefab(settings.ColorProbeRecoverySystemPrefab).AsSingle();
+            Container.Bind<AbsorptionRenderSystem>().FromComponentInNewPrefab(settings.AbsorptionRenderSystemPrefab).AsSingle();
+            Container.Bind<ColorUnlockSystem>().FromComponentInNewPrefab(settings.ColorUnlockSystemPrefab).AsSingle().NonLazy();
         }
 
         [Serializable]
         public class Settings
         {
+            public AbsorptionRenderSystem AbsorptionRenderSystemPrefab;
             public ColorProbeRecoverySystem ColorProbeRecoverySystemPrefab;
+            public ColorUnlockSystem ColorUnlockSystemPrefab;
         }
     }
 }

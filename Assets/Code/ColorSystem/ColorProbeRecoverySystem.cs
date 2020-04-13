@@ -11,7 +11,7 @@ namespace Chroma.ColorSystem
     /// </summary>
     public class ColorProbeRecoverySystem : MonoBehaviour
     {
-        private const float RecoverySpeed = 0.1f;
+        public const float RecoverySpeed = 0.1f;
         private ColorProbeQuadrantSystem quadrantSystem;
         private List<HashIndexPair> probesHashIndexList;
 
