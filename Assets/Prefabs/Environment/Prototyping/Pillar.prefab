@@ -61,10 +61,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c0452cff9ee7ed439d452ca71444f46, type: 2}
+  - {fileID: 2100000, guid: fa7d9f4dc024ac9498511565fca4f21f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,11 +346,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3230181199737536322}
     m_Modifications:
-    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
-        type: 3}
-      propertyPath: m_Name
-      value: Static Color Probe (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 4786771228974147170, guid: fb682e40f50f41c4eb06c04a41636dbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -405,6 +401,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Static Color Probe (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb682e40f50f41c4eb06c04a41636dbc, type: 3}
 --- !u!4 &7979797712289916498 stripped
@@ -420,11 +421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3230181199737536322}
     m_Modifications:
-    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
-        type: 3}
-      propertyPath: m_Name
-      value: Static Color Probe (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 4786771228974147170, guid: fb682e40f50f41c4eb06c04a41636dbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -480,6 +476,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Static Color Probe (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb682e40f50f41c4eb06c04a41636dbc, type: 3}
 --- !u!4 &7979797712578562222 stripped
@@ -495,11 +496,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3230181199737536322}
     m_Modifications:
-    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
-        type: 3}
-      propertyPath: m_Name
-      value: Static Color Probe (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 4786771228974147170, guid: fb682e40f50f41c4eb06c04a41636dbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,6 +551,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Static Color Probe (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb682e40f50f41c4eb06c04a41636dbc, type: 3}
 --- !u!4 &7979797712485064249 stripped
@@ -570,11 +571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3230181199737536322}
     m_Modifications:
-    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
-        type: 3}
-      propertyPath: m_Name
-      value: Static Color Probe
-      objectReference: {fileID: 0}
     - target: {fileID: 4786771228974147170, guid: fb682e40f50f41c4eb06c04a41636dbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -629,6 +625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786771228974147173, guid: fb682e40f50f41c4eb06c04a41636dbc,
+        type: 3}
+      propertyPath: m_Name
+      value: Static Color Probe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb682e40f50f41c4eb06c04a41636dbc, type: 3}

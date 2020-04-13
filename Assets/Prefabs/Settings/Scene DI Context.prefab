@@ -77,5 +77,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
+    AbsorptionRenderSystemPrefab: {fileID: 7155203094004693867, guid: 5e504d50996413a449e5ac004686a179,
+      type: 3}
     ColorProbeRecoverySystemPrefab: {fileID: 3539472619023506618, guid: c62f187ceba4f9347b44763631e23191,
+      type: 3}
+    ColorUnlockSystemPrefab: {fileID: 8195206032833846039, guid: 93cb847deabd8cd42bbe6929d3635d5c,
       type: 3}
