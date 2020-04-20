@@ -77,6 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
+    AbsorptionFieldPrefab: {fileID: -887546101546171423, guid: 9812678f11a73ab418f1fc63459fa0ed,
+      type: 3}
     AbsorptionRenderSystemPrefab: {fileID: 7155203094004693867, guid: 5e504d50996413a449e5ac004686a179,
       type: 3}
     ColorProbeRecoverySystemPrefab: {fileID: 3539472619023506618, guid: c62f187ceba4f9347b44763631e23191,
