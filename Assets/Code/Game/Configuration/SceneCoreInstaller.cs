@@ -2,6 +2,7 @@
 using Chroma.Behaviour.AI.Components;
 using Chroma.Behaviour.Attack;
 using Chroma.ColorSystem;
+using Chroma.ColorSystem.Effects;
 using Chroma.Components.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
@@ -38,16 +39,19 @@ namespace Chroma.Game.Configuration
             Container.Bind<Eyes>().FromComponentInChildren();
 
             // Color system
+            Container.Bind<AbsorptionEffectController>().AsSingle();
+            Container.Bind<AbsorptionField>().FromComponentInNewPrefab(settings.AbsorptionFieldPrefab).AsSingle().NonLazy();
+            Container.Bind<AbsorptionRenderSystem>().FromComponentInNewPrefab(settings.AbsorptionRenderSystemPrefab).AsSingle();
             Container.Bind<ColorProbe>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<ColorProbeQuadrantSystem>().AsSingle().NonLazy();
             Container.Bind<ColorProbeRecoverySystem>().FromComponentInNewPrefab(settings.ColorProbeRecoverySystemPrefab).AsSingle();
-            Container.Bind<AbsorptionRenderSystem>().FromComponentInNewPrefab(settings.AbsorptionRenderSystemPrefab).AsSingle();
             Container.Bind<ColorUnlockSystem>().FromComponentInNewPrefab(settings.ColorUnlockSystemPrefab).AsSingle().NonLazy();
         }
 
         [Serializable]
         public class Settings
         {
+            public AbsorptionField AbsorptionFieldPrefab;
             public AbsorptionRenderSystem AbsorptionRenderSystemPrefab;
             public ColorProbeRecoverySystem ColorProbeRecoverySystemPrefab;
             public ColorUnlockSystem ColorUnlockSystemPrefab;

@@ -47,5 +47,5 @@ MonoBehaviour:
   yellowUnlocked: 0
   greenUnlocked: 1
   cyanUnlocked: 0
-  blueUnlocked: 0
+  blueUnlocked: 1
   magentaUnlocked: 0

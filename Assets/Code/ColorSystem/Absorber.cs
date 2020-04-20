@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Chroma.ColorSystem.Effects;
 using UnityEngine;
 using Zenject;
 
@@ -6,6 +7,7 @@ namespace Chroma.ColorSystem
 {
     public class Absorber : MonoBehaviour
     {
+        private AbsorptionEffectController absroptionEffectController;
         private AbsorptionRenderSystem absorptionRenderSystem;
         private ColorProbeQuadrantSystem quadrantSystem;
         private ColorProbeRecoverySystem recoverySystem;
@@ -20,11 +22,13 @@ namespace Chroma.ColorSystem
 
         [Inject]
         private void Inject(
+            AbsorptionEffectController absroptionEffectController,
             AbsorptionRenderSystem absorptionRenderSystem,
             ColorProbeQuadrantSystem quadrantSystem,
             ColorProbeRecoverySystem recoverySystem
         )
         {
+            this.absroptionEffectController = absroptionEffectController;
             this.absorptionRenderSystem = absorptionRenderSystem;
             this.quadrantSystem = quadrantSystem;
             this.recoverySystem = recoverySystem;
@@ -48,11 +52,13 @@ namespace Chroma.ColorSystem
             // until a maximum radius has been reached
             currentRadius = Mathf.Min(maxRadius, Mathf.Sqrt(elapsedTime * growthRate));
             absorptionRenderSystem.UpdateCurrentAbsorptionPoint(transform.position, currentRadius);
+            absroptionEffectController.Tick(transform.position, currentRadius);
         }
 
         public void StartAbsorption()
         {
             enabled = true;
+            absroptionEffectController.StartEffect(transform.position, currentRadius);
         }
 
         // TODO: filter by selected color to absorb
@@ -82,6 +88,7 @@ namespace Chroma.ColorSystem
             }
             
             absorptionRenderSystem.ReleaseCurrentAbsorptionPoint();
+            absroptionEffectController.EndEffect();
             enabled = false;
             return absorbedAmount;
         }
