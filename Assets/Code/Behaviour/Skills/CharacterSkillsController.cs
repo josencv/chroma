@@ -10,40 +10,41 @@ namespace Chroma.Behaviour.Skills
     [RequireComponent(typeof(Absorber))]
     public class CharacterSkillsController : MonoBehaviour
     {
-        private InputManager inputManager;
         private Absorber absorber;
+        private ColorSelector colorSelector;
+        private InputManager inputManager;
 
         private PushSkill pushSkill;
         private bool absorbing;
-        private Color selectedColor;
         private AbsorptionType selectedAbsorptionType;
 
         [Inject]
-        private void Inject(Absorber absorber, InputManager inputManager)
+        private void Inject(Absorber absorber, ColorSelector colorSelector, InputManager inputManager)
         {
             this.absorber = absorber;
+            this.colorSelector = colorSelector;
             this.inputManager = inputManager;
         }
 
         private void Awake()
         {
             pushSkill = new PushSkill(transform);
-            selectedColor = Color.Blue;
             selectedAbsorptionType = AbsorptionType.Skill;
         }
 
         private void Update()
         {
+            // TODO: reorganize input management
             GameInput input = inputManager.GetGameInput();
             
             if(absorbing)
             {
                 if(input.GetButtonState(GameInputButton.X) == GameInputButtonState.Released)
                 {
-                    float absorbedAmount = absorber.ExecuteAbsobption(selectedColor);
+                    float absorbedAmount = absorber.ExecuteAbsobption(colorSelector.SelectedColor);
                     if(selectedAbsorptionType == AbsorptionType.Skill)
                     {
-                        UseSkill(selectedColor, absorbedAmount);
+                        UseSkill(colorSelector.SelectedColor, absorbedAmount);
                     }
                     
                     absorbing = false;

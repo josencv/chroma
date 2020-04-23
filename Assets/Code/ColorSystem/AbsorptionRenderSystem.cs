@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Chroma.ColorSystem.Effects;
 using UnityEngine;
+using Zenject;
 
 namespace Chroma.ColorSystem
 {
@@ -8,6 +10,13 @@ namespace Chroma.ColorSystem
         private Texture2D absorptionDataTexture;
         private List<AbsorptionPointRenderData> absorptionDataList;
         private AbsorptionPointRenderData currentAbsorptionPoint;
+
+        [Inject]
+        private void Inject(ColorSelector colorSelector)
+        {
+            colorSelector.ColorChanged += UpdateEffectsColor;
+            UpdateEffectsColor(colorSelector.SelectedColor);
+        }
 
         private void Awake()
         {
@@ -106,6 +115,11 @@ namespace Chroma.ColorSystem
             UnityEngine.Color extraDataColor = new UnityEngine.Color(data.Radius, data.Saturation, 0, 0);
             absorptionDataTexture.SetPixel(index, 0, positionColor);
             absorptionDataTexture.SetPixel(index, 1, extraDataColor);
+        }
+
+        private void UpdateEffectsColor(Color color)
+        {
+            Shader.SetGlobalColor("AbsorptionField_EmissionColor", EffectsTheme.GetAbsorptionFieldColor(color));
         }
     }
 }
