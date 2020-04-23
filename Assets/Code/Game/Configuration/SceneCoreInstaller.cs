@@ -1,6 +1,7 @@
 ﻿using System;
 using Chroma.Behaviour.AI.Components;
 using Chroma.Behaviour.Attack;
+using Chroma.Behaviour.Skills;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
 using Chroma.Components.Movement;
@@ -45,6 +46,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<ColorProbe>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<ColorProbeQuadrantSystem>().AsSingle().NonLazy();
             Container.Bind<ColorProbeRecoverySystem>().FromComponentInNewPrefab(settings.ColorProbeRecoverySystemPrefab).AsSingle();
+            Container.Bind<ColorSelector>().FromComponentInNewPrefab(settings.ColorSelectorPrefab).AsSingle().NonLazy();
             Container.Bind<ColorUnlockSystem>().FromComponentInNewPrefab(settings.ColorUnlockSystemPrefab).AsSingle().NonLazy();
         }
 
@@ -54,6 +56,7 @@ namespace Chroma.Game.Configuration
             public AbsorptionField AbsorptionFieldPrefab;
             public AbsorptionRenderSystem AbsorptionRenderSystemPrefab;
             public ColorProbeRecoverySystem ColorProbeRecoverySystemPrefab;
+            public ColorSelector ColorSelectorPrefab;
             public ColorUnlockSystem ColorUnlockSystemPrefab;
         }
     }
