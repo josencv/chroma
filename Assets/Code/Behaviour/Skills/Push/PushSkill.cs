@@ -6,15 +6,15 @@ namespace Chroma.Behaviour.Skills.Push
     public class PushSkill
     {
         private const GameLayers pushablesLayerMask = GameLayers.Objects;
-        private const float amountToForceCoefficient = 50;
+        private const float amountToForceCoefficient = 70;
         private const float pushDistance = 2.0f;
         private const float pushFov = 30;       // The "field of vision" of the emission, in euler degrees. TODO: use it
         private const float raycastHeightOffset = 0.4f;     // How much the raycast start point should be displaced up
 
         private Transform transform;
 
-        private float minAmountThreshold = 5;  // In seconds
-        private float maxAmountCap = 50;     // In seconds
+        private float minAmountThreshold = 2;
+        private float maxAmountCap = 50;
 
         public PushSkill(Transform transform)
         {

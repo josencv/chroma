@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7173568081436683759}
   - component: {fileID: 7173568081436683765}
   - component: {fileID: 7173568081436683764}
+  - component: {fileID: 1598987433113667971}
   m_Layer: 11
   m_Name: Boulder
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 265c6eebbb1c2d34db997c756d14cda0, type: 2}
+  - {fileID: 2100000, guid: 312caa163cfc9864b9e880d5036d6bcc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8637,5 +8638,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56d8f4a41ce99394687f411807332896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1598987433113667971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173568081436683758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c475a814a0caad49b405ee84063897f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

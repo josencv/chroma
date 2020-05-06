@@ -33,6 +33,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
             Container.Bind<SimpleAttack>().FromComponentSibling();
             Container.Bind<Collider>().FromComponentSibling();
+            Container.Bind<Renderer>().FromComponentSibling();
             Container.Bind<Absorber>().FromComponentSibling();
 
             // AI related
@@ -48,6 +49,8 @@ namespace Chroma.Game.Configuration
             Container.Bind<ColorProbeRecoverySystem>().FromComponentInNewPrefab(settings.ColorProbeRecoverySystemPrefab).AsSingle();
             Container.Bind<ColorSelector>().FromComponentInNewPrefab(settings.ColorSelectorPrefab).AsSingle().NonLazy();
             Container.Bind<ColorUnlockSystem>().FromComponentInNewPrefab(settings.ColorUnlockSystemPrefab).AsSingle().NonLazy();
+
+
         }
 
         [Serializable]

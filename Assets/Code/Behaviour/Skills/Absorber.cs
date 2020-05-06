@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
+using Chroma.Game.Configuration;
 using UnityEngine;
 using Zenject;
 using Color = Chroma.ColorSystem.Color;
@@ -9,6 +10,8 @@ namespace Chroma.Behaviour.Skills
 {
     public class Absorber : MonoBehaviour
     {
+        private const GameLayers dynamicObjectsLayer = GameLayers.Objects;
+
         private AbsorptionEffectController absroptionEffectController;
         private AbsorptionRenderSystem absorptionRenderSystem;
         private ColorProbeQuadrantSystem quadrantSystem;
@@ -68,6 +71,7 @@ namespace Chroma.Behaviour.Skills
             float absorbedAmount = 0;
             List<ColorProbeData[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
             absorptionRenderSystem.AddAbsorptionPoint(transform.position, currentRadius);
+            AddRenderDataToDynamiCobjects();
 
             foreach(ColorProbeData[] probes in quadrantsToCheck)
             {
@@ -92,6 +96,17 @@ namespace Chroma.Behaviour.Skills
             absroptionEffectController.EndEffect();
             enabled = false;
             return absorbedAmount;
+        }
+
+        private void AddRenderDataToDynamiCobjects()
+        {
+            // TODO: change to OverlapSphereNonAlloc to avoid unnecessary allocation
+            Collider[] colliders = Physics.OverlapSphere(transform.position, currentRadius, (int)dynamicObjectsLayer);
+
+            foreach(Collider collider in colliders)
+            {
+                collider.GetComponent<AbsorbableRenderManager>()?.AddAbsorptionPoint(transform.position, currentRadius);
+            }
         }
 
         private void OnDrawGizmos()
