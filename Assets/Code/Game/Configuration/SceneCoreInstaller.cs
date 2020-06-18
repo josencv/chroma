@@ -4,6 +4,7 @@ using Chroma.Behaviour.Attack;
 using Chroma.Behaviour.Skills;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
+using Chroma.ColorSystem.Probes;
 using Chroma.Components.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
@@ -44,13 +45,11 @@ namespace Chroma.Game.Configuration
             Container.Bind<AbsorptionEffectController>().AsSingle();
             Container.Bind<AbsorptionField>().FromComponentInNewPrefab(settings.AbsorptionFieldPrefab).AsSingle().NonLazy();
             Container.Bind<AbsorptionRenderSystem>().FromComponentInNewPrefab(settings.AbsorptionRenderSystemPrefab).AsSingle();
-            Container.Bind<ColorProbe>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<StaticColorProbe>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<ColorProbeQuadrantSystem>().AsSingle().NonLazy();
             Container.Bind<ColorProbeRecoverySystem>().FromComponentInNewPrefab(settings.ColorProbeRecoverySystemPrefab).AsSingle();
             Container.Bind<ColorSelector>().FromComponentInNewPrefab(settings.ColorSelectorPrefab).AsSingle().NonLazy();
             Container.Bind<ColorUnlockSystem>().FromComponentInNewPrefab(settings.ColorUnlockSystemPrefab).AsSingle().NonLazy();
-
-
         }
 
         [Serializable]

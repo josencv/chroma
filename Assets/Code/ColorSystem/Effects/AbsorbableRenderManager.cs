@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Chroma.ColorSystem.Probes;
 using UnityEngine;
 using Zenject;
 
@@ -47,7 +48,7 @@ namespace Chroma.ColorSystem.Effects
         {
             for(int i = absorptionDataList.Count - 1; i >= 0; i--)
             {
-                absorptionDataList[i].Saturation += ColorProbeRecoverySystem.RecoverySpeed * Time.deltaTime;
+                absorptionDataList[i].Saturation += ColorConstants.ProbesRecoverySpeed * Time.deltaTime;
                 if(absorptionDataList[i].Saturation >= 1)
                 {
                     absorptionDataList.Remove(absorptionDataList[i]);

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
+using Chroma.ColorSystem.Probes;
 using Chroma.Game.Configuration;
 using UnityEngine;
 using Zenject;

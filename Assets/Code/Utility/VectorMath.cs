@@ -16,5 +16,15 @@ namespace Chroma.Utility
             var rotation = Quaternion.AngleAxis(-targetSpace.eulerAngles.x, targetSpace.right);
             return rotation * vector;
         }
+
+        public static Vector3 CalculateTriangleCenter(Vector3 v1, Vector3 v2, Vector3 v3)
+        {
+            return (v1 + v2 + v3) / 3;
+        }
+
+        public static float CalculateTriangleArea(Vector3 v1, Vector3 v2, Vector3 v3)
+        {
+            return Vector3.Cross(v1 - v2, v1 - v3).magnitude * 0.5f;
+        }
     }
 }
