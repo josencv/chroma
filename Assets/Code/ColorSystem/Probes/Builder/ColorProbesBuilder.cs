@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Chroma.Utility;
 using UnityEngine;
-using Zenject;
 
 namespace Chroma.ColorSystem.Probes.Builder
 {
@@ -24,6 +24,7 @@ namespace Chroma.ColorSystem.Probes.Builder
             Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
             Material material = GetComponent<MeshRenderer>().sharedMaterial;
             Texture2D texture = material.mainTexture as Texture2D;
+            TextureWrapMode wrapMode = texture.wrapMode;
             UnityEngine.Color tint = MaterialUtil.GetMaterialTint(material);
             texture = GraphicsUtil.CopyTexture(texture);
 
@@ -43,15 +44,28 @@ namespace Chroma.ColorSystem.Probes.Builder
             Debug.Log("Transformed mesh vertices: " + vertices.Length);
             Debug.Log("Transformed mesh triangles: " + trianglesCount);
 
-            // For each triangle, get the gravity position, the area and calculate the average color of each texel
-            for(int i = 0, currentIndex = 0; i < trianglesCount; i++, currentIndex = i * 3)
-            {
-                //Color averageColor = MeshUtil.GetTriangleAverageColor(
-                //    uvs[triangles[currentIndex]],
-                //    uvs[triangles[currentIndex + 1]],
-                //    uvs[triangles[currentIndex + 2]],
-                //    texture,
-                //    tint);
+            int textureWidth = texture.width;
+            int textureHeight = texture.height;
+            UnityEngine.Color[] pixels = texture.GetPixels();
+
+            Debug.Log("Texture width is: " + textureWidth);
+            Debug.Log("Texture height is: " + textureHeight);
+            Debug.Log("pixels length is: " + pixels.Length);
+
+            Parallel.For(0, trianglesCount, (index) => {
+                int currentIndex = index * 3;
+
+                //Debug.Log("Triangle " + index + " UVs: " + uvs[triangles[currentIndex]] + " " + uvs[triangles[currentIndex + 1]] + " " + uvs[triangles[currentIndex + 2]]);
+
+                Color averageColor = MeshUtil.GetTriangleAverageColor(
+                    uvs[triangles[currentIndex]],
+                    uvs[triangles[currentIndex + 1]],
+                    uvs[triangles[currentIndex + 2]],
+                    pixels,
+                    textureWidth,
+                    textureHeight,
+                    wrapMode,
+                    tint);
                 Vector3 center = VectorMath.CalculateTriangleCenter(
                     vertices[triangles[currentIndex]],
                     vertices[triangles[currentIndex + 1]],
@@ -61,11 +75,9 @@ namespace Chroma.ColorSystem.Probes.Builder
                     vertices[triangles[currentIndex + 1]],
                     vertices[triangles[currentIndex + 2]]);
 
-                Color averageColor = Color.Blue;
-
                 TriangleData triangleData = new TriangleData(averageColor, center, area);
-                trianglesData[i] = triangleData;
-            }
+                trianglesData[index] = triangleData;
+            });
 
             Dictionary<int, TriangleData[]> clusters = ClusterUtil.ClusterVertices(clusterSize, trianglesData);
             TriangleData[] reducedTriangleData = ClusterUtil.ReduceClusters(clusters);
