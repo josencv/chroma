@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Chroma.ColorSystem.Probes
 {
@@ -10,14 +14,63 @@ namespace Chroma.ColorSystem.Probes
     /// </summary>
     public class ColorProbeQuadrantSystem
     {
-        public const int AdjacentQuadrantsQuantity = 8;   // Including the current quadrant
+        public const int AdjacentQuadrantsQuantity = 8; // Including the current quadrant
         public const float QuadrantSize = 25;
 
-        private Dictionary<int, ColorProbeData[]> quadrants;
+        private Dictionary<int, ColorProbe[]> quadrants;
 
-        public ColorProbeQuadrantSystem(List<StaticColorProbe> probes)
+        public ColorProbeQuadrantSystem(List<AbsorbableStatic> absorbables)
         {
-            BuildQuadrantData(probes);
+            quadrants = new Dictionary<int, ColorProbe[]>();
+            LoadProbesAndBuildData(absorbables);
+        }
+
+        public async void LoadProbesAndBuildData(List<AbsorbableStatic> absorbables)
+        {
+            // List of probes with positions in world space
+            var translatedProbes = new List<ColorProbe>();
+            var tasks = new List<Task<ColorProbeData>>();
+            var handles = new Dictionary<AssetReference, AsyncOperationHandle<ColorProbeData>>();
+
+            Debug.Log("Absorbables length: " + absorbables.Count);
+
+            foreach(AbsorbableStatic absorbable in absorbables)
+            {
+                // Empty AssetReference instances are not null when they are left empty in the editor.
+                // This is the way to check if it references an actual asset
+                if (!absorbable.ProbeDataRef.RuntimeKeyIsValid())
+                {
+                    continue;
+                }
+
+                if(!handles.ContainsKey(absorbable.ProbeDataRef))
+                {
+                    AsyncOperationHandle<ColorProbeData> handle = absorbable.ProbeDataRef.LoadAssetAsync<ColorProbeData>();
+                    handles[absorbable.ProbeDataRef] = handle;
+                    tasks.Add(handle.Task);
+                }
+            }
+
+            await Task.WhenAll(tasks.ToArray());
+
+            // Now that all assets are loaded, we can access the handles results
+            foreach(AbsorbableStatic absorbable in absorbables)
+            {
+                if (!handles.ContainsKey(absorbable.ProbeDataRef))
+                {
+                    continue;
+                }
+
+                ColorProbe[] probes = handles[absorbable.ProbeDataRef].Result.Probes;
+                foreach(ColorProbe probe in probes)
+                {
+                    Vector3 worldPosition = absorbable.transform.position + probe.Position;
+                    ColorProbe translatedProbe = new ColorProbe(worldPosition, probe.Color);
+                    translatedProbes.Add(translatedProbe);
+                }
+            }
+
+            BuildQuadrantData(translatedProbes);
         }
 
         public static Vector3 GetQuadrantCenterFromPosition(Vector3 position)
@@ -30,7 +83,7 @@ namespace Chroma.ColorSystem.Probes
             );
         }
 
-        public ColorProbeData[] GetQuadrantFromHash(int hash)
+        public ColorProbe[] GetQuadrantFromHash(int hash)
         {
             return quadrants[hash];
         }
@@ -63,11 +116,11 @@ namespace Chroma.ColorSystem.Probes
             return centerList;
         }
 
-        public ColorProbeData[] GetProbesFromPosition(Vector3 position)
+        public ColorProbe[] GetProbesFromPosition(Vector3 position)
         {
-            ColorProbeData[] probes;
+            ColorProbe[] probes;
             quadrants.TryGetValue(GetQuadrantHash(position), out probes);
-            return probes ?? new ColorProbeData[0];
+            return probes ?? new ColorProbe[0];
         }
 
         /// <summary>
@@ -75,10 +128,10 @@ namespace Chroma.ColorSystem.Probes
         /// </summary>
         /// <param name="position">The position to to get the nearest quadrants of</param>
         /// <returns>A list of the color probes data of the current and nearest quadrants</returns>
-        public List<ColorProbeData[]> GetCurrentAndAdjacentQuadrants(Vector3 position)
+        public List<ColorProbe[]> GetCurrentAndAdjacentQuadrants(Vector3 position)
         {
             List<Vector3> centers = GetCurrentAndAdjacentQuadrantsCenterFromPosition(position);
-            List<ColorProbeData[]> probesList = new List<ColorProbeData[]>(8);
+            List<ColorProbe[]> probesList = new List<ColorProbe[]>(8);
 
             foreach(Vector3 center in centers)
             {
@@ -88,26 +141,25 @@ namespace Chroma.ColorSystem.Probes
             return probesList;
         }
 
-        private void BuildQuadrantData(List<StaticColorProbe> probes)
+        private void BuildQuadrantData(List<ColorProbe> probes)
         {
-            quadrants = new Dictionary<int, ColorProbeData[]>();
-            Dictionary<int, List<ColorProbeData>> quadrantsList = new Dictionary<int, List<ColorProbeData>>();
+            Debug.Log("Probes lenght: " + probes.Count);
+
+            Dictionary<int, List<ColorProbe>> quadrantsList = new Dictionary<int, List<ColorProbe>>();
 
             int index;
-            foreach(StaticColorProbe probe in probes)
+            foreach(ColorProbe probe in probes)
             {
-                index = GetQuadrantHash(probe.transform.position);
+                index = GetQuadrantHash(probe.Position);
                 if(!quadrantsList.ContainsKey(index))
                 {
-                    quadrantsList.Add(index, new List<ColorProbeData>());
+                    quadrantsList.Add(index, new List<ColorProbe>());
                 }
 
-                quadrantsList[index].Add(new ColorProbeData(probe.transform.position, probe.Color));
-                // Once added to the quadrant system, the editor color probe is no longer needed, so we can safely destroy it
-                Object.Destroy(probe.gameObject);
+                quadrantsList[index].Add(probe);
             }
 
-            foreach(KeyValuePair<int, List<ColorProbeData>> pair in quadrantsList)
+            foreach(KeyValuePair<int, List<ColorProbe>> pair in quadrantsList)
             {
                 quadrants.Add(pair.Key, pair.Value.ToArray());
             }

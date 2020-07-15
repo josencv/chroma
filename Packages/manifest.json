@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.addressables": "1.8.4",
     "com.unity.ext.nunit": "1.0.0",
     "com.unity.ide.vscode": "1.2.0",
     "com.unity.memoryprofiler": "0.2.3-preview.1",

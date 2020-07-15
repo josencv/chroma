@@ -69,11 +69,11 @@ namespace Chroma.Behaviour.Skills
         public float ExecuteAbsobption(Color colorToAbsorb)
         {
             float absorbedAmount = 0;
-            List<ColorProbeData[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
+            List<ColorProbe[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
             absorptionRenderSystem.AddAbsorptionPoint(transform.position, currentRadius);
             AddRenderDataToDynamiCobjects();
 
-            foreach(ColorProbeData[] probes in quadrantsToCheck)
+            foreach(ColorProbe[] probes in quadrantsToCheck)
             {
                 for(int i = 0; i < probes.Length; i++)
                 {

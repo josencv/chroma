@@ -1,8 +1,9 @@
-﻿using Zenject;
+﻿using System;
 
 namespace Chroma.ColorSystem.Probes
 {
-    public class StaticColorProbe : ColorProbe
+    [Obsolete("This class should not be used because now the color probes data are stored in asset files.")]
+    public class StaticColorProbe : ColorProbeMarker
     {
 
     }

@@ -28,8 +28,8 @@ namespace Chroma.ColorSystem.Probes
         {
             if(quadrantSystem != null)
             {
-                List<ColorProbeData[]> quadrants = quadrantSystem.GetCurrentAndAdjacentQuadrants(character.transform.position);
-                foreach(ColorProbeData[] quadrantProbes in quadrants)
+                List<ColorProbe[]> quadrants = quadrantSystem.GetCurrentAndAdjacentQuadrants(character.transform.position);
+                foreach(ColorProbe[] quadrantProbes in quadrants)
                 {
                     for(int i = 0; i < quadrantProbes.Length; i++)
                     {

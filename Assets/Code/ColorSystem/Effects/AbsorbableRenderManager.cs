@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Chroma.ColorSystem.Probes;
 using UnityEngine;
 using Zenject;
 

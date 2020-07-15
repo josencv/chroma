@@ -2,32 +2,11 @@
 
 namespace Chroma.ColorSystem.Probes
 {
-    public struct ColorProbeData
+    public class ColorProbeData : ScriptableObject
     {
-        public Vector3 Position { get; }
-        public Color Color { get; }
-        public float Amount { get; private set; }
+        [SerializeField]
+        private ColorProbe[] probes;
 
-        public ColorProbeData(Vector3 position, Color color)
-        {
-            Position = position;
-            Color = color;
-            Amount = 1;
-        }
-
-        public float GetAbsorbed()
-        {
-            float aux = Amount;
-            Amount = 0;
-
-            return aux;
-        }
-
-        public float Recover(float amount)
-        {
-            Amount = Mathf.Min(Amount + amount, 1);
-
-            return Amount;
-        }
+        public ColorProbe[] Probes { get { return probes; } set { probes = value; } }
     }
 }

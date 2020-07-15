@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Movement Enhanced.unity
     guid: 9c5da8aa4ac18574ea1433ab9e67c7ba
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: ac754e012f54b3142b4dd4701a79cb7e,
+      type: 2}
