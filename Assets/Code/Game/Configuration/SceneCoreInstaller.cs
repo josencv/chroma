@@ -4,6 +4,7 @@ using Chroma.Behaviour.Attack;
 using Chroma.Behaviour.Skills;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
+using Chroma.ColorSystem.Probes;
 using Chroma.Components.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
@@ -33,6 +34,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
             Container.Bind<SimpleAttack>().FromComponentSibling();
             Container.Bind<Collider>().FromComponentSibling();
+            Container.Bind<Renderer>().FromComponentSibling();
             Container.Bind<Absorber>().FromComponentSibling();
 
             // AI related
@@ -43,7 +45,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<AbsorptionEffectController>().AsSingle();
             Container.Bind<AbsorptionField>().FromComponentInNewPrefab(settings.AbsorptionFieldPrefab).AsSingle().NonLazy();
             Container.Bind<AbsorptionRenderSystem>().FromComponentInNewPrefab(settings.AbsorptionRenderSystemPrefab).AsSingle();
-            Container.Bind<ColorProbe>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<AbsorbableStatic>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<ColorProbeQuadrantSystem>().AsSingle().NonLazy();
             Container.Bind<ColorProbeRecoverySystem>().FromComponentInNewPrefab(settings.ColorProbeRecoverySystemPrefab).AsSingle();
             Container.Bind<ColorSelector>().FromComponentInNewPrefab(settings.ColorSelectorPrefab).AsSingle().NonLazy();

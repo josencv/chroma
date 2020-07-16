@@ -80,3 +80,7 @@ MonoBehaviour:
       type: 3}
     LoadingScreenPrefab: {fileID: -6983498868447099931, guid: 47f59302bd28ace4384702e3fc4aef2d,
       type: 3}
+    StaticColorProbePrefab: {fileID: 4786771228974147168, guid: be74223e7e2fd9346abc668954bbd45a,
+      type: 3}
+    DynamicColorProbePrefab: {fileID: -3301098550015686479, guid: e3bd61c9d364a5a40baf693f7dfb15d7,
+      type: 3}

@@ -38,11 +38,11 @@ public class RGBFilter_Controller : MonoBehaviour
 
     private void UpdateAllColors()
     {
-        Absorbable[] absorbers = FindObjectsOfType<Absorbable>();
+        AbsorbableTest[] absorbers = FindObjectsOfType<AbsorbableTest>();
         mats = new Material[absorbers.Length];
 
         int i = 0;
-        foreach(Absorbable item in absorbers)
+        foreach(AbsorbableTest item in absorbers)
         {
             mats[i] = item.GetComponent<MeshRenderer>().material;
             i++;

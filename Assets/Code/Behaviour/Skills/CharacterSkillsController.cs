@@ -59,7 +59,7 @@ namespace Chroma.Behaviour.Skills
 
         private void UseSkill(Color color, float amount)
         {
-            if(color == Color.Blue)
+            if(color == Color.Red)
             {
                 pushSkill.Push(amount);
             }

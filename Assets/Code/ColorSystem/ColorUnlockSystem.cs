@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 namespace Chroma.ColorSystem
 {
@@ -13,30 +12,32 @@ namespace Chroma.ColorSystem
         [SerializeField]  private bool blueUnlocked = false;
         [SerializeField]  private bool magentaUnlocked = false;
 
-        private AbsorptionRenderSystem absorptionRenderSystem;
-        public Dictionary<Color, ColorInfo> ColorsMap { get; private set; }
-
-        [Inject]
-        public void Inject(AbsorptionRenderSystem absorptionRenderSystem)
-        {
-            this.absorptionRenderSystem = absorptionRenderSystem;
-        }
+        private Dictionary<Color, ColorInfo> colorsMap;
 
         private void Awake()
         {
             InitializeColorMap();
-            absorptionRenderSystem.InitializeUnlockedColorsData(ColorsMap);
+        }
+
+        public bool IsColorUnlocked(Color color)
+        {
+            return colorsMap[color].Unlocked;
+        }
+
+        public ColorInfo GetColorInfo(Color color)
+        {
+            return colorsMap[color];
         }
 
         private void InitializeColorMap()
         {
-            ColorsMap = new Dictionary<Color, ColorInfo>();
-            ColorsMap.Add(Color.Red, new ColorInfo(Color.Red, redUnlocked));
-            ColorsMap.Add(Color.Yellow, new ColorInfo(Color.Yellow, yellowUnlocked));
-            ColorsMap.Add(Color.Green, new ColorInfo(Color.Green, greenUnlocked));
-            ColorsMap.Add(Color.Cyan, new ColorInfo(Color.Cyan, cyanUnlocked));
-            ColorsMap.Add(Color.Blue, new ColorInfo(Color.Blue, blueUnlocked));
-            ColorsMap.Add(Color.Magenta, new ColorInfo(Color.Magenta, magentaUnlocked));
+            colorsMap = new Dictionary<Color, ColorInfo>();
+            colorsMap.Add(Color.Red, new ColorInfo(Color.Red, redUnlocked));
+            colorsMap.Add(Color.Yellow, new ColorInfo(Color.Yellow, yellowUnlocked));
+            colorsMap.Add(Color.Green, new ColorInfo(Color.Green, greenUnlocked));
+            colorsMap.Add(Color.Cyan, new ColorInfo(Color.Cyan, cyanUnlocked));
+            colorsMap.Add(Color.Blue, new ColorInfo(Color.Blue, blueUnlocked));
+            colorsMap.Add(Color.Magenta, new ColorInfo(Color.Magenta, magentaUnlocked));
         }
     }
 }

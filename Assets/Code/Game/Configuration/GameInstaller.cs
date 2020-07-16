@@ -1,6 +1,7 @@
 ﻿using System;
 using Chroma.Game.LevelManagement;
 using Chroma.Game.LoadingScreens;
+using Chroma.Infrastructure.DI;
 using Chroma.Infrastructure.Input;
 using UnityEngine;
 using Zenject;
@@ -22,6 +23,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<GameLoop>().FromComponentInNewPrefab(settings.GameLoopPrefab).AsSingle().NonLazy();
             Container.Bind<InputManager>().AsSingle();
             Container.Bind<LoadingScreen>().FromComponentInNewPrefab(settings.LoadingScreenPrefab).AsSingle().NonLazy();
+            Container.Bind<AsyncProcessor>().FromNewComponentOnNewGameObject().AsSingle();
         }
 
         [Serializable]

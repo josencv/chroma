@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766eca8a4b9caf4aa939e5578abdbe2, type: 3}
+  m_Name: Pillar (23)ProbeData
+  m_EditorClassIdentifier: 
+  probes:
+  - position: {x: 0.5, y: 8, z: -0.5}
+    color: 3
+  - position: {x: 0.30555555, y: 0.44444445, z: -0.6388889}
+    color: 3
+  - position: {x: 0.5833333, y: 0.6666667, z: 0}
+    color: 3
+  - position: {x: 0.4722222, y: 2.4444447, z: 0}
+    color: 3
+  - position: {x: 0.5, y: 5.3333335, z: 0}
+    color: 3
+  - position: {x: 0.41666666, y: 7.3333335, z: 0}
+    color: 3
+  - position: {x: 0.5833333, y: 6, z: 0}
+    color: 3
+  - position: {x: 1, y: 0.6666667, z: -0.5833333}
+    color: 3
+  - position: {x: 1, y: 2.4444447, z: -0.4722222}
+    color: 3
+  - position: {x: 1, y: 5.3333335, z: -0.5}
+    color: 3
+  - position: {x: 1, y: 7.3333335, z: -0.41666666}
+    color: 3
+  - position: {x: 1, y: 6, z: -0.5833333}
+    color: 3
+  - position: {x: 0.26388887, y: 2.4444447, z: -0.76388884}
+    color: 3
+  - position: {x: 0.25, y: 5.3333335, z: -0.75}
+    color: 3
+  - position: {x: 0.29166666, y: 7.3333335, z: -0.7916666}
+    color: 3
+  - position: {x: 0.20833333, y: 6, z: -0.7083333}
+    color: 3

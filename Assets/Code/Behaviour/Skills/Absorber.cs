@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
+using Chroma.ColorSystem.Probes;
+using Chroma.Game.Configuration;
 using UnityEngine;
 using Zenject;
 using Color = Chroma.ColorSystem.Color;
@@ -9,10 +11,13 @@ namespace Chroma.Behaviour.Skills
 {
     public class Absorber : MonoBehaviour
     {
+        private const GameLayers dynamicObjectsLayer = GameLayers.Objects;
+
         private AbsorptionEffectController absroptionEffectController;
         private AbsorptionRenderSystem absorptionRenderSystem;
         private ColorProbeQuadrantSystem quadrantSystem;
         private ColorProbeRecoverySystem recoverySystem;
+        private ColorUnlockSystem colorUnlockSystem;
 
         [SerializeField]
         private float maxRadius = 5.0f;
@@ -27,13 +32,15 @@ namespace Chroma.Behaviour.Skills
             AbsorptionEffectController absroptionEffectController,
             AbsorptionRenderSystem absorptionRenderSystem,
             ColorProbeQuadrantSystem quadrantSystem,
-            ColorProbeRecoverySystem recoverySystem
+            ColorProbeRecoverySystem recoverySystem,
+            ColorUnlockSystem colorUnlockSystem
         )
         {
             this.absroptionEffectController = absroptionEffectController;
             this.absorptionRenderSystem = absorptionRenderSystem;
             this.quadrantSystem = quadrantSystem;
             this.recoverySystem = recoverySystem;
+            this.colorUnlockSystem = colorUnlockSystem;
         }
 
         private void Start()
@@ -66,14 +73,15 @@ namespace Chroma.Behaviour.Skills
         public float ExecuteAbsobption(Color colorToAbsorb)
         {
             float absorbedAmount = 0;
-            List<ColorProbeData[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
+            List<ColorProbe[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
             absorptionRenderSystem.AddAbsorptionPoint(transform.position, currentRadius);
+            absorbedAmount += AbsorbFromDynamicObjects(colorToAbsorb);
 
-            foreach(ColorProbeData[] probes in quadrantsToCheck)
+            foreach(ColorProbe[] probes in quadrantsToCheck)
             {
                 for(int i = 0; i < probes.Length; i++)
                 {
-                    if(Vector3.Distance(probes[i].Position, transform.position) <= currentRadius && probes[i].Color == colorToAbsorb)
+                    if(probes[i].Color == colorToAbsorb && colorUnlockSystem.IsColorUnlocked(colorToAbsorb) && Vector3.Distance(probes[i].Position, transform.position) <= currentRadius)
                     {
                         float amount = probes[i].GetAbsorbed();
                         absorbedAmount += amount;
@@ -92,6 +100,26 @@ namespace Chroma.Behaviour.Skills
             absroptionEffectController.EndEffect();
             enabled = false;
             return absorbedAmount;
+        }
+
+        private float AbsorbFromDynamicObjects(Color colorToAbsorb)
+        {
+            float amount = 0;
+            // TODO: change to OverlapSphereNonAlloc to avoid unnecessary allocation
+            Collider[] dynamicObjectsColliders = Physics.OverlapSphere(transform.position, currentRadius, (int)dynamicObjectsLayer);
+
+            foreach(Collider collider in dynamicObjectsColliders)
+            {
+                AbsorbableDynamic absorbable = collider.GetComponent<AbsorbableDynamic>();
+                if (absorbable != null)
+                {
+                    amount += absorbable.GetAbsorbed(transform.position, currentRadius, colorToAbsorb);
+                }
+
+                collider.GetComponent<AbsorbableRenderManager>()?.AddAbsorptionPoint(transform.position, currentRadius);
+            }
+
+            return amount;
         }
 
         private void OnDrawGizmos()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4786771228974147170}
   - component: {fileID: 4786771228974147168}
   m_Layer: 14
-  m_Name: Static Color Probe
+  m_Name: Static Color Probe - Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2b58344e9aae74b8791f6e0c8ebee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 1
+  color: 4
