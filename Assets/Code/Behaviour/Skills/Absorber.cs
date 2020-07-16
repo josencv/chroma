@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
 using Chroma.ColorSystem.Probes;
 using Chroma.Game.Configuration;
@@ -16,6 +17,7 @@ namespace Chroma.Behaviour.Skills
         private AbsorptionRenderSystem absorptionRenderSystem;
         private ColorProbeQuadrantSystem quadrantSystem;
         private ColorProbeRecoverySystem recoverySystem;
+        private ColorUnlockSystem colorUnlockSystem;
 
         [SerializeField]
         private float maxRadius = 5.0f;
@@ -30,13 +32,15 @@ namespace Chroma.Behaviour.Skills
             AbsorptionEffectController absroptionEffectController,
             AbsorptionRenderSystem absorptionRenderSystem,
             ColorProbeQuadrantSystem quadrantSystem,
-            ColorProbeRecoverySystem recoverySystem
+            ColorProbeRecoverySystem recoverySystem,
+            ColorUnlockSystem colorUnlockSystem
         )
         {
             this.absroptionEffectController = absroptionEffectController;
             this.absorptionRenderSystem = absorptionRenderSystem;
             this.quadrantSystem = quadrantSystem;
             this.recoverySystem = recoverySystem;
+            this.colorUnlockSystem = colorUnlockSystem;
         }
 
         private void Start()
@@ -77,7 +81,7 @@ namespace Chroma.Behaviour.Skills
             {
                 for(int i = 0; i < probes.Length; i++)
                 {
-                    if(Vector3.Distance(probes[i].Position, transform.position) <= currentRadius && probes[i].Color == colorToAbsorb)
+                    if(probes[i].Color == colorToAbsorb && colorUnlockSystem.IsColorUnlocked(colorToAbsorb) && Vector3.Distance(probes[i].Position, transform.position) <= currentRadius)
                     {
                         float amount = probes[i].GetAbsorbed();
                         absorbedAmount += amount;

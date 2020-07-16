@@ -46,7 +46,7 @@ public class AbsorbableEditor : Editor
         if (absorbable.TriangleColorCalculationMode == TriangleColorCalculationMode.FromTexture)
         {
             Material material = absorbable.GetComponent<Renderer>().sharedMaterial;
-            probes = ColorProbesBuilder.GenerateProbes(mesh, material, absorbable.ClusterSize);
+            probes = ColorProbesBuilder.GenerateProbes(mesh, material, absorbable.ClusterSize, absorbable.MipmapLevel);
         }
         else
         {

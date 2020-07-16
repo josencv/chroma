@@ -5,14 +5,23 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Zenject;
 
 namespace Chroma.ColorSystem.Probes
 {
     public class AbsorbableDynamic : Absorbable
     {
+        private ColorUnlockSystem colorUnlockSystem;
+
         private const float ProbeRadius = 0.1f;
         private ColorProbe[] probes;
         private List<int> probesBeingRecoveredIndices;
+
+        [Inject]
+        private void Inject(ColorUnlockSystem colorUnlockSystem)
+        {
+            this.colorUnlockSystem = colorUnlockSystem;
+        }
 
         private void Awake()
         {
@@ -59,7 +68,7 @@ namespace Chroma.ColorSystem.Probes
 
             for(int i = 0; i < probes.Length; i++)
             {
-                if(colorToAbsorb == probes[i].Color && Vector3.Distance(position, transform.TransformPoint(probes[i].Position)) <= radius)
+                if(colorToAbsorb == probes[i].Color && colorUnlockSystem.IsColorUnlocked(colorToAbsorb) && Vector3.Distance(position, transform.TransformPoint(probes[i].Position)) <= radius)
                 {
                     float amount = probes[i].GetAbsorbed();
                     absorbedAmount += amount;

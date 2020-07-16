@@ -73,7 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 312caa163cfc9864b9e880d5036d6bcc, type: 2}
+  - {fileID: 2100000, guid: 67d1fa28457e49f43bf72cd96ec89726, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8677,9 +8677,9 @@ MonoBehaviour:
   probeDataRef:
     m_AssetGUID: 25ac50c2cbbfbd642ae9969b647ed023
     m_SubObjectName: 
-  clusterSize: 1
+  clusterSize: 1.11
   triangleColorCalculationMode: 1
-  triangleManualColor: 2
+  triangleManualColor: 0
 --- !u!1001 &7173568081066852661
 PrefabInstance:
   m_ObjectHideFlags: 0

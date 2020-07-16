@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Chroma.ColorSystem.Probes;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -10,10 +10,12 @@ namespace Chroma.ColorSystem.Effects
         private Texture2D absorptionDataTexture;
         private List<AbsorptionPointRenderData> absorptionDataList;
         private AbsorptionPointRenderData currentAbsorptionPoint;
+        private ColorUnlockSystem colorUnlockSytem;
 
         [Inject]
-        private void Inject(ColorSelector colorSelector)
+        private void Inject(ColorSelector colorSelector, ColorUnlockSystem colorUnlockSytem)
         {
+            this.colorUnlockSytem = colorUnlockSytem;
             colorSelector.ColorChanged += UpdateEffectsColor;
             UpdateEffectsColor(colorSelector.SelectedColor);
         }
@@ -22,6 +24,7 @@ namespace Chroma.ColorSystem.Effects
         {
             absorptionDataTexture = new Texture2D(32, 32, TextureFormat.RGBAFloat, false);
             absorptionDataList = new List<AbsorptionPointRenderData>();
+            InitializeUnlockedColorsData();
         }
 
         private void Start()
@@ -37,11 +40,14 @@ namespace Chroma.ColorSystem.Effects
             UpdateAbsorptionEffectData();
         }
 
-        public void InitializeUnlockedColorsData(Dictionary<Color, ColorInfo> colorsMap)
+        private void InitializeUnlockedColorsData()
         {
-            foreach(KeyValuePair<Color, ColorInfo> pair in colorsMap)
+            Color[] colors = (Color[])Enum.GetValues(typeof(Color));
+
+            foreach(Color color in colors)
             {
-                UpdateColorDisabled(pair.Value);
+                ColorInfo colorInfo = colorUnlockSytem.GetColorInfo(color);
+                UpdateColorDisabled(colorInfo);
             }
         }
 
