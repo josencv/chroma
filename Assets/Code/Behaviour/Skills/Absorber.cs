@@ -71,7 +71,7 @@ namespace Chroma.Behaviour.Skills
             float absorbedAmount = 0;
             List<ColorProbe[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
             absorptionRenderSystem.AddAbsorptionPoint(transform.position, currentRadius);
-            AddRenderDataToDynamiCobjects();
+            absorbedAmount += AbsorbFromDynamicObjects(colorToAbsorb);
 
             foreach(ColorProbe[] probes in quadrantsToCheck)
             {
@@ -98,15 +98,24 @@ namespace Chroma.Behaviour.Skills
             return absorbedAmount;
         }
 
-        private void AddRenderDataToDynamiCobjects()
+        private float AbsorbFromDynamicObjects(Color colorToAbsorb)
         {
+            float amount = 0;
             // TODO: change to OverlapSphereNonAlloc to avoid unnecessary allocation
-            Collider[] colliders = Physics.OverlapSphere(transform.position, currentRadius, (int)dynamicObjectsLayer);
+            Collider[] dynamicObjectsColliders = Physics.OverlapSphere(transform.position, currentRadius, (int)dynamicObjectsLayer);
 
-            foreach(Collider collider in colliders)
+            foreach(Collider collider in dynamicObjectsColliders)
             {
+                AbsorbableDynamic absorbable = collider.GetComponent<AbsorbableDynamic>();
+                if (absorbable != null)
+                {
+                    amount += absorbable.GetAbsorbed(transform.position, currentRadius, colorToAbsorb);
+                }
+
                 collider.GetComponent<AbsorbableRenderManager>()?.AddAbsorptionPoint(transform.position, currentRadius);
             }
+
+            return amount;
         }
 
         private void OnDrawGizmos()

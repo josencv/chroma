@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -32,8 +31,6 @@ namespace Chroma.ColorSystem.Probes
             var tasks = new List<Task<ColorProbeData>>();
             var handles = new Dictionary<AssetReference, AsyncOperationHandle<ColorProbeData>>();
 
-            Debug.Log("Absorbables length: " + absorbables.Count);
-
             foreach(AbsorbableStatic absorbable in absorbables)
             {
                 // Empty AssetReference instances are not null when they are left empty in the editor.
@@ -64,6 +61,7 @@ namespace Chroma.ColorSystem.Probes
                 ColorProbe[] probes = handles[absorbable.ProbeDataRef].Result.Probes;
                 foreach(ColorProbe probe in probes)
                 {
+                    // TODO: use transformation matrix to calculate final probe position
                     Vector3 worldPosition = absorbable.transform.position + probe.Position;
                     ColorProbe translatedProbe = new ColorProbe(worldPosition, probe.Color);
                     translatedProbes.Add(translatedProbe);
@@ -143,8 +141,6 @@ namespace Chroma.ColorSystem.Probes
 
         private void BuildQuadrantData(List<ColorProbe> probes)
         {
-            Debug.Log("Probes lenght: " + probes.Count);
-
             Dictionary<int, List<ColorProbe>> quadrantsList = new Dictionary<int, List<ColorProbe>>();
 
             int index;

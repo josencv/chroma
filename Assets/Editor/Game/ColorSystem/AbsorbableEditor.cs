@@ -4,7 +4,6 @@ using Chroma.Utility;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(AbsorbableStatic))]
 public class AbsorbableEditor : Editor
 {
     private enum ActionType { ReplaceAsset = 0, Nothing = 1, CreateNewAsset = 2 }

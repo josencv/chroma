@@ -17,6 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: ec93ec3c243d3c042897c7495442bcab
   m_SerializeEntries:
+  - m_GUID: 25ac50c2cbbfbd642ae9969b647ed023
+    m_Address: Assets/Content/Generated/Probes/BoulderProbeData.asset
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - ProbeData
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: a3a4baf910b2bb748bce6938b303bc0e
     m_Address: Assets/Content/Generated/Probes/Pillar (23)ProbeData.asset
     m_ReadOnly: 1

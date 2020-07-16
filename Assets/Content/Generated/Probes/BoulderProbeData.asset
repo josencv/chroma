@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4766eca8a4b9caf4aa939e5578abdbe2, type: 3}
+  m_Name: BoulderProbeData
+  m_EditorClassIdentifier: 
+  probes:
+  - position: {x: -1.3396503, y: 3.3342519, z: 0.38954094}
+    color: 2
+  - position: {x: -0.5741214, y: 3.7725058, z: 0.5152036}
+    color: 2
+  - position: {x: -1.8038884, y: 2.5194376, z: 0.4120688}
+    color: 2
+  - position: {x: -1.3342518, y: 2.389541, z: 1.3396503}
+    color: 2
+  - position: {x: -1.134201, y: 3.134201, z: 1.134201}
+    color: 2
+  - position: {x: -0.5409249, y: 3.321412, z: 1.3117665}
+    color: 2
+  - position: {x: -0.51943755, y: 2.4120688, z: 1.8038884}
+    color: 2
+  - position: {x: 0.38954088, y: 3.3396502, z: 1.3342519}
+    color: 2
+  - position: {x: 0.41206878, y: 3.8038883, z: 0.5194375}
+    color: 2
+  - position: {x: -0.5741214, y: 3.7725058, z: -0.5152036}
+    color: 2
+  - position: {x: 0.4120688, y: 3.8038886, z: -0.51943755}
+    color: 2
+  - position: {x: -0.5409249, y: 3.3214126, z: -1.3117666}
+    color: 2
+  - position: {x: 0.3895409, y: 3.3396502, z: -1.3342516}
+    color: 2
+  - position: {x: -1.3214123, y: 3.3117666, z: -0.5409249}
+    color: 2
+  - position: {x: -0.5194375, y: 2.4120686, z: -1.8038882}
+    color: 2
+  - position: {x: -1.3342516, y: 2.389541, z: -1.3396503}
+    color: 2
+  - position: {x: -1.134201, y: 3.134201, z: -1.134201}
+    color: 2
+  - position: {x: -1.7725056, y: 2.5152032, z: -0.5741214}
+    color: 2
+  - position: {x: 1.3396503, y: 3.3342519, z: 0.3895409}
+    color: 2
+  - position: {x: 0.5194376, y: 2.412069, z: 1.8038886}
+    color: 2
+  - position: {x: 1.3342516, y: 2.389541, z: 1.3396502}
+    color: 2
+  - position: {x: 1.134201, y: 3.134201, z: 1.134201}
+    color: 2
+  - position: {x: 1.8038881, y: 2.5194373, z: 0.41206878}
+    color: 2
+  - position: {x: -1.3117666, y: 1.4590751, z: 1.3214123}
+    color: 2
+  - position: {x: -0.5152036, y: 1.4258786, z: 1.7725058}
+    color: 2
+  - position: {x: -1.8038881, y: 1.4805622, z: 0.41206878}
+    color: 2
+  - position: {x: -1.7725058, y: 1.4847964, z: -0.5741214}
+    color: 2
+  - position: {x: -1.3396504, y: 0.66574824, z: 0.38954094}
+    color: 2
+  - position: {x: -1.3214123, y: 0.6882334, z: -0.54092497}
+    color: 2
+  - position: {x: -1.3117666, y: 1.4590751, z: -1.3214123}
+    color: 2
+  - position: {x: -0.51520354, y: 1.4258786, z: -1.7725056}
+    color: 2
+  - position: {x: 0.51943755, y: 2.4120686, z: -1.8038884}
+    color: 2
+  - position: {x: 1.3214123, y: 3.3117666, z: -0.5409249}
+    color: 2
+  - position: {x: 1.134201, y: 3.134201, z: -1.134201}
+    color: 2
+  - position: {x: 1.3342516, y: 2.389541, z: -1.3396502}
+    color: 2
+  - position: {x: 1.7725056, y: 2.5152035, z: -0.5741214}
+    color: 2
+  - position: {x: 1.3396502, y: 0.66574824, z: 0.38954094}
+    color: 2
+  - position: {x: 0.41206878, y: 0.1961116, z: 0.5194375}
+    color: 2
+  - position: {x: 1.8038882, y: 1.4805624, z: 0.41206872}
+    color: 2
+  - position: {x: 1.3117665, y: 1.4590751, z: 1.3214123}
+    color: 2
+  - position: {x: 1.134201, y: 0.86579895, z: 1.134201}
+    color: 2
+  - position: {x: 0.3895409, y: 0.6603497, z: 1.3342518}
+    color: 2
+  - position: {x: 0.5152036, y: 1.4258786, z: 1.7725058}
+    color: 2
+  - position: {x: -0.540925, y: 0.6785877, z: 1.3117666}
+    color: 2
+  - position: {x: -0.5741214, y: 0.22749427, z: 0.5152036}
+    color: 2
+  - position: {x: 0.41206878, y: 0.19611162, z: -0.5194375}
+    color: 2
+  - position: {x: -0.57412136, y: 0.22749425, z: -0.51520354}
+    color: 2
+  - position: {x: 0.38954094, y: 0.66034967, z: -1.3342519}
+    color: 2
+  - position: {x: -0.54092497, y: 0.6785876, z: -1.3117666}
+    color: 2
+  - position: {x: 1.3214123, y: 0.6882334, z: -0.5409249}
+    color: 2
+  - position: {x: 0.5152036, y: 1.4258786, z: -1.7725056}
+    color: 2
+  - position: {x: 1.3117665, y: 1.4590751, z: -1.3214123}
+    color: 2
+  - position: {x: 1.134201, y: 0.86579895, z: -1.134201}
+    color: 2
+  - position: {x: 1.7725056, y: 1.4847965, z: -0.5741214}
+    color: 2
+  - position: {x: -1.134201, y: 0.86579895, z: 1.134201}
+    color: 2
+  - position: {x: -1.134201, y: 0.86579895, z: -1.134201}
+    color: 2
