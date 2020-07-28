@@ -27,11 +27,11 @@ namespace Chroma.Game.Configuration
             Container.Bind<Camera>().FromComponentInHierarchy().AsSingle();
             Container.Bind<Character>().FromComponentInHierarchy().AsSingle();
 
-            Container.Bind<CharacterControllerMovement>().FromComponentSibling();
             Container.Bind<CharacterController>().FromComponentSibling();
-            Container.Bind<Animator>().FromComponentSibling();
-            Container.Bind<Rigidbody>().FromComponentSibling();
+            Container.Bind<CharacterControllerMovement>().FromComponentSibling();
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
+            Container.Bind<Animator>().FromComponentsSibling();
+            Container.Bind<Rigidbody>().FromComponentSibling();
             Container.Bind<SimpleAttack>().FromComponentSibling();
             Container.Bind<Collider>().FromComponentSibling();
             Container.Bind<Renderer>().FromComponentSibling();
