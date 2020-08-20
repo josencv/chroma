@@ -39,7 +39,7 @@ namespace Chroma.Behaviour.Skills
             
             if(absorbing)
             {
-                if(input.GetButtonState(GameInputButton.X) == GameInputButtonState.Released)
+                if(input.GetButtonState(GameInputButton.Y) == GameInputButtonState.Released)
                 {
                     float absorbedAmount = absorber.ExecuteAbsobption(colorSelector.SelectedColor);
                     if(selectedAbsorptionType == AbsorptionType.Skill)
@@ -50,7 +50,7 @@ namespace Chroma.Behaviour.Skills
                     absorbing = false;
                 }
             }
-            else if(input.GetButtonState(GameInputButton.X) == GameInputButtonState.Pressed)
+            else if(input.GetButtonState(GameInputButton.Y) == GameInputButtonState.Pressed)
             {
                 absorber.StartAbsorption();
                 absorbing = true;

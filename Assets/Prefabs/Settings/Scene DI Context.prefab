@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3276371020487400804}
   - component: {fileID: 1095161421662020018}
   - component: {fileID: 9012892315429377890}
+  - component: {fileID: 685192476}
   m_Layer: 0
   m_Name: Scene DI Context
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 1095161421662020018}
   - {fileID: 9012892315429377890}
+  - {fileID: 685192476}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -85,10 +87,6 @@ MonoBehaviour:
       type: 3}
     ColorProbeRecoverySystemPrefab: {fileID: 3539472619023506618, guid: c62f187ceba4f9347b44763631e23191,
       type: 3}
-    StaticColorProbePrefab: {fileID: 4786771228974147168, guid: be74223e7e2fd9346abc668954bbd45a,
-      type: 3}
-    DynamicColorProbePrefab: {fileID: -3301098550015686479, guid: e3bd61c9d364a5a40baf693f7dfb15d7,
-      type: 3}
     ColorSelectorPrefab: {fileID: 38693781328684492, guid: 3d78ce2913ef3aa4bad9154244ce911f,
       type: 3}
     ColorUnlockSystemPrefab: {fileID: 8195206032833846039, guid: 93cb847deabd8cd42bbe6929d3635d5c,
@@ -105,3 +103,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7bf6eae38d46d4aa2a70ee16d2d84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &685192476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768121495601347076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c04c55d0d95bcb499c2d0e3f7e1fb4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    stickPrefab: {fileID: 7141558918477559726, guid: 7fbfa3ff48577cc4aba56fb47ffa2665,
+      type: 3}
