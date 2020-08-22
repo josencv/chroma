@@ -24,6 +24,7 @@ namespace Chroma.ColorSystem.Probes
             this.quadrantSystem = quadrantSystem;
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if(quadrantSystem != null)
@@ -77,5 +78,6 @@ namespace Chroma.ColorSystem.Probes
 
             return gizmoColor;
         }
+#endif
     }
 }
