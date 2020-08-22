@@ -98,6 +98,7 @@ namespace Chroma.ColorSystem.Probes
             }
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if(probes != null)
@@ -142,5 +143,6 @@ namespace Chroma.ColorSystem.Probes
 
             return gizmoColor;
         }
+#endif
     }
 }
