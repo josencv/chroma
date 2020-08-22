@@ -12,6 +12,13 @@ namespace Chroma.Behaviour.Attack
         Drawn,
     }
 
+    public enum AnimationLayer
+    {
+        Base,
+        Battle,
+        Weapon,
+    }
+
     public class WeaponController : MonoBehaviour
     {
         private const string DrawWeaponAnimatorParamName = "drawWeapon";
@@ -101,6 +108,7 @@ namespace Chroma.Behaviour.Attack
             weapon.transform.localPosition = Vector3.zero;
             weapon.transform.localRotation = Quaternion.identity;
             currentState = WeaponState.Drawn;
+            animator.SetLayerWeight((int)AnimationLayer.Battle, 1);
         }
 
         // This method is meant to be called by an animation event
@@ -110,6 +118,7 @@ namespace Chroma.Behaviour.Attack
             weapon.transform.localPosition = weapon.SheathTranslation;
             weapon.transform.localRotation = weapon.SheathRotation;
             currentState = WeaponState.Sheathed;
+            animator.SetLayerWeight((int)AnimationLayer.Battle, 0);
         }
 
         private void MatchEntityScale()

@@ -104,13 +104,18 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8036321510828342395}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d0c47c66b8a28d246bad369bef6d0c20, type: 2}
+  m_Avatar: {fileID: 9000000, guid: fde9ba05337920f4286ba8092b4d6610, type: 3}
   m_Controller: {fileID: 9100000, guid: 41f34e1b52d4f5b46ad7391638b12c77, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'UpperLeg.R'\n\tTransform
+    'LowerArm.R'\n\tTransform 'LowerLeg.L'\n\tTransform 'LowerLeg.R'\n\tTransform
+    'UpperArm.L'\n\tTransform 'UpperArm.R'\n\tTransform 'LowerArm.L'\n\tTransform
+    'UpperLeg.L'\n\tTransform 'Toe.R'\n\tand more ...\n\tFrom animation clip 'CapsuleAnim_Walk'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -235,7 +240,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: fde9ba05337920f4286ba8092b4d6610, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fde9ba05337920f4286ba8092b4d6610, type: 3}
 --- !u!4 &1253709694489554299 stripped
 Transform:
