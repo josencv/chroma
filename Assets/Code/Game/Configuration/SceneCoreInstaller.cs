@@ -14,7 +14,7 @@ using Zenject;
 namespace Chroma.Game.Configuration
 {
     /// <summary>
-    /// This is the 'pre-scene' DI installer of the game, meant to be used in a zenject scene context
+    /// This is the 'per-scene' DI installer of the game, meant to be used in a zenject scene context
     /// </summary>
     public class SceneCoreInstaller : MonoInstaller
     {

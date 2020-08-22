@@ -3,11 +3,10 @@ using Zenject;
 
 namespace Chroma.Behaviour.Attack
 {
-    [RequireComponent(typeof(Collider))]
     public class Weapon : MonoBehaviour
     {
+        [SerializeField]
         private new Collider collider;
-
         [SerializeField]
         private float damage = 10f;
         [SerializeField]
@@ -16,12 +15,10 @@ namespace Chroma.Behaviour.Attack
         private float range = 1.4f;
         [SerializeField]
         private float attackDuration = 100;  // In milliseconds
-
-        [Inject]
-        private void Inject(Collider collider)
-        {
-            this.collider = collider;
-        }
+        [SerializeField]
+        private Quaternion sheathRotation = Quaternion.identity;  // In degrees
+        [SerializeField]
+        private Vector3 sheathTranslation = Vector3.zero;  // In milliseconds
 
         private void Awake()
         {
@@ -43,5 +40,7 @@ namespace Chroma.Behaviour.Attack
         public float Range { get { return range; } }
         public int AttackRate { get { return attackRate; } }
         public float AttackDuration { get { return attackDuration; } }
+        public Quaternion SheathRotation { get { return sheathRotation; } }
+        public Vector3 SheathTranslation { get { return sheathTranslation; } }
     }
 }
