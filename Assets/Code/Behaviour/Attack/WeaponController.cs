@@ -82,7 +82,7 @@ namespace Chroma.Behaviour.Attack
             currentState = WeaponState.Drawing;
             if(weapon == null || animator == null)
             {
-                Debug.Log("Cannot draw weapon because no weapon or animator is present");
+                Debug.LogError("Cannot draw weapon because no weapon or animator is present");
                 return;
             }
 
@@ -94,7 +94,7 @@ namespace Chroma.Behaviour.Attack
             currentState = WeaponState.Sheathing;
             if(weapon == null || animator == null)
             {
-                Debug.Log("Cannot draw weapon because no weapon or animator is present");
+                Debug.LogError("Cannot draw weapon because no weapon or animator is present");
                 return;
             }
 
@@ -119,6 +119,20 @@ namespace Chroma.Behaviour.Attack
             weapon.transform.localRotation = weapon.SheathRotation;
             currentState = WeaponState.Sheathed;
             animator.SetLayerWeight((int)AnimationLayer.Battle, 0);
+        }
+
+        /// <summary>
+        /// Enables the weapon collider. Meant to be called by an animation event
+        /// </summary>
+        public void EnableWeaponHitbox()
+        {
+            if(weapon == null)
+            {
+                Debug.LogError("Cannot enable weapon hitbox: no weapon present");
+                return;
+            }
+
+            weapon.EnableCollider();
         }
 
         private void MatchEntityScale()

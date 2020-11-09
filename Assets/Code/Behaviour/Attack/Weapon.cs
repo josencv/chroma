@@ -26,12 +26,12 @@ namespace Chroma.Behaviour.Attack
             collider.isTrigger = true;
         }
 
-        public void Enable()
+        public void EnableCollider()
         {
             collider.enabled = true;
         }
 
-        public void Disable()
+        public void DisableCollider()
         {
             collider.enabled = false;
         }
