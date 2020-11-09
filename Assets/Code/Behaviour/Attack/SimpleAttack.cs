@@ -43,7 +43,7 @@ namespace Chroma.Behaviour.Attack
             }
 
             isAttacking = true;
-            weapon.Enable();
+            weapon.EnableCollider();
             StartCoroutine(AttackAnimation());
         }
 
@@ -55,7 +55,7 @@ namespace Chroma.Behaviour.Attack
 
         private void FinishAttack()
         {
-            weapon.Disable();
+            weapon.DisableCollider();
             isAttacking = false;
             lastAttackTime = DateTime.Now;
         }
