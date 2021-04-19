@@ -15,6 +15,7 @@ namespace Chroma.Behaviour.Attack
         
         /// <summary>
         /// The recommended distance between the attacker and the target to execute the attack. Used mostly in AI.
+        /// Note: consider moving this logic out of this component
         /// </summary>
         public float AttackApproachDistance { get { return weapon.Range * 0.8f; } }
 
