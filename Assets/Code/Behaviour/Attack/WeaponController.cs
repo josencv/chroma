@@ -1,5 +1,4 @@
-﻿using Chroma.Infrastructure.Input;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace Chroma.Behaviour.Attack
@@ -25,7 +24,6 @@ namespace Chroma.Behaviour.Attack
         private const string SheatheWeaponAnimatorParamName = "sheatheWeapon";
 
         private Animator animator;
-        private InputManager inputManager;
         private Weapon weapon;
 
         [SerializeField]
@@ -40,10 +38,9 @@ namespace Chroma.Behaviour.Attack
         private WeaponState currentState;
 
         [Inject]
-        private void Inject(Animator animator, InputManager inputManager, Weapon weapon)
+        private void Inject(Animator animator, Weapon weapon)
         {
             this.animator = animator;
-            this.inputManager = inputManager;
             this.weapon = weapon;
         }
 
@@ -65,16 +62,15 @@ namespace Chroma.Behaviour.Attack
 
         private void Update()
         {
-            // TODO: reorganize input management
-            GameInput input = inputManager.GetGameInput();
-            if(currentState == WeaponState.Sheathed && input.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
-            {
-                DrawWeapon();
-            }
-            else if(currentState == WeaponState.Drawn && input.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
-            {
-                SheatheWeapon();
-            }
+            // TODO: use new input system an uncomment
+            //if(currentState == WeaponState.Sheathed && input.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
+            //{
+            //    DrawWeapon();
+            //}
+            //else if(currentState == WeaponState.Drawn && input.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
+            //{
+            //    SheatheWeapon();
+            //}
         }
 
         public void DrawWeapon()

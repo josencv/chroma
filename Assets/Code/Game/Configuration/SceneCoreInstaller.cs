@@ -1,6 +1,7 @@
 ﻿using System;
 using Chroma.Behaviour.AI.Components;
 using Chroma.Behaviour.Attack;
+using Chroma.Behaviour.EntityStateMachine;
 using Chroma.Behaviour.Skills;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
@@ -28,7 +29,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<Character>().FromComponentInHierarchy().AsSingle();
 
             Container.Bind<CharacterController>().FromComponentSibling();
-            Container.Bind<CharacterControllerMovement>().FromComponentSibling();
+            Container.Bind<Movable>().FromComponentSibling();
             Container.Bind<CharacterControllerAnimation>().FromComponentSibling();
             Container.Bind<Animator>().FromComponentsSibling();
             Container.Bind<Rigidbody>().FromComponentSibling();
@@ -36,6 +37,7 @@ namespace Chroma.Game.Configuration
             Container.Bind<Collider>().FromComponentSibling();
             Container.Bind<Renderer>().FromComponentSibling();
             Container.Bind<Absorber>().FromComponentSibling();
+            Container.Bind<EntityStateMachine>().FromComponentSibling();
 
             // AI related
             Container.Bind<NavMeshAgent>().FromComponentSibling();

@@ -1,6 +1,5 @@
 ﻿using System;
 using Chroma.ColorSystem.UI;
-using Chroma.Infrastructure.Input;
 using UnityEngine;
 using Zenject;
 
@@ -10,9 +9,7 @@ namespace Chroma.ColorSystem
     {
         public event Action<Color> ColorChanged;
 
-        private InputManager inputManager;
         private SelectedColorUIController selectedColorUIController;
-        private GameInput gameInput;
         private int selectedColorIndex;
         private Color[] orderedColors =
         {
@@ -27,9 +24,8 @@ namespace Chroma.ColorSystem
         public Color SelectedColor { get { return orderedColors[selectedColorIndex]; } }
 
         [Inject]
-        private void Inject(InputManager inputManager, SelectedColorUIController selectedColorUIController)
+        private void Inject(SelectedColorUIController selectedColorUIController)
         {
-            this.inputManager = inputManager;
             this.selectedColorUIController = selectedColorUIController;
         }
 
@@ -46,15 +42,15 @@ namespace Chroma.ColorSystem
         private void Update()
         {
             // TODO: reorganize input management
-            gameInput = inputManager.GetGameInput();
-            if(gameInput.GetButtonState(GameInputButton.L1) == GameInputButtonState.Down)
-            {
-                SelectPreviousColor();
-            }
-            else if(gameInput.GetButtonState(GameInputButton.R1) == GameInputButtonState.Down)
-            {
-                SelectNextColor();
-            }
+            //gameInput = inputManager.GetGameInput();
+            //if(gameInput.GetButtonState(GameInputButton.L1) == GameInputButtonState.Down)
+            //{
+            //    SelectPreviousColor();
+            //}
+            //else if(gameInput.GetButtonState(GameInputButton.R1) == GameInputButtonState.Down)
+            //{
+            //    SelectNextColor();
+            //}
         }
 
         private void SelectNextColor()

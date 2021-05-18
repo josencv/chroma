@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Chroma.Components.Movement
 {
-    [RequireComponent(typeof(CharacterController), typeof(CharacterControllerMovement))]
+    [RequireComponent(typeof(CharacterController), typeof(Movable))]
     public class CharacterControllerAnimation : MonoBehaviour
     {
         private Animator animator;

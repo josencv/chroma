@@ -83,9 +83,10 @@ namespace Chroma.Components.Camera
 
         private void ControlCamera()
         {
-            float[] rightStickValues = InputManager.CurrentGameInput.GetStickState(GameInputStick.Right);
-            RotateHorizontally(rightStickValues[0]);
-            RotateVertically(rightStickValues[1]);
+            // TODO: re-connet input
+            //float[] rightStickValues = InputManager.CurrentGameInput.GetStickState(GameInputStick.Right);
+            //RotateHorizontally(rightStickValues[0]);
+            //RotateVertically(rightStickValues[1]);
         }
 
         private void RotateHorizontally(float amount)

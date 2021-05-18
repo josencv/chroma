@@ -28,14 +28,17 @@ namespace Chroma.Tests
 
         private void Start()
         {
+            // TODO: re-connect with the input system
+            // Otherwise delete
+
             //materialDebugs = FindObjectsOfType<MaterialDebug>();
-            LogInstuction(GameInputButton.B, "Red");
-            LogInstuction(GameInputButton.DPadUp, "Orange");
-            LogInstuction(GameInputButton.Y, "Yellow");
-            LogInstuction(GameInputButton.A, "Green");
-            LogInstuction(GameInputButton.L1, "Cyan");
-            LogInstuction(GameInputButton.X, "Blue");
-            LogInstuction(GameInputButton.R1, "Purple");
+            //LogInstuction(GameInputButton.B, "Red");
+            //LogInstuction(GameInputButton.DPadUp, "Orange");
+            //LogInstuction(GameInputButton.Y, "Yellow");
+            //LogInstuction(GameInputButton.A, "Green");
+            //LogInstuction(GameInputButton.L1, "Cyan");
+            //LogInstuction(GameInputButton.X, "Blue");
+            //LogInstuction(GameInputButton.R1, "Purple");
             StartCoroutine(SpawnCubes());
         }
 
@@ -92,15 +95,18 @@ namespace Chroma.Tests
 
         private void AdjustRadius()
         {
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R2) == GameInputButtonState.Pressed)
-            {
-                radius += radialGrowthSpeed * Time.deltaTime;
-            }
+            // TODO: re-connect with the input system
+            // Otherwise delete
 
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L2) == GameInputButtonState.Pressed)
-            {
-                radius -= radialGrowthSpeed * Time.deltaTime;
-            }
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R2) == GameInputButtonState.Pressed)
+            //{
+            //    radius += radialGrowthSpeed * Time.deltaTime;
+            //}
+
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L2) == GameInputButtonState.Pressed)
+            //{
+            //    radius -= radialGrowthSpeed * Time.deltaTime;
+            //}
 
             radius = Mathf.Clamp(radius, 0.0001f, 100f);
 
@@ -110,69 +116,74 @@ namespace Chroma.Tests
 
         private void ToggleColors()
         {
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.B) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_Red();
-                }
-            }
+            // TODO: re-connect with the input system
+            // Otherwise delete
 
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.DPadUp) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_Orange();
-                }
-            }
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.B) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_Red();
+            //    }
+            //}
 
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.Y) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_Yellow();
-                }
-            }
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_Green();
-                }
-            }
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.DPadUp) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_Orange();
+            //    }
+            //}
 
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L1) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_LightBlue();
-                }
-            }
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.Y) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_Yellow();
+            //    }
+            //}
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_Green();
+            //    }
+            //}
 
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_Blue();
-                }
-            }
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.L1) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_LightBlue();
+            //    }
+            //}
 
-            if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R1) == GameInputButtonState.Down)
-            {
-                for(int i = 0; i < materialDebugs.Length; i++)
-                {
-                    materialDebugs[i].Toggle_Violet();
-                }
-            }
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_Blue();
+            //    }
+            //}
+
+            //if(InputManager.CurrentGameInput.GetButtonState(GameInputButton.R1) == GameInputButtonState.Down)
+            //{
+            //    for(int i = 0; i < materialDebugs.Length; i++)
+            //    {
+            //        materialDebugs[i].Toggle_Violet();
+            //    }
+            //}
         }
 
         #endregion
 
         #region Logs
 
-        private void LogInstuction(GameInputButton button, string color)
+        // TODO: add button param and re-connect with the input system
+        // Otherwise delete
+        private void LogInstuction(string color)
         {
-            Debug.Log($"Press <b>{button}</b> for <b><color={color}>{color}</color></b>");
+            //Debug.Log($"Press <b>{button}</b> for <b><color={color}>{color}</color></b>");
         }
 
         #endregion
