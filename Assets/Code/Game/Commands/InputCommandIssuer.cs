@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
@@ -22,6 +21,10 @@ namespace Chroma.Game.Commands
             if (actionName == "Move")
             {
                 CommandIssued?.Invoke(Command.Move, new CommandArgs(context.ReadValue<Vector2>()));
+            }
+            else if (actionName == "MoveCamera")
+            {
+                CommandIssued?.Invoke(Command.MoveCamera, new CommandArgs(context.ReadValue<Vector2>()));
             }
         }
     }

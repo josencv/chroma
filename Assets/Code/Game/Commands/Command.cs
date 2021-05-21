@@ -5,6 +5,7 @@
         None,
         AttackConfirm,
         Move,
-        DrawSheathe,
+        MoveCamera,
+        Attack,
     }
 }

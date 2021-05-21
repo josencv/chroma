@@ -1,5 +1,4 @@
 ﻿using Chroma.Behaviour.EntityStateMachine;
-using Chroma.Infrastructure.FSM;
 using Chroma.Utility;
 using UnityEngine;
 using Zenject;

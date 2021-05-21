@@ -1,4 +1,5 @@
 ﻿using System;
+using Chroma.Game.Commands;
 using Chroma.Game.Containers;
 using Chroma.Infrastructure.Input;
 using UnityEngine;
@@ -23,6 +24,11 @@ namespace Chroma.Components.Camera
         private Transform pivot;
         private Transform cameraTransform;
         private float verticalPositionOffset;
+        // Note: later on an additional "controller" layer may be needed
+        private InputCommandIssuer commandIssuer;
+
+        private float nextVerticalMovement = 0;
+        private float nextHorizontalMovement = 0;
 
         [SerializeField] private Transform target;  // The target followed by the camera
         [SerializeField] private bool invertYAxis = true;   // Note: the Y axis in this context is the screen vertical axis
@@ -49,14 +55,16 @@ namespace Chroma.Components.Camera
         private float verticalTurnSpeed = 50;
 
         [Inject]
-        private void Inject(UnityEngine.Camera camera, Character characterContainer)
+        private void Inject(UnityEngine.Camera camera, Character characterContainer, InputCommandIssuer commandIssuer)
         {
             cameraTransform = camera.transform;
             this.characterContainer = characterContainer;
+            this.commandIssuer = commandIssuer;
         }
 
         private void Awake()
         {
+            commandIssuer.CommandIssued += ProcessCommand;
             pivot = transform;
 
             if(target == null)
@@ -81,12 +89,19 @@ namespace Chroma.Components.Camera
             pivot.position = new Vector3(target.position.x, target.position.y + verticalPositionOffset, target.position.z);
         }
 
+        private void ProcessCommand(Command command, CommandArgs args)
+        {
+            if(command == Command.MoveCamera)
+            {
+                nextHorizontalMovement = args.Vector2Value.x;
+                nextVerticalMovement = args.Vector2Value.y;
+            }
+        }
+
         private void ControlCamera()
         {
-            // TODO: re-connet input
-            //float[] rightStickValues = InputManager.CurrentGameInput.GetStickState(GameInputStick.Right);
-            //RotateHorizontally(rightStickValues[0]);
-            //RotateVertically(rightStickValues[1]);
+            RotateHorizontally(nextHorizontalMovement);
+            RotateVertically(nextVerticalMovement);
         }
 
         private void RotateHorizontally(float amount)

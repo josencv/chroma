@@ -1,6 +1,5 @@
 ﻿using Chroma.Components.Movement;
 using Chroma.Game.Commands;
-using UnityEngine;
 
 namespace Chroma.Behaviour.EntityStateMachine.States
 {
