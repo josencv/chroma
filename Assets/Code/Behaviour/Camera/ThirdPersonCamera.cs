@@ -1,11 +1,10 @@
 ﻿using System;
 using Chroma.Game.Commands;
 using Chroma.Game.Containers;
-using Chroma.Infrastructure.Input;
 using UnityEngine;
 using Zenject;
 
-namespace Chroma.Components.Camera
+namespace Chroma.Behaviour.Camera
 {
     /// <summary>
     /// Meant to be attached to the pivot of the camera arm.

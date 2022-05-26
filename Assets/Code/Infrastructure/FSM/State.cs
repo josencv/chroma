@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Chroma.Infrastructure.FSM
 {
@@ -29,23 +30,26 @@ namespace Chroma.Infrastructure.FSM
         /// <summary>
         /// Called when the state starts or the machine "enters" to this state
         /// </summary>
-        public abstract void Enter();
+        public virtual void Enter() 
+        {
+            Debug.Log("Entered '" + Name + "' state");
+        }
 
         /// <summary>
         /// Update call to be used inside the game update loop
         /// <param name="deltaTime">Time since last frame</param>
         /// </summary>
-        public abstract void Update(float deltaTime);
+        public virtual void Update(float deltaTime) {}
 
         /// <summary>
         /// Called when the state ends or the machine "exits" this state
         /// </summary>
-        public abstract void Exit();
+        public virtual void Exit() {}
 
         /// <summary>
         /// Interrupts the current state. Normally used when an external event interrupts the natural course
         /// of this state (ej: the character got hit)
         /// </summary>
-        public abstract void Interrupt();
+        public virtual void Interrupt() {}
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Chroma.Infrastructure.FSM;
-using UnityEngine;
 
 namespace Chroma.Game.Commands
 {
     class CommandableStateMachine : StateMachine
     {
-        private const string CommandFieldName = "command";
+        public const string CommandFieldName = "command";
 
         public CommandableStateMachine(CommandableState entryPoint) : base(entryPoint) 
         {

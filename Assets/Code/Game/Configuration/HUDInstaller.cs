@@ -5,7 +5,7 @@ using Chroma.Behaviour.Skills;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
 using Chroma.ColorSystem.UI;
-using Chroma.Components.Movement;
+using Chroma.Behaviour.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
 using UnityEngine.UI;

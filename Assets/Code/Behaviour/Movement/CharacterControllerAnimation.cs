@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Chroma.Components.Movement
+namespace Chroma.Behaviour.Movement
 {
     [RequireComponent(typeof(CharacterController), typeof(Movable))]
     public class CharacterControllerAnimation : MonoBehaviour

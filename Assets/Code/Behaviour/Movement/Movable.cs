@@ -1,9 +1,9 @@
-﻿using Chroma.Behaviour.EntityStateMachine;
+﻿using Chroma.Behaviour.StateMachine;
 using Chroma.Utility;
 using UnityEngine;
 using Zenject;
 
-namespace Chroma.Components.Movement
+namespace Chroma.Behaviour.Movement
 {
     [RequireComponent(typeof(CharacterController))]
     public class Movable : MonoBehaviour

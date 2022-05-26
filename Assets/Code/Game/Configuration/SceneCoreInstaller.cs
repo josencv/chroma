@@ -1,12 +1,12 @@
 ﻿using System;
 using Chroma.Behaviour.AI.Components;
 using Chroma.Behaviour.Attack;
-using Chroma.Behaviour.EntityStateMachine;
+using Chroma.Behaviour.StateMachine;
 using Chroma.Behaviour.Skills;
 using Chroma.ColorSystem;
 using Chroma.ColorSystem.Effects;
 using Chroma.ColorSystem.Probes;
-using Chroma.Components.Movement;
+using Chroma.Behaviour.Movement;
 using Chroma.Game.Containers;
 using UnityEngine;
 using UnityEngine.AI;
@@ -37,7 +37,8 @@ namespace Chroma.Game.Configuration
             Container.Bind<Collider>().FromComponentSibling();
             Container.Bind<Renderer>().FromComponentSibling();
             Container.Bind<Absorber>().FromComponentSibling();
-            Container.Bind<EntityStateMachine>().FromComponentSibling();
+            Container.Bind<WeaponController>().FromComponentSibling();
+            Container.Bind<EntityStateMachine>().FromComponentSibling(); 
 
             // AI related
             Container.Bind<NavMeshAgent>().FromComponentSibling();

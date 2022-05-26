@@ -3,9 +3,11 @@
     enum Command
     {
         None,
-        AttackConfirm,
         Move,
         MoveCamera,
-        Attack,
+        AttackConfirm,
+        Sheathe,
+        AbsorbStart,
+        AbsorbRelease,
     }
 }

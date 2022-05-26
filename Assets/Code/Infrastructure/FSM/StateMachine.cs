@@ -8,19 +8,21 @@ namespace Chroma.Infrastructure.FSM
     /// </summary>
     class StateMachine
     {
-        public Dictionary<string, StateMachineField> Fields { get; set; }  // The values of the state machine variables. Used to trigger state transitions
+        private Dictionary<string, StateMachineField> Fields { get; }  // The values of the state machine variables. Used to trigger state transitions
         protected List<State> states;
-        public State EntryPoint;
-        public State CurrentState;
-        
+        private readonly State entryPoint;
+        public State CurrentState { get; private set; }
+        private readonly List<string> triggerNamesToClear;
+
         /// <summary>
         /// Initializes an instance of the StateMachine class
         /// </summary>
         public StateMachine(State entryPoint)
         {
-            states = new List<State>();
-            EntryPoint = entryPoint;
+            this.entryPoint = entryPoint;
             Fields = new Dictionary<string, StateMachineField>();
+            triggerNamesToClear = new List<string>();
+            states = new List<State>();
         }
 
         /// <summary>
@@ -40,7 +42,7 @@ namespace Chroma.Infrastructure.FSM
         /// <param name="state"></param>
         public void SetEntryPoint(State state)
         {
-            EntryPoint.AddTransition(new StateTransition(EntryPoint, state));
+            entryPoint.AddTransition(new StateTransition(entryPoint, state));
         }
 
         /// <summary>
@@ -48,12 +50,12 @@ namespace Chroma.Infrastructure.FSM
         /// </summary>
         public virtual void Start()
         {
-            if (EntryPoint.Transitions.Count == 0) 
+            if (entryPoint.Transitions.Count == 0) 
             {
                 throw new ApplicationException("cannot start state machine without an entry point");
             }
 
-            CurrentState = EntryPoint.Transitions[0].To;
+            CurrentState = entryPoint.Transitions[0].To;
             CurrentState.Enter();
         }
 
@@ -63,10 +65,22 @@ namespace Chroma.Infrastructure.FSM
         /// <param name="deltaTime">Time since last frame</param>
         public virtual void Update(float deltaTime)
         {
+            ClearTriggers();
+
             if (CurrentState != null)
             {
                 CurrentState.Update(deltaTime);
             }
+        }
+
+        private void ClearTriggers()
+        {
+            foreach(string triggerName in triggerNamesToClear)
+            {
+                Fields[triggerName].Value = 0.0f;
+            }
+
+            triggerNamesToClear.Clear();
         }
 
         /// <summary>

@@ -26,6 +26,7 @@ namespace Chroma.Behaviour.Skills
         private float growthRate = 3.0f;
         private float elapsedTime;
         private float currentRadius;
+        private Color currentColor;
 
         [Inject]
         private void Inject(
@@ -46,6 +47,8 @@ namespace Chroma.Behaviour.Skills
         private void Start()
         {
             enabled = false;
+            // TODO: define a default color somewhere
+            currentColor = Color.Blue;
         }
 
         private void OnEnable()
@@ -64,24 +67,40 @@ namespace Chroma.Behaviour.Skills
             absroptionEffectController.Tick(transform.position, currentRadius);
         }
 
+        /// <summary>
+        /// Tries to change the color to be used by the absorber
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns>True if the operation was succesful, false otherwise</returns>
+        public bool TryChangeColor(Color color)
+        {
+            if(enabled)
+            {
+                return false;
+            }
+
+            currentColor = color;
+            return true;
+        }
+
         public void StartAbsorption()
         {
             enabled = true;
             absroptionEffectController.StartEffect(transform.position, currentRadius);
         }
 
-        public float ExecuteAbsobption(Color colorToAbsorb)
+        public float ExecuteAbsobption()
         {
             float absorbedAmount = 0;
             List<ColorProbe[]> quadrantsToCheck = quadrantSystem.GetCurrentAndAdjacentQuadrants(transform.position);
             absorptionRenderSystem.AddAbsorptionPoint(transform.position, currentRadius);
-            absorbedAmount += AbsorbFromDynamicObjects(colorToAbsorb);
+            absorbedAmount += AbsorbFromDynamicObjects(currentColor);
 
             foreach(ColorProbe[] probes in quadrantsToCheck)
             {
                 for(int i = 0; i < probes.Length; i++)
                 {
-                    if(probes[i].Color == colorToAbsorb && colorUnlockSystem.IsColorUnlocked(colorToAbsorb) && Vector3.Distance(probes[i].Position, transform.position) <= currentRadius)
+                    if(probes[i].Color == currentColor && colorUnlockSystem.IsColorUnlocked(currentColor) && Vector3.Distance(probes[i].Position, transform.position) <= currentRadius)
                     {
                         float amount = probes[i].GetAbsorbed();
                         absorbedAmount += amount;

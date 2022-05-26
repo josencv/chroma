@@ -93,7 +93,7 @@ TextureImporter:
       213: 4789373700639440861
     second: loader-dualring-spritesheet_29
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -113,6 +113,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -121,12 +123,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -144,11 +146,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -159,7 +165,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -170,6 +177,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -813,6 +821,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      loader-dualring-spritesheet_13: -7012884973518634938
+      loader-dualring-spritesheet_2: 1942193415218927764
+      loader-dualring-spritesheet_3: -2839788263403412392
+      loader-dualring-spritesheet_8: -8691397257399897875
+      loader-dualring-spritesheet_1: -2485237982676646227
+      loader-dualring-spritesheet_15: -16161547243743212
+      loader-dualring-spritesheet_17: 2388582617291645646
+      loader-dualring-spritesheet_24: -3781568795797865331
+      loader-dualring-spritesheet_25: 6417925537541681488
+      loader-dualring-spritesheet_20: 4626623934635772776
+      loader-dualring-spritesheet_29: 4789373700639440861
+      loader-dualring-spritesheet_19: 8772090126317773655
+      loader-dualring-spritesheet_12: -6789074317785626167
+      loader-dualring-spritesheet_21: 6418924696442355914
+      loader-dualring-spritesheet_28: -7488715666295458736
+      loader-dualring-spritesheet_10: -1114557543639858939
+      loader-dualring-spritesheet_23: 3519020314435359293
+      loader-dualring-spritesheet_5: 327269156299678332
+      loader-dualring-spritesheet_7: -545897180511733896
+      loader-dualring-spritesheet_6: -6783824038759191743
+      loader-dualring-spritesheet_16: -3658913778506494295
+      loader-dualring-spritesheet_14: -1846066253189817779
+      loader-dualring-spritesheet_9: -2807253049418111311
+      loader-dualring-spritesheet_4: 7632833096261346264
+      loader-dualring-spritesheet_27: -1150385294432539954
+      loader-dualring-spritesheet_18: 575631324813293194
+      loader-dualring-spritesheet_22: 1761684545844365816
+      loader-dualring-spritesheet_26: -7595803361843877482
+      loader-dualring-spritesheet_0: -5203458705429270634
+      loader-dualring-spritesheet_11: 6321490649412150838
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

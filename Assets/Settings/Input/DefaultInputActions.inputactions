@@ -22,9 +22,33 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Fire",
+                    "name": "AttackConfirm",
                     "type": "Button",
                     "id": "3210b27d-4816-40bd-9980-90e967fb35bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Sheathe",
+                    "type": "Button",
+                    "id": "2e5a602a-561f-47e2-9fed-bfe67931fe22",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AbsorbStart",
+                    "type": "Button",
+                    "id": "96ba4376-8646-4aa1-b604-34ee5a173fc0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AbsorbRelease",
+                    "type": "Button",
+                    "id": "f3a9e60e-ea8b-481a-8d39-a307f5e129e1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -199,11 +223,11 @@
                 {
                     "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "AttackConfirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -214,7 +238,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "AttackConfirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -225,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Fire",
+                    "action": "AttackConfirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -236,7 +260,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
+                    "action": "AttackConfirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -247,7 +271,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Fire",
+                    "action": "AttackConfirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b212aa88-276a-4280-a06c-55066714dd60",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Sheathe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ad1c260-656f-42cf-836a-32918aaf4099",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "AbsorbStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2dc0d69-7c00-48b5-b6a0-8fded45aee06",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "AbsorbRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

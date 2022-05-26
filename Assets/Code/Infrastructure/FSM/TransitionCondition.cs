@@ -7,7 +7,7 @@ namespace Chroma.Infrastructure.FSM
     /// <summary>
     /// Represents a conditions of a transition, an expression that can be evaluated to true or false
     /// </summary>
-    class TransitionCondition
+    struct TransitionCondition
     {
         public StateMachineFieldType ConditionType { get; set; }
         public ConditionOperator ConditionOperator { get; set; }
@@ -22,7 +22,7 @@ namespace Chroma.Infrastructure.FSM
         /// <param name="conditionOperator">The operator of the condition.</param>
         /// <param name="fieldName">The name of the state machine field to use in the condition operation</param>
         /// <param name="operationValue">The value of the right operand of the condition</param>
-        public TransitionCondition(StateMachineFieldType conditionType, ConditionOperator conditionOperator, string fieldName, float operationValue)
+        public TransitionCondition(StateMachineFieldType conditionType, ConditionOperator conditionOperator, string fieldName, float operationValue = 0)
         {
             ConditionType = conditionType;
             ConditionOperator = conditionOperator;

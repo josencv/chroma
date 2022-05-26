@@ -26,6 +26,22 @@ namespace Chroma.Game.Commands
             {
                 CommandIssued?.Invoke(Command.MoveCamera, new CommandArgs(context.ReadValue<Vector2>()));
             }
+            else if(actionName == "AttackConfirm")
+            {
+                CommandIssued?.Invoke(Command.AttackConfirm, new CommandArgs());
+            }
+            else if(actionName == "Sheathe")
+            {
+                CommandIssued?.Invoke(Command.Sheathe, new CommandArgs());
+            }
+            else if(actionName == "AbsorbStart")
+            {
+                CommandIssued?.Invoke(Command.AbsorbStart, new CommandArgs());
+            }
+            else if(actionName == "AbsorbRelease")
+            {
+                CommandIssued?.Invoke(Command.AbsorbRelease, new CommandArgs());
+            }
         }
     }
 }

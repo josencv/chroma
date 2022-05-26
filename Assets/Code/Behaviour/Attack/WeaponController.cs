@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Chroma.Behaviour.StateMachine;
+using UnityEngine;
 using Zenject;
 
 namespace Chroma.Behaviour.Attack
@@ -23,6 +24,7 @@ namespace Chroma.Behaviour.Attack
         private const string DrawWeaponAnimatorParamName = "drawWeapon";
         private const string SheatheWeaponAnimatorParamName = "sheatheWeapon";
 
+        private EntityStateMachine entityStateMachine;
         private Animator animator;
         private Weapon weapon;
 
@@ -38,10 +40,11 @@ namespace Chroma.Behaviour.Attack
         private WeaponState currentState;
 
         [Inject]
-        private void Inject(Animator animator, Weapon weapon)
+        private void Inject(Animator animator, Weapon weapon, [InjectOptional] EntityStateMachine entityStateMachine)
         {
             this.animator = animator;
             this.weapon = weapon;
+            this.entityStateMachine = entityStateMachine;
         }
 
         private void Awake()
@@ -58,19 +61,6 @@ namespace Chroma.Behaviour.Attack
                 MatchEntityScale();
                 AttachWeaponToSheath();
             }
-        }
-
-        private void Update()
-        {
-            // TODO: use new input system an uncomment
-            //if(currentState == WeaponState.Sheathed && input.GetButtonState(GameInputButton.X) == GameInputButtonState.Down)
-            //{
-            //    DrawWeapon();
-            //}
-            //else if(currentState == WeaponState.Drawn && input.GetButtonState(GameInputButton.A) == GameInputButtonState.Down)
-            //{
-            //    SheatheWeapon();
-            //}
         }
 
         public void DrawWeapon()
@@ -129,6 +119,11 @@ namespace Chroma.Behaviour.Attack
             }
 
             weapon.EnableCollider();
+        }
+
+        public void OnDrawSheatheAnimationEnd()
+        {
+            entityStateMachine?.StateMachine.SetTrigger(EntityStateMachine.ActionEndedFieldName);
         }
 
         private void MatchEntityScale()
